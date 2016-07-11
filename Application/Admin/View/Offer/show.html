@@ -1,0 +1,33 @@
+<layout name="LigerUI/form" />
+<script>
+    var ligerFormFields = [
+        { display: "id", name: "order_id", newline: true, type: "text", readonly: 'true' },
+        { display: "订单号", name: "order_sn", newline: true, type: "text", readonly: 'true'},
+        { display: "用户名", name: "user_id", newline: true, type: "text", readonly: 'true', afterContent: '（为空表示用户没有设置）'},
+        { display: "物流公司", name: "logistics_id", newline: true, type: "text", readonly: 'true', afterContent: '（空表示订单未被抢单）'},
+        { display: "路线", name: "wire_id", newline: true, type: "text", readonly: 'true'},
+        { display: "报价", name: "offer_id", newline: true, type: "text", readonly: 'true', afterContent: '（0表示未报价）' },
+        { display: "订单类型", name: "order_type", newline: true, type: "text", readonly: 'true'},
+        { display: "订单状态", name: "order_status", newline: true, type: "text", readonly: 'true'},
+        { display: "是否上货", name: "order_is_goods", newline: true, type: "text", readonly: 'true'},
+        { display: "起始地址", name: "order_depart_details", newline: true, type: "text", readonly: 'true' },
+        { display: "目的地址", name: "order_des_details", newline: true, type: "text", readonly: 'true' },
+        { display: "创建时间", name: "order_time", newline: true, type: "text", readonly: 'true' },
+        { display: "货物类型", name: "order_cargo_type", newline: true, type: "text", readonly: 'true' },
+        { display: "货物重量", name: "order_weight", newline: true, type: "text", readonly: 'true' },
+        { display: "货物体积", name: "order_bulk", newline: true, type: "text", readonly: 'true' },
+        { display: "用户电话", name: "order_user_phone", newline: true, type: "text", readonly: 'true' },
+        { display: "用户叮嘱", name: "order_remark", newline: true, type: "text", readonly: 'true' },
+        { display: "是否已收货", name: "order_affirm", newline: true, type: "text", readonly: 'true' },
+        { display: "自动收货", name: "order_overdue", newline: true, type: "text", readonly: 'true', afterContent: '距离自动收货时间（0表示没收货）' }
+    ];
+
+    $(function() {
+        $.fn.{$js_prefix}form({
+            title: '',
+            type : 'dialog',
+            fields: ligerFormFields,
+            data: {:djson_encode($row)}
+    });
+    });
+</script>

@@ -1,0 +1,110 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+    var proDatas = [];
+    var proDataRow = {};
+    proDataRow = {};
+    <foreach name="pro" item="vo">
+    proDataRow = {};
+    proDataRow.id = {$vo.region_id};
+    proDataRow.text = '{$vo.region_name}';
+    proDatas.push(proDataRow);
+    </foreach>
+
+    var cityDatas = [];
+    var cityDataRow = {};
+    cityDataRow = {};
+    <foreach name="city" item="vo">
+    cityDataRow = {};
+    cityDataRow.id = {$vo.region_id};
+    cityDataRow.text = '{$vo.region_name}';
+    cityDataRow.pid = '{$vo.parent_id}';
+    cityDatas.push(cityDataRow);
+    </foreach>
+
+
+
+    $(function ()
+    {
+        var proData = proDatas;
+        var cityData = cityDatas;
+
+        $("#start_city").ligerComboBox({ data: null, isMultiSelect: false, isShowCheckBox: false });
+
+        $("#start_pro").ligerComboBox({
+            data: proData, isMultiSelect: false,
+            onSelected: function (newvalue)
+            {
+                var newData = new Array();
+                for (i = 0; i < cityData.length; i++)
+                {
+                    if (cityData[i].pid == newvalue)
+                    {
+                        newData.push(cityData[i]);
+                    }
+                }
+                liger.get("start_city").setData(newData);
+            }
+        });
+
+        $("#end_city").ligerComboBox({ data: null, isMultiSelect: false, isShowCheckBox: false });
+
+        $("#end_pro").ligerComboBox({
+            data: proData, isMultiSelect: false,
+            onSelected: function (newvalue)
+            {
+                var newData = new Array();
+                for (i = 0; i < cityData.length; i++)
+                {
+                    if (cityData[i].pid == newvalue)
+                    {
+                        newData.push(cityData[i]);
+                    }
+                }
+                liger.get("end_city").setData(newData);
+            }
+        });
+
+    });
+
+</script>
+<body style="padding:10px">
+<form action="{:U(CONTROLLER_NAME.'/update')}" method="post">
+    <br />
+    物流公司：
+    <input type="text" name="" value="{$name}">
+    <input type="hidden" name="logistics_id" value="{$row['logistics_id']}">
+    <!--<select name="logistics_id" >-->
+        <!--<volist name="logi" id="vo">-->
+            <!--<option value="{$vo.logistics_id}" >{$vo.logistics_name}</option>-->
+        <!--</volist>-->
+    <!--</select>-->
+    <br/>
+    <br/>
+    <table>
+        <tr>
+            <td>起&nbsp;始&nbsp;地：&nbsp;</td>
+            <td>省：<input type="text" name="strt_pro" id="start_pro" value="" /></td>
+            <td>市：<input type="text" name="strt_city" id="start_city" /></td>
+        </tr>
+        <tr>
+            <td>目&nbsp;的&nbsp;地：&nbsp;</td>
+            <td>省：<input type="text" name="end_pro" id="end_pro" /></td>
+            <td>市：<input type="text" name="end_city" id="end_city" /></td>
+        </tr>
+    </table>
+    <br/>
+    轻货价格：<input type="text" placeholder="例如：200-300元" name="gently" value="{$row['gently']}">
+    <br/>
+    <br/>
+    重货价格：<input type="text" placeholder="例如：200-300元" name="price" value="{$row['price']}">
+    <br/>
+    <br/>
+    花费时间：<input type="text" name="predict_time" placeholder="例如：1天  或者  2-3天" value="{$row['predict_time']}">
+    <br/>
+    <br/>
+    <input type="hidden" name="rela_id" value="{$row['rela_id']}">
+    <input type="submit" name="提交">
+</form>
+<div style="display:none;">
+</div>
+</body>

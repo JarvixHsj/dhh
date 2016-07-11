@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>{:C('SITE_TITLE')} - 后台管理系统</title>
+    <!-- css -->
+    <include file="Common/stylesheets" />
+    <style type="text/css">
+    body{padding: 10px; zoom: 1;}
+    .l-text-invalid {float: left;}
+    .l-exclamation {float: left; margin-top: 3px; margin-left: 6px;}
+    .l-button-submit{width:80px; float:left; margin-left:10px; padding-bottom:2px;}
+    .l-verify-tip{ left:230px; top:120px;}
+    #errorLabelContainer{ padding:10px; width:300px; border:1px solid #FF4466; display:none; background:#FFEEEE; color:Red;}
+    </style>
+</head>
+
+<body>
+<include file="Common/javascripts" />
+</if>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/ajaxfileupload.js"></script>
+<script type="text/javascript">
+    function select_file_upload() {
+        var self = $(this)[0];
+        if (window[self.id + '_dialog']) {
+            window[self.id + '_dialog'].show();
+        } else {
+            var wrap = '<div id="' + self.id + '_file_div" style="display:none;">';
+            wrap += '<table style="height:100%;width:100%">';
+            wrap += '<tr><td style="width:20%">选择文件:</td>';
+            wrap += '<td><input type="file"  style="width:100%" id="' + self.id + '_file" name="' + self.id + '_file" /></td></tr>';
+            wrap += '</table>';
+            wrap += '</div>';
+            $("body").append(wrap);
+
+            window[self.id + '_dialog'] = $.ligerDialog.open({
+                target: $('#' + self.id + '_file_div'),
+                title: '上传文件',
+                width: 360,
+                height: 120,
+                top: 170,
+                left: 280,
+                buttons: [
+                    { text: '上传', onclick: function () { select_file_upload_save(self.id); } },
+                    { text: '取消', onclick: function () { window[self.id + '_dialog'].hide(); } }
+                ]
+            });
+        }
+        return false;
+    }
+
+    function select_file_upload_save(id) {
+        var file = $('#' + id + '_file').val();
+        var extend = file.substring(file.lastIndexOf("."), file.length);
+        extend = extend.toLowerCase();
+        if (extend == ".jpg" || extend == ".jpeg" || extend == ".png" || extend == ".gif" || extend == ".bmp") {
+        } else {
+            $.ligerDialog.warn("请上传jpg,jpep,png,gif,bmp格式的图片文件");
+            return;
+        }
+
+        $.ajaxFileUpload({
+            url: $("#" + id).data("url-upload"),
+            secureuri: false,
+            fileElementId: id + "_file",
+            dataType: "json",
+            success: function (data, status) {
+                if (data.status == "SUCCESS") {
+                    var $id = $.ligerui.get(id);
+                    $id.setValue(data.url);
+                    $id.setText(data.url);
+                    window[id + '_dialog'].hide();
+                } else {
+                    $.ligerDialog.warn(data.status);
+                }
+            },
+            error: function (data, status, e) {
+                $.ligerDialog.warn(data);
+            }
+        });
+    }
+</script>
+{__CONTENT__}
+<if condition="$is_ajax neq 1">
+</body>
+</html>
+</if>

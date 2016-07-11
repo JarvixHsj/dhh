@@ -1,0 +1,109 @@
+<layout name="LigerUI/form_html" />
+<js href="__PUBLIC__/ueditor/ueditor.config.js" />
+<js href="__PUBLIC__/ueditor/ueditor.all.min.js" />
+<script type="text/javascript" charset="utf-8">
+//    window.UEDITOR_HOME_URL = "/Public/Ueditor/";  //UEDITOR_HOME_URL、config、all这三个顺序不能改变
+    window.onload=function(){
+        window.UEDITOR_CONFIG.initialFrameHeight=600;//编辑器的高度
+        window.UEDITOR_CONFIG.initialFrameWidth=1600;//编辑器的高度
+        window.UEDITOR_CONFIG.imageUrl="{:U('Admin/Article/ueditor')}";          //图片上传提交地址
+        window.UEDITOR_CONFIG.imagePath=' /Public/Uploads/Ueditor/thumb/';//编辑器调用图片的地址
+        UE.getEditor('container');//里面的contents是我的textarea的id值
+
+    }
+</script>
+<div class="contentArea">
+    <form id="{$js_prefix}form" method="post">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="l-table-edit">
+            <tr>
+                <th class="l-table-edit-th" width="80">名称：</th>
+                <td class="l-table-edit-td"><input name="title" type="text" ltype="text"  value="{$row['title']}" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th class="l-table-edit-th" width="80">内容：</th>
+                <td class="l-table-edit-td">
+                    <textarea id="container" name="value">{$row['value']}</textarea>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+    <div class="commonBtnArea" >
+        <input type="hidden" id="id" name="id" value="{$row['id']}" />
+        <button id="{$js_prefix}submit" class="l-button l-button-submit">提 交</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    $(function ()
+    {
+        $.metadata.setType("attr", "validate");
+        var v = $("#{$js_prefix}form").validate({
+            debug: false,
+            errorPlacement: function (lable, element) {
+                if (element.hasClass("l-textarea"))
+                {
+                    element.addClass("l-textarea-invalid");
+                }
+                else if (element.hasClass("l-text-field"))
+                {
+                    element.parent().addClass("l-text-invalid");
+                }
+                $(element).removeAttr("title").ligerHideTip();
+                $(element).attr("title", lable.html()).ligerTip();
+            },
+            success: function (lable) {
+                var element = $("#" + lable.attr("for"));
+                if (element.hasClass("l-textarea"))
+                {
+                    element.removeClass("l-textarea-invalid");
+                }
+                else if (element.hasClass("l-text-field"))
+                {
+                    element.parent().removeClass("l-text-invalid");
+                }
+                $(element).removeAttr("title").ligerHideTip();
+            },
+            submitHandler: function () {
+                var form = {$js_prefix}form.getData();
+                form.id = $("#id").val();
+                console.log(form);
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "{:U(CONTROLLER_NAME.'/update')}",
+                    data: {form: form},
+                    async: false,
+                    error: function(request) {
+                        $.ligerDialog.error("请求错误");
+                    },
+                    success: function(json) {
+                        if(!json){
+                            $.ligerDialog.warn('请求失败');
+                            return;
+                        }
+                        if(!json.status){
+                            $.ligerDialog.warn(json.info);
+                            return;
+                        }
+
+                        $.ligerDialog.success(json.info, '提示', function() {
+                            window.parent.{$js_prefix}grid.reload();
+                            window.parent.close_tab();
+                        });
+                    }
+                });
+            }
+        });
+
+        var {$js_prefix}form = $("#{$js_prefix}form").ligerForm();
+        $("#{$js_prefix}submit").click(function(){
+            if({$js_prefix}form.valid()) {
+                $("#{$js_prefix}form").submit();
+            }
+        });
+    });
+</script>

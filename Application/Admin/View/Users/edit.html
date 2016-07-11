@@ -1,0 +1,40 @@
+<layout name="LigerUI/form" />
+<script>
+    var ligerFormFields = [
+        { display: "ID", name: "user_id", newline: true, type: "text", readonly: 'true' },
+        { display: "用户名", name: "user_name", newline: true, type: "text"},
+        { display: "用户手机", name: "user_phone", newline: true, type: "text",readonly: 'true', validate: { required: true}},
+        { display: "用户年龄", name: "user_age", newline: true, type: "text"},
+        { display: "用户性别", name: "user_sex", newline: true, type: "select",
+            options: {
+                data: [{"id":1, "text":"男"}, {"id":2, "text":"女"}],
+                textField: 'text',
+                valueField: 'id',
+                value: 1
+            }
+        },
+        { display: "用户图片", name: "user_img", comboboxName: "user_img", newline: true, type: "select",
+            options: {
+                cancelable: false,
+                url_upload: '{:U(CONTROLLER_NAME.'/img_upload')}'
+            }
+        },
+        { display: "唯一口令", name: "token", newline: true, type: "text",readonly: 'true' },
+        { display: "状态", name: "user_status", newline: true, type: "select", validate: { required: true},
+            options: {
+                data: [{"id":1, "text":"启用"}, {"id":0, "text":"禁用"}],
+                textField: 'text',
+                valueField: 'id',
+                value: 1
+            }
+        },
+    ];
+
+    $(function() {
+        $.fn.{$js_prefix}form({
+            title: '修改用户',
+            fields: ligerFormFields,
+            data: {:djson_encode($row)}
+    });
+    });
+</script>

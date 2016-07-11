@@ -1,0 +1,94 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+var proDatas = [];
+var proDataRow = {};
+proDataRow = {};
+<foreach name="pro" item="vo">
+proDataRow = {};
+proDataRow.id = {$vo.region_id};
+proDataRow.text = '{$vo.region_name}';
+proDatas.push(proDataRow);
+</foreach>
+
+var cityDatas = [];
+var cityDataRow = {};
+cityDataRow = {};
+<foreach name="city" item="vo">
+cityDataRow = {};
+cityDataRow.id = {$vo.region_id};
+cityDataRow.text = '{$vo.region_name}';
+cityDataRow.pid = '{$vo.parent_id}';
+cityDatas.push(cityDataRow);
+</foreach>
+
+    $(function ()
+    {
+        var proData = proDatas;
+        var cityData = cityDatas;
+
+        $("#start_city").ligerComboBox({ data: null, isMultiSelect: false, isShowCheckBox: false });
+
+        $("#start_pro").ligerComboBox({
+            data: proData, isMultiSelect: false,
+            onSelected: function (newvalue)
+            {
+                var newData = new Array();
+                for (i = 0; i < cityData.length; i++)
+                {
+                    if (cityData[i].pid == newvalue)
+                    {
+                        newData.push(cityData[i]);
+                    }
+                }
+                liger.get("start_city").setData(newData);
+            }
+        });
+
+        $("#end_city").ligerComboBox({ data: null, isMultiSelect: false, isShowCheckBox: false });
+
+        $("#end_pro").ligerComboBox({
+            data: proData, isMultiSelect: false,
+            onSelected: function (newvalue)
+            {
+                var newData = new Array();
+                for (i = 0; i < cityData.length; i++)
+                {
+                    if (cityData[i].pid == newvalue)
+                    {
+                        newData.push(cityData[i]);
+                    }
+                }
+                liger.get("end_city").setData(newData);
+            }
+        });
+
+    });
+
+</script>
+<body style="padding:10px">
+<form action="{:U(CONTROLLER_NAME.'/create')}" method="post">
+    <table>
+        <tr>
+            <td>起始地：</td>
+            <td>省：<input type="text" name="strt_pro" id="start_pro" /></td>
+            <td>市：<input type="text" name="strt_city" id="start_city" /></td>
+        </tr>
+        <tr>
+            <td>目的地：</td>
+            <td>省：<input type="text" name="end_pro" id="end_pro" /></td>
+            <td>市：<input type="text" name="end_city" id="end_city" /></td>
+        </tr>
+        <tr>
+            <td>轻货价格：</td>
+            <td><input type="text" name="gently" /></td>
+        </tr>
+        <tr>
+            <td>重货价格：</td>
+            <td><input type="text" name="weighty" /></td>
+        </tr>
+    </table>
+<input type="submit" name="提交">
+</form>
+<div style="display:none;">
+</div>
+</body>

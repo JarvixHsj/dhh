@@ -1,0 +1,21 @@
+[ 2016-01-12T09:38:57+08:00 ] ::1 /dhh/index.php?s=/admin/order/index.html
+ERR: 无法加载控制器:Order
+
+[ 2016-01-12T09:49:21+08:00 ] ::1 /dhh/index.php?s=/admin/order/index.html
+ERR: 无法加载控制器:Order
+
+[ 2016-01-12T09:54:45+08:00 ] ::1 /dhh/index.php?s=/admin/order/index.html
+ERR: 无法加载控制器:Order
+
+[ 2016-01-12T10:14:39+08:00 ] ::1 /dhh/index.php?s=/admin/order/index.html
+ERR: 无法加载控制器:Order
+
+[ 2016-01-12T10:45:02+08:00 ] ::1 /dhh/index.php?s=/admin/user/addshipper/id/1.html
+ERR: 非法操作:addshipper
+
+[ 2016-01-12T10:45:11+08:00 ] ::1 /dhh/index.php?s=/admin/user/addshipper/id/1.html
+ERR: 非法操作:addshipper
+
+[ 2016-01-12T11:06:33+08:00 ] ::1 /dhh/index.php?s=/admin/order/index.html
+ERR: 无法加载控制器:Order
+

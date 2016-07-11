@@ -1,0 +1,65 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+var grid_columns  = [
+    { display: 'ID', name: 'wire_id', align: 'left', width: 30, frozen: true},
+    { display: '起点', name: 'state.region_name', minWidth: 60, width: 80, isSort: false },
+    { display: '终点', name: 'end.region_name', minWidth: 60, width: 100, isSort: false },
+    { display: '路线状态', name: 'wire_effect', width: 80, isSort: false ,
+        render: function (item)
+        {
+          if (parseInt(item.wire_effect) == 1) return '已启用';
+          return '已禁用';
+        }
+    },
+    { display: '操作', isSort: false, width: 80, render: function (rowdata, rowindex, value)
+        {
+            var h = '';
+            h += '<a href="javascript:toggle_status(' + rowdata.wire_id + ', ' + rowdata.wire_effect + ');" class="js-toggle">';
+            h += rowdata.wire_effect == 1 ? '禁用' : '启用';
+            h += '</a>';
+//        h += ' | <a href="javascript:show(' + rowdata.wire_id +  ', \'' + rowdata.wire_name + '\');" class="js-toggle" data-name="' + rowdata.title + '" data-id="' + rowdata.id + '" data-status="' + rowdata.status + '">';
+//            h += '查看';
+//            h += '</a>';
+            return h;
+        }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '路线',
+        grid_columns: grid_columns,
+        rownumbers: false,  //行号
+        checkbox: false,   //多选框
+        identity_key: 'wire_id',
+//        toolbar_has_view : false,
+        form_dialog_width: 550
+    });
+});
+
+function toggle_status(id, effect) {
+    var url = "{:U('CarWire/toggleStatus')}";
+    var parms = {'id': id, 'effect': effect};
+
+    window.parent.$.ligerDialog.confirm('您确定'+ (effect == 1 ? '禁用' : '启用') + " 第 <b>" + id + "</b> 条路线吗？", function(yes) {
+        if(!yes) return;
+        $.post(url, parms,
+            function(json) {
+                console.log(json);
+                if(!json.status) {
+                    window.parent.$.ligerDialog.warn(json.info);
+                    return;
+                }
+                window.parent.$.ligerDialog.success(json.info, '提示', function() {
+                    window.parent.{$js_prefix}grid.reload();
+                    window.parent.{$js_prefix}dialog.close();
+                });
+            }
+        );
+    });
+
+    return false;
+}
+
+
+</script>

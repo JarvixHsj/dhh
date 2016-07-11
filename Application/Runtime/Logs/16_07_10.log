@@ -1,0 +1,60 @@
+[ 2016-07-10T21:54:17+08:00 ] ::1 /myworks/dhh/www/admin.php
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.002780s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002975s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' /Library/WebServer/Documents/myworks/dhh/www/Application/Common/Conf/config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000550s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000604s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000040s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000085s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.005851s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005901s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001141s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001184s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000825s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000875s ]
+
+[ 2016-07-10T21:54:17+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.001146s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001235s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' /Library/WebServer/Documents/myworks/dhh/www/Application/Common/Conf/config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000598s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+
+[ 2016-07-10T22:22:43+08:00 ] ::1 /myworks/dhh/www/admin.php
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.002083s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002167s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' /Library/WebServer/Documents/myworks/dhh/www/Application/Common/Conf/config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000623s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000040s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000102s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.004764s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004811s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000409s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000447s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000575s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000620s ]
+
+[ 2016-07-10T22:22:43+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.001067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001132s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' /Library/WebServer/Documents/myworks/dhh/www/Application/Common/Conf/config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000456s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000536s ]
+

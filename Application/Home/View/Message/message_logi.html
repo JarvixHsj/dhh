@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>消息内容</title>
+    <link rel="stylesheet" href="__CSS__/bootstrap.min.css" />
+    <link rel="stylesheet" href="__CSS__/global.css" />
+    <link rel="stylesheet" href="__CSS__/common.css" />
+    <script type="text/javascript" src="__JS__/jquery_1.11.3.min.js" ></script>
+    <script type="text/javascript" src="__JS__/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="__JS__/global.js" ></script>
+</head>
+<style>
+.title{
+    margin-top: 20px;
+    font-weight:bold;
+    color:#6F6F6F;
+    font-size:17px;
+}
+
+.datas{
+    margin-top:5px;
+    color:#B8B8B8;
+    font-size:14px;
+}
+
+.contents{
+    margin-top:20px;
+    margin-bottom: 30px;
+}
+</style>
+<body class="bgf3f3f3">
+	<div class="container">
+		<!--<div class="row">-->
+			<!--<div class="col-xs-12 header text-center c-ffffff fs-18 bgff7c2c goods-head">-->
+				<!--<a href="#" class="com-top-left"><span class="glyphicon glyphicon-menu-left"></span></a>-->
+				<!--消息内容-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="headbox"></div>-->
+		<div class="row bgfff">
+			<div class="col-xs-12">
+				<div class="goods-ddh fs-16">
+                    <span class="title">{$data.title}</span>
+                    <p class='datas'>{$data.time|date='Y-m-d H:i:s',###}</p>
+				</div>
+               <div class="contents">
+                   {$data.content}
+               </div> 
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

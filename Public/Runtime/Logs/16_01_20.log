@@ -1,0 +1,12 @@
+[ 2016-01-20T17:20:45+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Indexlogistics/index
+ERR: Think\Model:getName方法不存在！
+
+[ 2016-01-20T17:47:03+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Indexlogistics/index
+ERR: Think\Model:getName方法不存在！
+
+[ 2016-01-20T17:47:27+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Indexlogistics/index
+ERR: Think\Model:getValue方法不存在！
+
+[ 2016-01-20T17:48:41+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Indexlogistics/index
+ERR: Think\Model:getValue方法不存在！
+

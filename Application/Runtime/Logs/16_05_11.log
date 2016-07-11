@@ -1,0 +1,18 @@
+[ 2016-05-11T09:57:32+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userextends/cattle.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND w.end = 2 )' at line 1
+ [ SQL语句 ] : SELECT r.region_name as start,re.region_name as end FROM dhh_cattle_wire w INNER JOIN dhh_region r ON r.region_id = w.start INNER JOIN dhh_region re ON re.region_id = w.end  WHERE ( w.cattle_id = 1 AND w.start =  AND w.end = 2 ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND w.end = 2 )' at line 1
+ [ SQL语句 ] : SELECT r.region_name as start,re.region_name as end FROM dhh_cattle_wire w INNER JOIN dhh_region r ON r.region_id = w.start INNER JOIN dhh_region re ON re.region_id = w.end  WHERE ( w.cattle_id = 3 AND w.start =  AND w.end = 2 ) 
+
+[ 2016-05-11T10:02:46+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userextends/cattle.html
+ERR: 1054:Unknown column 'c.status' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `dhh_cattle` WHERE ( c.status = 1 ) AND ( c.name LIKE '%%' ) AND ( cw.start = 0 ) AND ( cw.end = '2' ) LIMIT 0,10  
+
+[ 2016-05-11T10:02:56+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userextends/cattle.html
+ERR: 1054:Unknown column 'c.status' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `dhh_cattle` WHERE ( c.status = 1 ) AND ( c.name LIKE '%%' ) AND ( cw.start = 0 ) AND ( cw.end = '2' ) LIMIT 0,10  
+
+[ 2016-05-11T10:03:59+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userextends/cattle.html
+ERR: 1054:Unknown column 'c.status' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `dhh_cattle` WHERE ( c.status = 1 ) AND ( c.name LIKE '%%' ) AND ( cw.start = '8' ) AND ( cw.end = '4' ) LIMIT 0,10  
+

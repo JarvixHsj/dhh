@@ -1,0 +1,23 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+var grid_columns  = [
+//    { display: 'ID', name: 'wire_id', align: 'left', width: 30, frozen: true},
+    { display: '名称', name: 'title', minWidth: 60, width: 100, isSort: false },
+    { display: '内容', name: 'value', minWidth: 60, width: 600, isSort: false }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '文章',
+        grid_columns: grid_columns,
+        rownumbers: true,  //行号
+        checkbox: false,   //多选框
+        toolbar_has_add : false,
+        toolbar_has_del : false,
+        toolbar_has_view : true,
+        form_dialog_width: 550
+    });
+});
+
+
+</script>

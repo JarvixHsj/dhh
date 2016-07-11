@@ -1,0 +1,129 @@
+<layout name="LigerUI/form_html" />
+<div class="contentArea">
+    <form id="{$js_prefix}form" method="post">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="l-table-edit">
+            <tr>
+                <th class="l-table-edit-th" width="80">用户名：</th>
+                <td class="l-table-edit-td"><input id="name" name="name" type="text" ltype="text" readonly="readonly" validate="{required:true,minlength:5,maxlength:50}" value="{$row['name']}" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th class="l-table-edit-th" width="80">新密码：</th>
+                <td class="l-table-edit-td"><input id="password" name="password" type="password" validate="{minlength:5,maxlength:30}" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th class="l-table-edit-th" width="80">确认密码：</th>
+                <td class="l-table-edit-td"><input id="cfm_password" name="cfm_password" type="password" validate="{minlength:5,maxlength:30}" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th class="l-table-edit-th" width="80">邮箱：</th>
+                <td class="l-table-edit-td"><input id="email" name="email" type="text" ltype="text" validate="{maxlength:50}" value="{$row['email']}" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th class="l-table-edit-th" width="80">状态：</th>
+                <td class="l-table-edit-td">
+                    <select id="is_active" name="is_active">
+                        <option value="1" <if condition="$row['is_active'] eq 1" >selected</if>>启用</option>
+                        <option value="0" <if condition="$row['is_active'] eq 0" >selected</if>>禁用</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <if condition="false == $row['is_super']">
+            <tr>
+                <th class="l-table-edit-th" width="80">所属角色：</th>
+                <td class="l-table-edit-td">
+                    <select id="role_id" name="role_id">
+                        <volist name="roles" id="role">
+                        <option value="{$role['id']}" <if condition="$row['role_id'] == $role['id']" >selected</if> <if condition="$role['pid'] eq 0">disabled="true"</if>>{$role['fullname']}</option>
+                        </volist>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            </if>
+            <tr>
+                <th class="l-table-edit-th" width="80">备注信息：</th>
+                <td class="l-table-edit-td"><textarea class="jq_watermark" rows = "5" cols="68" id="remark" name="remark" placeholder="管理员备注信息">{$row['remark']}</textarea></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+    <div class="commonBtnArea" >
+        <input type="hidden" id="id" name="id" value="{$row['id']}" />
+        <button id="{$js_prefix}submit" class="l-button l-button-submit">提 交</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function ()
+{
+    $.metadata.setType("attr", "validate");
+    var v = $("#{$js_prefix}form").validate({
+        debug: false,
+        errorPlacement: function (lable, element) {
+            if (element.hasClass("l-textarea"))
+            {
+                element.addClass("l-textarea-invalid");
+            }
+            else if (element.hasClass("l-text-field"))
+            {
+                element.parent().addClass("l-text-invalid");
+            }
+            $(element).removeAttr("title").ligerHideTip();
+            $(element).attr("title", lable.html()).ligerTip();
+        },
+        success: function (lable) {
+            var element = $("#" + lable.attr("for"));
+            if (element.hasClass("l-textarea"))
+            {
+                element.removeClass("l-textarea-invalid");
+            }
+            else if (element.hasClass("l-text-field"))
+            {
+                element.parent().removeClass("l-text-invalid");
+            }
+            $(element).removeAttr("title").ligerHideTip();
+        },
+        submitHandler: function () {
+            var form = {$js_prefix}form.getData();
+            form.id = $("#id").val();
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: "{:U(CONTROLLER_NAME.'/update')}",
+                data: {form: form},
+                async: false,
+                error: function(request) {
+                    $.ligerDialog.error("请求错误");
+                },
+                success: function(json) {
+                    if(!json){
+                        $.ligerDialog.warn('请求失败');
+                        return;
+                    }
+                    if(!json.status){
+                        $.ligerDialog.warn(json.info);
+                        return;
+                    }
+
+                    $.ligerDialog.success(json.info, '提示', function() {
+                        window.parent.{$js_prefix}grid.reload();
+                        window.parent.close_tab();
+                    });
+                }
+            });
+        }
+    });
+
+    var {$js_prefix}form = $("#{$js_prefix}form").ligerForm();
+    $("#{$js_prefix}submit").click(function(){
+        if({$js_prefix}form.valid()) {
+            $("#{$js_prefix}form").submit();
+        }
+    });
+});
+</script>

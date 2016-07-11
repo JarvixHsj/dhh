@@ -1,0 +1,40 @@
+<layout name="LigerUI/form" />
+<script>
+var pidDatas = [];
+var pidDataRow = {};
+<volist name="roles" id="role">
+pidDataRow = {};
+pidDataRow.id = {$role['id']};
+pidDataRow.text = "{$role['fullname']}";
+pidDatas.push(pidDataRow);
+</volist>
+
+var ligerFormFields = [
+    { display: "角色名称", name: "name", newline: true, type: "text", validate: { required: true} },
+    { display: "父角色", name: "pid", newline: true, type: "select", validate: { required: true },
+        options: {
+            data: pidDatas,
+            textField: 'text',
+            valueField: 'id',
+            emptyText: '请选择父角色'
+        }
+    },
+    { display: "状态", name: "status", newline: true, type: "select", validate: { required: true },
+        options: {
+            data: [{"id":1, "text":"启用"}, {"id":0, "text":"禁用"}],
+            textField: 'text',
+            valueField: 'id'
+        }
+    },
+    { display: "角色描述", name: "description", newline: true, type: "textarea" }
+];
+
+$(function() {
+    $.fn.{$js_prefix}form({
+        title: '角色',
+        type : 'dialog',
+        fields: ligerFormFields,
+        data: {:djson_encode($row)}
+    });
+});
+</script>

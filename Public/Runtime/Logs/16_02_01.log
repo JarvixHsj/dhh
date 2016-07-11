@@ -1,0 +1,54 @@
+[ 2016-02-01T11:39:14+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/ElseController/OrderDetails
+ERR: 无法加载控制器:ElseController
+
+[ 2016-02-01T11:39:20+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/ElseController/region
+ERR: 无法加载控制器:ElseController
+
+[ 2016-02-01T11:39:27+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/ElseController/region
+ERR: 无法加载控制器:ElseController
+
+[ 2016-02-01T15:14:28+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/orderclient/acceptOrder
+ERR: Think\Model:relation方法不存在！
+
+[ 2016-02-01T15:14:35+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/orderclient/affirmOrder
+ERR: Think\Model:relation方法不存在！
+
+[ 2016-02-01T16:41:01+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/10.html
+ERR: Think\Model:getName方法不存在！
+
+[ 2016-02-01T16:42:00+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/10.html
+ERR: Think\Model:getValue方法不存在！
+
+[ 2016-02-01T16:42:32+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/10.html
+ERR: Think\Model:getValue方法不存在！
+
+[ 2016-02-01T16:47:46+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/10.html
+ERR: Think\Model:getValue方法不存在！
+
+[ 2016-02-01T16:48:07+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/10.html
+ERR: Think\Model:getValue方法不存在！
+
+[ 2016-02-01T16:48:13+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/10.html
+ERR: Think\Model:getValue方法不存在！
+
+[ 2016-02-01T16:49:35+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/10.html
+ERR: Think\Model:getValue方法不存在！
+
+[ 2016-02-01T16:49:39+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/10.html
+ERR: Think\Model:getValue方法不存在！
+
+[ 2016-02-01T16:51:14+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/10.html
+ERR: Think\Model:getValue方法不存在！
+
+[ 2016-02-01T16:51:27+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/10.html
+ERR: Think\Model:getValue方法不存在！
+
+[ 2016-02-01T17:16:17+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/8.html
+ERR: Think\Controller:checkUser方法不存在！
+
+[ 2016-02-01T17:20:48+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/8.html
+ERR: Think\Model:orders方法不存在！
+
+[ 2016-02-01T17:47:19+08:00 ] ::1 /myworks/dhh/www/index.php?s=/home/order/track/id/8.html
+ERR: XML标签语法错误 : name=$data.track item=vo
+

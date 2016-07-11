@@ -1,0 +1,83 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+
+var grid_columns  = [
+    { display: 'ID', name: 'user_id', width: 50, type: 'int', frozen: true },
+    { display: '用户名', name: 'user_name', width: 150, isSort: false },
+    { display: '用户手机', name: 'user_phone', width: 150, isSort: false },
+    { display: '用户年龄', name: 'user_age', width: 70, isSort: false,
+        render: function (rowdata, rowindex, value){
+            return value == 0 ? '无' : value;
+        }
+    },
+    { display: '用户性别', name: 'user_sex', width: 70, render: function (item){
+            if(item.user_sex == 1){
+                return '男';
+            }else if(item.user_sex == 2){
+                return '女';
+            }else{
+                return '无';
+            }
+        }
+    },
+    { display: '用户图片', name: 'user_img', width: 150,height:100, render: function (rowdata, rowindex, value){
+            if(value != ''){
+                return "<img style='width:50px;height:50px;' src='__PUBLIC__/" + value + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    },
+    { display: '口令', name: 'token', width: 250, isSort: false },
+    { display: '状态', name: 'user_status', width: 50, render: function (rowdata, rowindex, value)
+    {
+        return value == 1 ? '已启用' : '已禁用';
+    }
+    },
+    { display: '操作', isSort: false, width: 80, render: function (rowdata, rowindex, value)
+    {
+        var h = '';
+        h += '<a href="javascript:toggle_status(' + rowdata.user_id + ', ' + rowdata.user_status + ', \'' + rowdata.user_name + '\');" class="js-toggle" data-name="' + rowdata.user_name + '" data-id="' + rowdata.user_id + '" data-status="' + rowdata.user_status + '">';
+        h += rowdata.user_status == 1 ? '禁用' : '启用';
+        h += '</a>';
+        return h;
+    }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '用户',
+        rownumbers: false,
+        checkbox: false,
+        identity_key: 'user_id',
+        grid_columns: grid_columns
+//        form_search_fields: form_search_fields
+    });
+});
+
+
+function toggle_status(id, status, name) {
+    var url = "{:U('Users/toggleStatus')}";
+    var parms = {'id': id, 'status': status};
+
+    window.parent.$.ligerDialog.confirm('您确定'+ (status == 1 ? '禁用' : '启用') + " <b>" + name + "</b> 吗？", function(yes) {
+        if(!yes) return ;
+
+        $.post(url, parms,
+                function(json) {
+                    if(!json.status) {
+                        window.parent.$.ligerDialog.warn(json.info);
+                        return;
+                    }
+                    window.parent.$.ligerDialog.success(json.info, '提示', function() {
+                        window.parent.{$js_prefix}grid.reload();
+                        window.parent.{$js_prefix}dialog.close();
+                    });
+                }
+        );
+    });
+
+    return false;
+}
+</script>

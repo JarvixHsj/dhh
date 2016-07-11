@@ -1,0 +1,71 @@
+<layout name="LigerUI/form_html" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/scale.css">
+<script src="__PUBLIC__/Admin/js/scale.js"></script>
+<section class="imgzoom_pack">
+    <div class="imgzoom_x">X</div>
+    <div class="imgzoom_img"><img src="" style="max-width: 100%;height: auto;vertical-align: middle" /></div>
+</section>
+<ul class="contentArea" style="margin-left:20px;">
+
+
+    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px;">
+        <if condition="$row['logistics_person_img'] neq ''">
+            <img src="__PUBLIC__/{$row['logistics_person_img']}" alt="法人头像" title="法人头像"  style="max-width: 100%;height: auto;vertical-align: middle">
+        <else />
+            <img src="__PUBLIC__/nopic.jpg" alt="法人头像" title="法人头像未完善"  style="max-width: 100%;height: auto;vertical-align: middle">
+        </if>
+    </li>
+
+
+    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
+        <if condition="$row['logistics_head_img'] neq ''">
+            <img src="__PUBLIC__/{$row['logistics_head_img']}" alt="头像（展示在物流端个人信息里面）" title="头像（展示在物流端个人信息里面）" style="max-width: 100%;height: auto;vertical-align: middle">
+        <else />
+            <img src="__PUBLIC__/nopic.jpg" alt="法人头像" title="头像（展示在物流端个人信息里面）未完善"  style="max-width: 100%;height: auto;vertical-align: middle">
+        </if>
+    </li>
+
+
+    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
+        <if condition="$row['logistics_img'] neq ''">
+            <img src="__PUBLIC__/{$row['logistics_img']}" alt="公司头像" title="公司头像" style="max-width: 100%;height: auto;vertical-align: middle">
+        <else />
+            <img src="__PUBLIC__/nopic.jpg" alt="公司头像" title="公司头像未完善"  style="max-width: 100%;height: auto;vertical-align: middle">
+        </if>
+    </li>
+
+
+    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
+        <if condition="$row['logistics_open_img'] neq ''">
+            <img src="__PUBLIC__/{$row['logistics_open_img']}" alt="营业执照" title="营业执照" style="max-width: 100%;height: auto;vertical-align: middle">
+        <else />
+            <img src="__PUBLIC__/nopic.jpg" alt="营业执照" title="营业执照未完善"  style="max-width: 100%;height: auto;vertical-align: middle">
+        </if>
+    </li>
+
+
+    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
+        <if condition="$row['logistics_check_img'] neq ''">
+            <img src="__PUBLIC__/{$row['logistics_check_img']}" alt="税务执照" title="税务执照" style="max-width: 100%;height: auto;vertical-align: middle">
+        <else />
+            <img src="__PUBLIC__/nopic.jpg" alt="税务执照" title="税务执照未完善"  style="max-width: 100%;height: auto;vertical-align: middle">
+        </if>
+    </li>
+
+
+    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
+        <if condition="$row['logistics_way_img'] neq ''">
+            <img src="__PUBLIC__/{$row['logistics_way_img']}" alt="道路通行执照" title="道路通行执照" style="max-width: 100%;height: auto;vertical-align: middle">
+        <else />
+            <img src="__PUBLIC__/nopic.jpg" alt="道路通行执照" title="道路通行执照未完善"  style="max-width: 100%;height: auto;vertical-align: middle">
+        </if>
+    </li>
+
+</ul>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event){
+        ImagesZoom.init({
+            "elem": ".contentArea"
+        });
+    }, false);
+</script>

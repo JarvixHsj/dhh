@@ -1,0 +1,20 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+
+var grid_columns  = [
+    { display: 'ID', name: 'id', width: 50, type: 'int', frozen: true },
+    { display: '配置名称', name: 'title', width: 250, isSort: false },
+    { display: '配置内容', name: 'value', width: 250, isSort: false}
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '管理员',
+        rownumbers: false,
+        checkbox: false,
+        toolbar_has_add: false,
+        toolbar_has_del: false,
+        grid_columns: grid_columns
+    });
+});
+</script>

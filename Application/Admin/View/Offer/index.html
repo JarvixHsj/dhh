@@ -1,0 +1,30 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+
+var grid_columns  = [
+    { display: 'ID', name: 'offer_id', width: 50, type: 'int', frozen: true },
+    { display: '物流公司', name: 'logistics_name', width: 150, isSort: false },
+    { display: '订单号', name: 'order_sn', width: 120},
+    { display: '报价金额', name:'offer_money', width: 120},
+    { display: '是否完成交易', name: 'offer_confirm', width: 150, render: function (item){
+            return item.offer_confirm == 1 ? '已交易':'未确定';
+        }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '报价',
+        rownumbers: false,
+        checkbox: false,
+        identity_key: 'offer_id',
+        toolbar_has_add : false,
+        grid_columns: grid_columns,
+        form_type: 'dialog',
+        form_dialog_width: 550
+//        form_search_fields: form_search_fields
+    });
+
+
+});
+</script>

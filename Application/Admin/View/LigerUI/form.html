@@ -1,0 +1,29 @@
+<if condition="$is_ajax neq 1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>{:C('SITE_TITLE')} - 后台管理系统</title>
+    <!-- css -->
+    <include file="Common/stylesheets" />
+    <style type="text/css">
+    body{padding: 10px; zoom: 1;}
+    </style>
+</head>
+
+<body>
+<include file="Common/javascripts" />
+</if>
+<div class="main_content">
+    <form id="{$js_prefix}form" class="correct_form"></form>
+    <if condition="$xzh neq 1">
+        <input type="submit" value="提 交" id="{$js_prefix}submit" class="l-button l-button-submit" />
+    </if>
+</div>
+<include file="LigerUI/form_js" />
+{__CONTENT__}
+<if condition="$is_ajax neq 1">
+</body>
+</html>
+</if>

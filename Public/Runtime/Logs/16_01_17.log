@@ -1,0 +1,9 @@
+[ 2016-01-17T18:00:38+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/userclient/register.html
+ERR: Think\Controller:getError方法不存在！
+
+[ 2016-01-17T18:03:11+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/userclient/register.html
+ERR: Think\Controller:getError方法不存在！
+
+[ 2016-01-17T18:05:14+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/userclient/register.html
+ERR: Think\Controller:getError方法不存在！
+

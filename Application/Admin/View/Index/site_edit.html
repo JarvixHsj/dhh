@@ -1,0 +1,91 @@
+<layout name="LigerUI/form_html" />
+<div class="contentArea">
+    <form id="{$js_prefix}form" method="post">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+            <tr>
+                <th class="l-table-edit-th" width="80">网站标题：</th>
+                <td class="l-table-edit-td"><input id="title" name="title" type="text" ltype="text" value="{$title}" validate="{required:true,minlength:1,maxlength:100}" placeholder="网站标题（SITE_TITLE）" /></td>
+            </tr>
+            <tr>
+                <th class="l-table-edit-th" width="80">网站关键字：</th>
+                <td class="l-table-edit-td"><input id="keyword" name="keyword" type="text" ltype="text" value="{$keyword}" validate="{required:true,minlength:1,maxlength:200}" placeholder="网站关键字（SITE_KEYWORD）" /></td>
+            </tr>
+            <tr>
+                <th class="l-table-edit-th" width="80">网站描述：</th>
+                <td class="l-table-edit-td"><textarea id="description" name="description" class="jq_watermark" rows = "5" cols="68" validate="{required:true,minlength:1,maxlength:500}" placeholder="网站描述（SITE_DESCRIPTION）">{$description}</textarea></td>
+            </tr>
+        </table>
+    </form>
+    <div class="commonBtnArea" >
+        <button id="{$js_prefix}submit" class="l-button l-button-submit">提 交</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function ()
+{
+    $.metadata.setType("attr", "validate");
+    var v = $("#{$js_prefix}form").validate({
+        debug: false,
+        errorPlacement: function (lable, element) {
+            if (element.hasClass("l-textarea"))
+            {
+                element.addClass("l-textarea-invalid");
+            }
+            else if (element.hasClass("l-text-field"))
+            {
+                element.parent().addClass("l-text-invalid");
+            }
+            $(element).removeAttr("title").ligerHideTip();
+            $(element).attr("title", lable.html()).ligerTip();
+        },
+        success: function (lable) {
+            var element = $("#" + lable.attr("for"));
+            if (element.hasClass("l-textarea"))
+            {
+                element.removeClass("l-textarea-invalid");
+            }
+            else if (element.hasClass("l-text-field"))
+            {
+                element.parent().removeClass("l-text-invalid");
+            }
+            $(element).removeAttr("title").ligerHideTip();
+        },
+        submitHandler: function () {
+            var form = {$js_prefix}form.getData();
+            form.id = $("#id").val();
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: "{:U(CONTROLLER_NAME.'/siteUpdate')}",
+                data: {form: form},
+                async: false,
+                error: function(request) {
+                    $.ligerDialog.error("请求错误");
+                },
+                success: function(json) {
+                    if(!json){
+                        $.ligerDialog.warn('请求失败');
+                        return;
+                    }
+                    if(!json.status){
+                        $.ligerDialog.warn(json.info);
+                        return;
+                    }
+
+                    $.ligerDialog.success(json.info, '提示', function() {
+                        window.parent.close_tab();
+                    });
+                }
+            });
+        }
+    });
+
+    var {$js_prefix}form = $("#{$js_prefix}form").ligerForm();
+    $("#{$js_prefix}submit").click(function(){
+        if({$js_prefix}form.valid()) {
+            $("#{$js_prefix}form").submit();
+        }
+    });
+});
+</script>

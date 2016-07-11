@@ -1,0 +1,20 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+
+var grid_columns  = [
+    { display: 'ID', name: 'id', width: 50, type: 'int', frozen: true },
+    { display: '标题', name: 'title', width: 200, isSort: false },
+    { display: '内容', name: 'content' ,width: 500, isSort:false}
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '推送',
+        rownumbers: false,
+        checkbox: false,
+        toolbar_has_edit: false,
+        form_type: 'page',
+        grid_columns: grid_columns
+    });
+});
+</script>

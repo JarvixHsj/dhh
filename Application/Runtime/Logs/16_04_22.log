@@ -1,0 +1,10 @@
+[ 2016-04-22T18:09:38+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Indexlogistics/index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '徐州') AND    ((( order_type = 1 ) AND ( order_status = 1 )) OR ((order_type =' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `dhh_orders` WHERE (   (order_depart_city = '中山'') AND  (order_des_city = '徐州') AND    ((( order_type = 1 ) AND ( order_status = 1 )) OR ((order_type = 2 ) AND ( order_is_expiration = 0 ) AND ( order_add_time <= 1461319178 ) AND ( order_status = 1 ))) ) LIMIT 1  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '徐州') AND    ((( order_type = 1 ) AND ( order_status = 1 )) OR ((order_type =' at line 1
+ [ SQL语句 ] : SELECT `order_id`,`user_id`,`order_user_phone`,`order_depart_province`,`order_depart_city`,`order_depart_details`,`order_des_province`,`order_des_city`,`order_des_details`,`order_cargo_type`,`order_weight`,`order_bulk` FROM `dhh_orders` WHERE (   (order_depart_city = '中山'') AND  (order_des_city = '徐州') AND    ((( order_type = 1 ) AND ( order_status = 1 )) OR ((order_type = 2 ) AND ( order_is_expiration = 0 ) AND ( order_add_time <= 1461319178 ) AND ( order_status = 1 ))) ) LIMIT 0,10  
+
+[ 2016-04-22T18:10:08+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Indexlogistics/index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '徐州') AND    ((( order_type = 1 ) AND ( order_status = 1 )) OR ((order_type =' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `dhh_orders` WHERE (   (order_depart_city = '中山'') AND  (order_des_city = '徐州') AND    ((( order_type = 1 ) AND ( order_status = 1 )) OR ((order_type = 2 ) AND ( order_is_expiration = 0 ) AND ( order_add_time <= 1461319208 ) AND ( order_status = 1 ))) ) LIMIT 1  
+

@@ -1,0 +1,18 @@
+<layout name="LigerUI/form" />
+<script>
+var ligerFormFields = [
+    { display: "模型名称", name: "name", newline: true, type: "text", validate: { required: true}, afterContent: '用于在主菜单和子菜单上显示，不能包含特殊字符' },
+    { display: "数据表名", name: "tbl_name", newline: true, type: "text", validate: { required: true}, afterContent: '用于在主菜单和子菜单上显示，不能包含特殊字符' },
+    { display: "主菜单名", name: "menu_name", newline: true, type: "text", validate: { required: true}, afterContent: '用于在主菜单和子菜单上显示，不能包含特殊字符' },
+    { display: "模型描述", name: "description", newline: true, type: "textarea", nullText: "模型的注释，同时也会作为表的注释" }
+];
+
+$(function() {
+    $.fn.{$js_prefix}form({
+        title: '数据模型',
+        type : 'page',
+        fields: ligerFormFields,
+        data: {:djson_encode($row)}
+    });
+});
+</script>

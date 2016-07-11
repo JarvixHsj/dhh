@@ -1,0 +1,95 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+var grid_columns  = [
+    { display: 'ID', name: 'id', align: 'left', width: 50, frozen: true, isSort: false },
+    { display: '显示名称', name: 'title', id:'title', width: 260, isSort: false },
+    { display: '节点名称', name: 'name', minWidth: 60, width: 160, isSort: false },
+    { display: '节点类型', name: 'type', width: 200, isSort: false },
+    { display: '状态', name: 'status', width: 160, isSort: false ,
+        render: function (item)
+        {
+          if (parseInt(item.status) == 1) return '已启用';
+          return '已禁用';
+        }
+    },
+    { display: '操作', isSort: false, width: 120, render: function (rowdata, rowindex, value)
+        {
+            var h = '';
+            if (rowdata.id > 62 && rowdata.level >= 2)
+            {
+                h += '<a href="javascript:toggle_menu(' + rowdata.id + ', ' + rowdata.menu + ', \'' + rowdata.title + '\');" class="js-toggle" data-name="' + rowdata.title + '" data-id="' + rowdata.id + '" data-menu="' + rowdata.menu + '">';
+                h += rowdata.menu == 1 ? '禁用菜单' : '启用菜单';
+                h += '</a> | ';
+            }
+            h += '<a href="javascript:toggle_status(' + rowdata.id + ', ' + rowdata.status + ', \'' + rowdata.title + '\');" class="js-toggle" data-name="' + rowdata.title + '" data-id="' + rowdata.id + '" data-status="' + rowdata.status + '">';
+            h += rowdata.status == 1 ? '禁用' : '启用';
+            h += '</a>';
+            return h;
+        }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '节点',
+        grid_columns: grid_columns,
+        tree: { columnId: 'title' },
+        rownumbers: false,
+        checkbox: false,
+        toolbar_has_del: false,
+        use_pager: false,
+        form_type: 'dialog',
+        form_dialog_width: 550
+    });
+});
+
+function toggle_menu(id, menu, name) {
+    var url = "{:U('Nodes/toggleMenu')}";
+    var parms = {'id': id, 'menu': menu};
+
+    window.parent.$.ligerDialog.confirm('您确定'+ (menu == 1 ? '禁用' : '启用') + " <b>" + name + "</b> 节点吗？", function(yes) {
+        if(!yes) return ;
+
+        $.post(url, parms,
+            function(json) {
+                if(!json.status) {
+                    window.parent.$.ligerDialog.warn(json.info);
+                    return;
+                }
+
+                window.parent.$.ligerDialog.success(json.info, '提示', function() {
+                    window.parent.{$js_prefix}grid.reload();
+                    window.parent.{$js_prefix}dialog.close();
+                });
+            }
+        );
+    });
+
+    return false;
+}
+
+function toggle_status(id, status, name) {
+    var url = "{:U('Nodes/toggleStatus')}";
+    var parms = {'id': id, 'status': status};
+
+    window.parent.$.ligerDialog.confirm('您确定'+ (status == 1 ? '禁用' : '启用') + " <b>" + name + "</b> 节点吗？", function(yes) {
+        if(!yes) return ;
+
+        $.post(url, parms,
+            function(json) {
+                if(!json.status) {
+                    window.parent.$.ligerDialog.warn(json.info);
+                    return;
+                }
+
+                window.parent.$.ligerDialog.success(json.info, '提示', function() {
+                    window.parent.{$js_prefix}grid.reload();
+                    window.parent.{$js_prefix}dialog.close();
+                });
+            }
+        );
+    });
+
+    return false;
+}
+</script>

@@ -1,0 +1,36 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+
+var grid_columns  = [
+    { display: 'ID', name: 'comment_id', width: 50, type: 'int', frozen: true },
+    { display: '用户名', name: 'user_name', width: 150, isSort: false },
+    { display: '物流公司', name: 'logistics_name' ,width: 150, isSort:false},
+    { display: '评论内容', name: 'comment_content', width: 350, isSort: false},
+    { display: '评论时间', name: 'comment_time', width: 150, render: function (item)
+        {
+            return DateFormatter(item.comment_time, 'yyyy-MM-dd HH:mm:ss');
+        }
+    },
+    { display: '状态', name: 'comment_status', width: 150,render:function(item)
+        {
+            return item.comment_status == 1 ? '显示' : '不显示';
+        }
+    },
+    { display: '是否匿名', name: 'comment_anonym', width: 150, render:function(item){
+            return item.comment_anonym == 1 ? '不匿名' : '匿名';
+        }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '评论',
+        rownumbers: false,
+        identity_key : 'comment_id',
+        checkbox: false,
+        toolbar_has_add: false,
+        form_type: 'dialog',
+        grid_columns: grid_columns
+    });
+});
+</script>

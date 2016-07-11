@@ -1,0 +1,17 @@
+<layout name="LigerUI/form" />
+
+<script>
+    var ligerFormFields = [
+        { display: "标题", name: "title", newline: true,type: "textarea", afterContent:'推送请谨慎，提交后所有注册的用户（用户端和物流端）都会收到这一条推送消息'},
+        { display: "内容", name: "content", newline: true,type: "textarea"}
+    ];
+
+    $(function() {
+        $.fn.{$js_prefix}form({
+            title: '推送',
+            type : 'page',
+            fields: ligerFormFields,
+            data: {:djson_encode($row)}
+    });
+    });
+</script>

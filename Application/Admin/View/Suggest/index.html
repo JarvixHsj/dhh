@@ -1,0 +1,63 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+
+var grid_columns  = [
+//    { display: 'ID', name: 'id', width: 50, type: 'hidden', frozen: true },
+    { display: '客户/物流公司', name: 'member_id', width: 150, isSort: false },
+    { display: '反馈内容', name: 'content', width: 750, isSort: false},
+    { display: '反馈时间', name: 'add_at', width: 150, render: function (rowdata, rowindex){
+            return DateFormatter(rowdata.add_at, 'yyyy-MM-dd HH:mm:ss');
+        }
+    },
+    { display: '状态', name: 'status', width: 50, render: function (rowdata, rowindex, value)
+        {
+            return value == 1 ? '已读' : '未读';
+        }
+    },
+    { display: '操作', isSort: false, width: 50, render: function (rowdata, rowindex, value)
+    {
+        var h = '';
+        h += '<a href="javascript:toggle_status(' + rowdata.id + ', ' + rowdata.status + ');" class="js-toggle" data-name="' + rowdata.title + '" data-id="' + rowdata.id + '" data-status="' + rowdata.status + '">';
+        h += rowdata.status == 1 ? '未读' : '已读';
+        h += '</a>';
+        return h;
+    }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '建议',
+        rownumbers: true,
+        checkbox: false,
+        toolbar_has_add : false,
+        toolbar_has_edit : false,
+        grid_columns: grid_columns
+    });
+});
+
+function toggle_status(id, status, name) {
+    var url = "{:U('Suggest/toggleStatus')}";
+    var parms = {'id': id, 'status': status};
+
+    window.parent.$.ligerDialog.confirm('您确定要设置'+ (status == 1 ? '未读' : '已读')  + "操作吗？", function(yes) {
+        if(!yes) return ;
+
+        $.post(url, parms,
+                function(json) {
+                    if(!json.status) {
+                        window.parent.$.ligerDialog.warn(json.info);
+                        return;
+                    }
+
+                    window.parent.$.ligerDialog.success(json.info, '提示', function() {
+                        window.parent.{$js_prefix}grid.reload();
+                        window.parent.{$js_prefix}dialog.close();
+                    });
+                }
+        );
+    });
+
+    return false;
+}
+</script>

@@ -1,0 +1,110 @@
+<layout name="LigerUI/form_html" />
+<p>您正在为角色：<b>{$role.name}</b> 分配权限，项目和模块有全选和取消全选功能</p>
+<br />
+<form>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+        <volist name="nodes" id="group">
+            <tr>
+                <td style="font-size: 14px;"><label><input name="access[]" level="1" type="checkbox" obj="node_{$group.id}" value="{$group.id}:1:0"/> <b>[应用]</b> {$group.title}</label></td>
+            </tr>
+            <volist name="group['modules']" id="module">
+                <tr>
+                    <td style="padding-left: 30px; font-size: 14px;"><label><input name="access[]" level="2" type="checkbox" obj="node_{$group.id}_{$module.id}" value="{$module.id}:2:{$module.pid}"/> <b>[模块]</b> {$module.title}</label></td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 50px;">
+                        <volist name="module['actions']" id="action">
+                            <label><input name="access[]" level="3" type="checkbox" obj="node_{$group.id}_{$module.id}_{$action.id}" value="{$action.id}:3:{$action.pid}"/> {$action.title}</label> &nbsp;&nbsp;&nbsp;
+                        </volist>
+                    </td>
+                </tr>
+            </volist>
+        </volist>
+    </table>
+    <input type="hidden" name="id" value="{$role.id}"/>
+</form>
+<div class="commonBtnArea" >
+    <button class="l-button submit">提交</button>
+    <button class="l-button reset">恢复</button>
+    <button class="l-button empty">清空</button>
+</div>
+
+<script type="text/javascript">
+    //初始化数据
+    function setAccess(){
+        //清空所有已选中的
+        $("input[type='checkbox']").prop("checked",false);
+        var access=$.parseJSON('{$role.access}');
+        var access_length=access.length;
+        if(access_length>0){
+            for(var i=0;i<access_length;i++){
+                $("input[type='checkbox'][value='" + access[i].val + "']").prop("checked","checked");
+            }
+        }
+    }
+
+    $(function(){
+        //执行初始化数据操作
+        setAccess();
+        //为项目时候全选本项目所有操作
+        $("input[level='1']").click(function(){
+            var obj=$(this).attr("obj")+"_";
+            $("input[obj^='"+obj+"']").prop("checked",$(this).prop("checked"));
+        });
+        //为模块时候全选本模块所有操作
+        $("input[level='2']").click(function(){
+            var obj=$(this).attr("obj")+"_";
+            $("input[obj^='"+obj+"']").prop("checked",$(this).prop("checked"));
+            //分隔obj为数组
+            var tem=obj.split("_");
+            //将当前模块父级选中
+            if($(this).prop('checked')){
+                $("input[obj='node_"+tem[1]+"']").prop("checked","checked");
+            }
+        });
+        //为操作时只要有勾选就选中所属模块和所属项目
+        $("input[level='3']").click(function(){
+            var tem=$(this).attr("obj").split("_");
+            if($(this).prop('checked')){
+                //所属项目
+                $("input[obj='node_"+tem[1]+"']").prop("checked","checked");
+                //所属模块
+                $("input[obj='node_"+tem[1]+"_"+tem[2]+"']").prop("checked","checked");
+            }
+        });
+        //重置初始状态，勾选错误时恢复
+        $(".reset").click(function(){
+            setAccess();
+        });
+        //清空当前已经选中的
+        $(".empty").click(function(){
+            $("input[type='checkbox']").prop("checked",false);
+        });
+        $(".submit").click(function(){
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: "{:U(CONTROLLER_NAME.'/doAssignAccess')}",
+                data: $("form").serializeArray(),
+                async: false,
+                error: function(request) {
+                    $.ligerDialog.error("请求错误");
+                },
+                success: function(json) {
+                    if(!json){
+                        $.ligerDialog.warn('请求失败');
+                        return;
+                    }
+                    if(!json.status){
+                        $.ligerDialog.warn(json.info);
+                        return;
+                    }
+
+                    $.ligerDialog.success(json.info, '提示', function() {
+                        window.parent.close_tab();
+                    });
+                }
+            });
+        });
+    });
+</script>

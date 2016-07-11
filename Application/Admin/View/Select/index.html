@@ -1,0 +1,19 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+
+    var grid_columns  = [
+        { display: '筛选名称', name: 'typename.type_name', width: 150, isSort: false },
+
+        { display: '筛选值', name: 'select_area_state', width: 150, isSort: false }
+    ];
+
+    $(function() {
+        $.fn.{$js_prefix}list({
+            title: '筛选',
+            rownumbers: true,
+            checkbox: false,
+            identity_key : 'select_id',
+            grid_columns: grid_columns
+        });
+    });
+</script>

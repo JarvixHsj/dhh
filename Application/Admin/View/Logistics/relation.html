@@ -1,0 +1,29 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+var grid_columns  = [
+//    { display: '公司id', name: 'logistics_id',  width: 130, frozen: true},
+    { display: '公司名称', name: 'logistics_name',  width: 130, frozen: true},
+    { display: '路线起点', name: 'start',  width: 130, frozen: true ,render:function(rowdata, rowindex, value)
+        {
+            return rowdata.start;
+        }
+    },
+    { display: '路线终点', name: 'end', minWidth: 60, width: 180, isSort: false },
+    { display: '预计时间', name: 'predict_time', minWidth: 160, width: 100, isSort: false },
+    { display: '收取费用', name: 'price', minWidth: 60, width: 300, isSort: false }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '路线',
+        grid_columns: grid_columns,
+        rownumbers: false,  //行号
+        checkbox: false,   //多选框
+//        identity_key: 'logistics_id',
+        toolbar_has_view : false,
+//        form_dialog_width: 550,
+        data: {:djson_encode($row)}
+    });
+});
+
+</script>

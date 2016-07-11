@@ -1,0 +1,366 @@
+{__NOLAYOUT__}
+<if condition="$is_ajax neq 1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>{:C('SITE_TITLE')} - 后台管理系统</title>
+    <!-- css -->
+    <include file="Common/stylesheets" />
+    <style type="text/css">
+    body{padding: 10px; zoom: 1;}
+    </style>
+</head>
+
+<body>
+<include file="Common/javascripts" />
+</if>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/uploadify/uploadify.css">
+<script type="text/javascript" src="__PUBLIC__/uploadify/jquery.uploadify.min.js"></script>
+
+<div class="main_content">
+    <div class="cl">
+        <div id="uploadify_wrap" class="fl"><input type="file" name="uploadify_trigger" id="uploadify_trigger" /></div>
+        <div id="file_errors" class="fl" style="padding-left:10px;"></div>
+    </div>
+    <div id="file_queue"></div>
+    <ul id="file_preview" class="cl" style="overflow:auto;"></ul>
+    <div id="btn_upload_wrap" class="btns" style="margin-top:10px; display:none;"><input type="button" name="manual_upload" value="上传" id="manual_upload" class="btn_blue" /></div>
+</div>
+
+<script type="text/javascript">
+var uploadify_config = {$uploadify_config};
+var uploadify_dialog = null, uploadify_data = [], uploadify_fileid = 0, enable_upload_file_count = 0;
+var preview_img_width = 100, preview_img_height = 100; //可通过后端返回的设置修改此两值。
+
+$(function(){
+    init_preivew_img_size();
+    render_upload();
+
+    $("#manual_upload").click(function(){
+        $("#uploadify_trigger").uploadify("upload", "*");
+    });
+});
+
+function init_preivew_img_size()
+{
+    if(uploadify_config && typeof(uploadify_config) === 'object')
+    {
+        if(uploadify_config.preview_img_width) preview_img_width = uploadify_config.preview_img_width;
+        if(uploadify_config.preview_img_height) preview_img_height = uploadify_config.preview_img_height;
+    }
+
+    preview_img_height = parseInt(preview_img_height);
+    if(isNaN(preview_img_height)) preview_img_height = 100;
+
+    var file_preview_height = preview_img_height + 15;
+    $("#file_preview").css({height: file_preview_height + 'px'});
+}
+
+function render_upload()
+{
+    uploadify_config.buttonImage = uploadify_config.buttonImage || '__PUBLIC__/Admin/images/select_file.png';
+    uploadify_config.buttonText = uploadify_config.buttonText || 'SELECT FILES';
+    uploadify_config.fileObjName = uploadify_config.fileObjName || 'Filedata';
+    uploadify_config.fileSizeLimit = uploadify_config.fileSizeLimit || 100;
+    uploadify_config.fileTypeDesc = uploadify_config.fileTypeDesc || 'All Files';
+    uploadify_config.fileTypeExts = uploadify_config.fileTypeExts || '*.*';
+
+    uploadify_config.uploadLimit = uploadify_config.uploadLimit || 10;
+
+    if(uploadify_config.auto === false)
+    {
+        uploadify_config.auto = false;
+        $("#btn_upload_wrap").show();
+    }
+    else
+    {
+        uploadify_config.auto = true;
+    }
+
+    if(uploadify_config.multi === false) uploadify_config.multi = false;
+    else uploadify_config.multi = true;
+
+    $("#uploadify_trigger").uploadify({
+        swf: '__PUBLIC__/uploadify/uploadify.swf',          //uploadify SWF 文件位置
+        uploader: uploadify_config.uploader,    //上传至服务端地址
+        width: 120,                     //上传按钮宽度
+        height: 30,                     //上传按钮高度
+        auto: uploadify_config.auto ,                           //是否选中图片后自动上传
+        buttonImage: uploadify_config.buttonImage,              //自定义上传按钮图片
+        buttonText: uploadify_config.buttonText,                //按钮上显示的文字
+        fileObjName: uploadify_config.fileObjName,              //服务器接收的文件名
+        fileSizeLimit: uploadify_config.fileSizeLimit,          //文件大小限制，单位（KB）
+        fileTypeDesc: uploadify_config.fileTypeDesc,            //文件类型说明
+        fileTypeExts: uploadify_config.fileTypeExts,            //可上传文件类型扩展名
+        multi: uploadify_config.multi,                          //是否允许一次选多个文件
+        formData: {},                                           //上传的每一个文件都可附加上的表单数据
+        queueID: 'file_queue',                                  //用于显示上传队列的DOM文档对象ID，为false时系统随机生成
+        queueSizeLimit: 99,                                     //文件上传队列大小
+        successTimeout: 60,                                     //上传超过此时间时失败
+        uploadLimit: uploadify_config.uploadLimit,              //最大可上传的文件数
+        overrideEvents: ['onDialogClose', 'onSelectError', 'onUploadError'],
+        onSWFReady: uploadify_swf_ready,
+        onDialogClose: uploadify_onDialogClose,
+        onCancel: uploadify_onCancel,
+        onSelectError: uploadify_onSelectError,
+        onUploadError: uploadify_onUploadError,
+        onUploadSuccess: uploadify_onUploadSuccess,
+    });
+}
+
+function uploadify_swf_ready()
+{
+    get_upload_data();
+    select_file_button_toggle();
+
+    if (uploadify_config.uploadLimit == -1) {
+        $('#uploadify_wrap').hide();
+    }
+}
+
+function uploadify_onDialogClose(queueData)
+{
+    //if(queueData.filesErrored > 0) $("#file_errors").append(queueData.errorMsg);
+}
+
+function uploadify_onCancel(file)
+{
+
+}
+
+function uploadify_onSelectError(file, errorCode, errorMsg)
+{
+    var errorText = '';
+
+    switch(errorCode) {
+        case SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED:
+            if (this.settings.queueSizeLimit > errorMsg) {
+                errorText += '已超过允许的最大可上传的文数（' + this.settings.uploadLimit + '）。' + "<br />";
+            } else {
+                errorText += '已超过允许的最大文件上传队列 (' + this.settings.queueSizeLimit + ')。' + "<br />";
+            }
+            break;
+        case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
+            errorText += '文件 "' + file.name + '" 大小超过限制，请上传小于 ' + this.settings.fileSizeLimit + 'KB 的文件。' + "<br />";
+            break;
+        case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
+            errorText += '文件 "' + file.name + '" 大小为0。' + "<br />";
+            break;
+        case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
+            errorText += '文件 "' + file.name + '" 格式不正确，仅限上传的文件格式有 (' + this.settings.fileTypeDesc + ')。' + "<br />";
+            break;
+        default:
+            errorText += '文件 "' + file.name + '" 错误[' + errorCode + ']: ' + errorMsg + "<br />";
+    }
+
+    $("#file_errors").append(errorText);
+
+    return false;
+}
+
+function uploadify_onUploadError(file, errorCode, errorMsg, errorString)
+{
+    var errorText = '上传失败：';
+
+    switch(errorCode) {
+        case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+            errorText += 'HTTP 错误 (' + errorMsg + ')';
+            break;
+        case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+            errorText += '上传文件丢失，请重新上传';
+            break;
+        case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+            errorText += 'IO错误';
+            break;
+        case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+            errorText += '安全性错误 (' + errorMsg + ')';
+            break;
+        case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+            errorText += '每次最多上传 ' + this.settings.uploadLimit + '个文件';
+            break;
+        case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+            errorText += '上传失败 (' + errorMsg + ')';
+            break;
+        case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+            errorText += '找不到指定文件，请重新操作';
+            break;
+        case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+            errorText += '文件校验失败';
+            break;
+        case SWFUpload.UPLOAD_ERROR.FILE_CANCELLED:
+            errorText += '已取消上传';
+            this.queueData.queueSize   -= file.size;
+            this.queueData.queueLength -= 1;
+            if (file.status == SWFUpload.FILE_STATUS.IN_PROGRESS || $.inArray(file.id, this.queueData.uploadQueue) >= 0) {
+                this.queueData.uploadSize -= file.size;
+            }
+            // Trigger the onCancel event
+            if (settings.onCancel) settings.onCancel.call(this, file);
+            delete this.queueData.files[file.id];
+            break;
+        case SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED:
+            errorText += '上传已中止';
+            break;
+        default:
+            errorText += '文件 "' + file.name + '" 错误码[' + errorCode + ']: ' + errorMsg + "<br />"
+            errorText += errorString;
+    }
+
+    $("#file_errors").append(errorText);
+
+    return false;
+}
+
+//上传文件到后端服务器，还回信息处理器
+function uploadify_onUploadSuccess(file, data, response)
+{
+    var result = null, item_html = '', image_url = '';
+
+    if(!data) return;
+
+    result = JSON.parse(data);
+
+    if(result.status != 'SUCCESS')
+    {
+        //window.parent.$.ligerDialog.warn(result.status);
+        $("#file_errors").append(result.status);
+    }
+    else
+    {
+        if(!uploadify_data) uploadify_data = [];
+
+        $.each(result.files, function(i, item){
+            uploadify_data.push(item);
+            show_file_preview(i, item);
+            uploadify_fileid = i; //起始fileid
+        });
+
+        save_upload_data();
+
+        //select_file_button_toggle();
+    }
+}
+
+//文件选择按钮是否可用
+function select_file_button_toggle()
+{
+    var nums = get_enable_upload_file_nums();
+
+    if( nums <= 0)
+    {
+        $('#uploadify_trigger').uploadify('disable', true);
+        //$("#uploadify_wrap").height(0);
+    }
+    else
+    {
+        $('#uploadify_trigger').uploadify('disable', false);
+        //$("#uploadify_wrap").height(35);
+    }
+}
+
+//获取还可上传的文件数
+function get_enable_upload_file_nums()
+{
+    var uploaded_file_count =  $("#file_preview > li").length || 0;
+
+    return uploadify_config.uploadLimit - uploaded_file_count;
+}
+
+//保存数据到父级窗口
+function save_upload_data()
+{
+    var dialog = get_upload_dialog();
+    var setData = null;
+
+    if(dialog) setData = dialog.get('setData');
+
+    if(setData && typeof(setData) === 'function') setData(uploadify_data);
+
+    //if(dialog) dialog.close();
+
+}
+
+//从父级窗口获取数据
+function get_upload_data()
+{
+    var dialog = get_upload_dialog();
+    var getData = null;
+
+    if(dialog) getData = dialog.get('getData');
+    if(getData && typeof(getData) === 'function') uploadify_data = getData();
+    console.log(uploadify_data);
+    if(!uploadify_data) uploadify_data = [];
+    if(uploadify_data && typeof(uploadify_data) === 'object'){
+        $.each(uploadify_data, function(i){
+            show_file_preview(i, uploadify_data[i]);
+            uploadify_fileid = i; //起始fileid
+        });
+    }
+}
+
+//已上传的文件显示预览图标
+function show_file_preview(fileid, data)
+{
+    var image_url = '', item_html = '';
+
+    if(!data) return;
+
+    if(data.is_image){
+        image_url = data.image_url;
+    }
+    else
+    {
+        image_url = '__PUBLIC__/Admin/images/exts/'+ data.file_ext +'.png';
+    }
+
+    item_html = '<li fileid="'+fileid+'">';
+    item_html += '<a href="'+image_url+'" target="_blank" title="点击查看文件">';
+    item_html += '<img src="'+ image_url +'" width="' + preview_img_width + '" height="' + preview_img_height + '" />';
+    item_html += '</a>';
+    if (uploadify_config.uploadLimit > 0) {
+        item_html += '<a class="uploadify-remove-file" href="javascript:remove_file('+fileid+')" title="删除">删除</a>';
+    }
+    item_html += '</li>';
+
+    $("#file_preview").append(item_html);
+}
+
+//移除文件
+function remove_file(fileid)
+{
+    fileid = parseInt(fileid);
+    if(isNaN(fileid)) return;
+
+    uploadify_data.splice(fileid, 1);
+
+    $("li[fileid="+fileid+"]").remove();
+
+    select_file_button_toggle();
+
+    save_upload_data();
+}
+
+//获取弹窗对象
+function get_upload_dialog()
+{
+    var dialog_id = null;
+
+    if(!uploadify_dialog)
+    {
+        dialog_id = $("#file_preview").parents(".l-dialog").eq(0).attr("ligeruiid");
+
+        if(dialog_id && dialog_id.length > 0)
+        {
+            uploadify_dialog = liger.get(dialog_id);
+        }
+    }
+
+    return uploadify_dialog;
+}
+</script>
+<if condition="$is_ajax neq 1">
+</body>
+</html>
+</if>

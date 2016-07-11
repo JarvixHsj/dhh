@@ -1,0 +1,88 @@
+<layout name="LigerUI/form" />
+<script>
+var ligerFormFields = [
+    { display: "ID号", name: "logistics_id", newline: true, type: "text", readonly: 'true', validate: { required: true} },
+    { display: "法人名称", name: "logistics_per_name", newline: true, type: "text", validate: { required: true} },
+    { display: "公司名称", name: "logistics_name", newline: true, type: "text", validate: { required: true}},
+    { display: "公司地址", name: "logistics_address", newline: true, type: "textarea", validate: { required: true}},
+    { display: "法人手机", name: "logistics_phone", newline: true, type: "text", validate: { required: true}},
+    { display: "公司简介", name: "logistics_brief", newline: true, type: "textarea"},
+    { display: "法人照片", name: "logistics_person_img", comboboxName: "logistics_person_img", newline: true, type: "select",
+        options: {
+            cancelable: false,
+            url_upload: '{:U(CONTROLLER_NAME.'/person_img_upload')}'
+        }
+    },
+    { display: "头像照片", name: "logistics_head_img", comboboxName: "logistics_head_img", newline: true, type: "select",
+        options: {
+            cancelable: false,
+            url_upload: '{:U(CONTROLLER_NAME.'/person_img_upload')}'
+        }
+    },
+    { display: "公司照片", name: "logistics_img", comboboxName: "logistics_img", newline: true, type: "select",
+        options: {
+            cancelable: false,
+            url_upload: '{:U(CONTROLLER_NAME.'/person_img_upload')}'
+        }
+    },
+    { display: "营业执照", name: "logistics_open_img", comboboxName: "logistics_open_img_upload", newline: true, type: "select",
+        options: {
+            cancelable: false,
+            url_upload: '{:U(CONTROLLER_NAME.'/person_img_upload')}'
+        }
+    },
+    { display: "税务登记照", name: "logistics_check_img", comboboxName: "logistics_check_img_upload", newline: true, type: "select",
+        options: {
+            cancelable: false,
+            url_upload: '{:U(CONTROLLER_NAME.'/person_img_upload')}'
+        }
+    },
+    { display: "道路许可证", name: "logistics_way_img", comboboxName: "logistics_way_img_upload", newline: true, type: "select",
+        options: {
+            cancelable: false,
+            url_upload: '{:U(CONTROLLER_NAME.'/person_img_upload')}'
+        }
+    },
+    { display: "唯一口令", name: "token", newline: true, type: "text",readonly: 'true' },
+    { display: "是否推荐", name: "is_recommend", newline: true, type: "select", validate: { required: true},
+        options: {
+            data: [{"id":1, "text":"是"}, {"id":0, "text":"否"}],
+            textField: 'text',
+            valueField: 'id',
+            value: 1
+        }
+    },
+    { display: "后台状态", name: "logistics_status", newline: true, type: "select", validate: { required: true},
+        options: {
+            data: [{"id":1, "text":"启用"}, {"id":0, "text":"禁用"}],
+            textField: 'text',
+            valueField: 'id',
+            value: 1
+        }
+    },
+    { display: "公司电话", name: "logistics_tel", newline: true, type: "text", validate: { required: true} },
+    { display: "达点1", name: 'arrive_one', newline: true, type: "textarea"},
+    { display: "达点2", name: 'arrive_two' , newline: true, type: "textarea"},
+    { display: "达点3", name: 'arrive_three', newline: true, type: "textarea"},
+    { display: "达点4", name: 'arrive_four', newline: true, type: "textarea"},
+    { display: "达点5", name: 'arrive_five', newline: true, type: "textarea"},
+    { display: "达点6", name: 'arrive_six', newline: true, type: "textarea"},
+    { display: "注册途径", name: "is_register_type", newline: true, type: "select", validate: { required: true},
+        options: {
+            data: [{"id":1, "text":"APP注册"}, {"id":0, "text":"后台录入"}],
+            textField: 'text',
+            valueField: 'id',
+            value: 'is_register_type'
+        }
+    },
+
+];
+
+$(function() {
+    $.fn.{$js_prefix}form({
+        title: '物流公司',
+        fields: ligerFormFields,
+        data: {:djson_encode($row)}
+    });
+});
+</script>

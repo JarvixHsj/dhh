@@ -1,0 +1,52 @@
+<layout name="LigerUI/form" />
+<script>
+    var ligerFormFields = [
+        { display: "id", name: "order_id", newline: true, type: "text", readonly: 'true' },
+        { display: "订单号", name: "order_sn", newline: true, type: "text", readonly: 'true'},
+        { display: "订单类型", name: "order_type", newline: true, type: "select", readonly: 'true',
+            options: {
+                data: [{"id":1, "text":"预约发货"}, {"id":2, "text":"定向发货"}],
+                textField: 'text',
+                valueField: 'id',
+                value: 'order_type'
+            }
+        },
+        { display: "报价", name: "offer_id", newline: true, type: "text", afterContent: '（0表示未报价）' },
+        {
+            display: "订单状态", name: "order_status", newline: true, type: "select",
+            options: {
+                data: [{"id": 1, "text": "未确定"}, {"id": 2, "text": "未完成"}, {"id": 3, "text": "已完成"}, {
+                    "id": 4,
+                    "text": "取消"
+                }],
+                textField: 'text',
+                valueField: 'id',
+                value: 'order_status'
+            }
+        },
+        { display: "是否上货", name: "order_is_goods", newline: true, type: "select",
+            options: {
+                data: [{"id":1, "text":"是"}, {"id":0, "text":"否"}],
+                textField: 'text',
+                valueField: 'id',
+                value: 'order_is_goods'
+            }
+        },
+        { display: "是否已收货", name: "order_affirm", newline: true, type: "select",
+            options: {
+                data: [{"id":1, "text":"是"}, {"id":0, "text":"否"}],
+                textField: 'text',
+                valueField: 'id',
+                value: 'order_affirm'
+            }
+        }
+    ];
+
+    $(function() {
+        $.fn.{$js_prefix}form({
+            title: '修改订单',
+            fields: ligerFormFields,
+            data: {:djson_encode($row)}
+    });
+    });
+</script>

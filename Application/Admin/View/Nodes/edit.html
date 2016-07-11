@@ -1,0 +1,47 @@
+<layout name="LigerUI/form" />
+<script>
+var pidDatas = [];
+var pidDataRow = {};
+pidDataRow = {};
+pidDataRow.id = 1;
+pidDataRow.text = "┌后台管理";
+pidDatas.push(pidDataRow);
+<foreach name="nodes" item="app">
+<foreach name="app[children]" item="m">
+pidDataRow = {};
+pidDataRow.id = {$m.id};
+pidDataRow.text = "│  ┌-{$m.title}";
+pidDatas.push(pidDataRow);
+</foreach>
+</foreach>
+
+var ligerFormFields = [
+    { display: "显示名称", name: "title", newline: true, type: "text", validate: { required: true} },
+    { display: "节点名称", name: "name", newline: true, type: "text", validate: { required: true}, afterContent: '控制器名称' },
+    { display: "上级节点", name: "pid", newline: true, type: "select", validate: { required: true },
+        options: {
+            data: pidDatas,
+            textField: 'text',
+            valueField: 'id',
+            value: 1
+        }
+    },
+    { display: "状态", name: "status", newline: true, type: "select", validate: { required: true },
+        options: {
+            data: [{"id":1, "text":"启用"}, {"id":0, "text":"禁用"}],
+            textField: 'text',
+            valueField: 'id',
+            value: 1
+        }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}form({
+        title: '节点',
+        type : 'dialog',
+        fields: ligerFormFields,
+        data: {:djson_encode($row)}
+    });
+});
+</script>

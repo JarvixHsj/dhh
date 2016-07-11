@@ -1,0 +1,192 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+
+
+
+var form_search_fields = [
+    { display: "公司id", name: "logistics_id", newline: true, type: "text"},
+    { display: "公司名称", name: "logistics_name", newline: true, type: "text"},
+    { display: "注册手机", name: "logistics_phone", newline: true, type: 'text'},
+    { display: "用户状态（0禁用1启用）", name: "logistics_status", newline: true, type: 'text'}
+];
+
+var grid_columns  = [
+    { display: 'ID', name: 'logistics_id',  width: 80, frozen: true},
+    { display: '法人名称', name: 'logistics_per_name',  width: 250 },
+    { display: '公司名称', name: 'logistics_name', width: 250 },
+    { display: '公司地址', name: 'logistics_address', minWidth: 60, width: 350, isSort: false },
+    { display: '注册手机', name: 'logistics_phone', width: 170, isSort: false },
+    { display: '公司简介', name: 'logistics_brief', minWidth: 60, width: 100, isSort: false },
+    { display: '法人图片', name: 'logistics_person_img', minWidth: 60, width: 80, isSort: false,
+        render: function (item)
+        {
+            if(item.logistics_person_img != ''){
+                return "<img width='50px;height:50px;' src='__PUBLIC__/" + item.logistics_person_img + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    },
+    { display: '头像图片', name: 'logistics_head_img', minWidth: 60, width: 80, isSort: false,
+        render: function (item)
+        {
+            if(item.logistics_head_img != ''){
+                return "<img width='50px;height:50px;' src='__PUBLIC__/" + item.logistics_head_img + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    },
+    { display: '公司图片', name: 'logistics_img', minWidth: 60, width: 80, isSort: false,
+        render: function (item)
+        {
+            if(item.logistics_img != ''){
+                return "<img width='50px;height:50px;' src='__PUBLIC__/" + item.logistics_img + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    },
+    { display: '营业执照', name: 'logistics_open_img', minWidth: 60, width: 80, isSort: false ,
+        render: function (item)
+        {
+            if(item.logistics_person_img != ''){
+                return "<img width='50px;height:50px;' src='__PUBLIC__/" + item.logistics_open_img + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    },
+    { display: '税务登记', name: 'logistics_check_img', minWidth: 60, width: 80, isSort: false ,
+        render: function (item)
+        {
+            if(item.logistics_check_img != ''){
+                return "<img width='50px;height:50px;' src='__PUBLIC__/" + item.logistics_check_img + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    },
+    { display: '道路许可', name: 'logistics_way_img', minWidth: 60, width: 80, isSort: false,
+        render: function (item)
+        {
+            if(item.logistics_person_img != ''){
+                return "<img width='50px;height:50px;' src='__PUBLIC__/" + item.logistics_way_img + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    },
+//    { display: '唯一口令', name: 'token', minWidth: 60, width: 100, isSort: false },
+    { display: '公司电话', name: 'logistics_tel',  width: 170, isSort: false },
+    { display: '是否推荐排序', name: 'is_recommend', width: 80,
+        render: function (item)
+        {
+            if (parseInt(item.is_recommend) == 1) return '是';
+            return '否';
+        }
+    },
+    { display: '用户状态', name: 'logistics_status', width: 80, isSort: false ,
+        render: function (item)
+        {
+          if (parseInt(item.logistics_status) == 1) return '已启用';
+          return '已禁用';
+        }
+    },
+//    { display: '长跑路线', isSort: false, width: 80, render: function (rowdata, rowindex, value)
+//    {
+//        var h = '';
+//        h += '<a href="javascript:show();" class="js-toggle" >';
+//        h += '查看';
+//        h += '</a>';
+//        return h;
+//    }
+//    },
+    { display: '操作', isSort: false, width: 80, render: function (rowdata, rowindex, value)
+        {
+            var h = '';
+            h += '<a href="javascript:toggle_status(' + rowdata.logistics_id + ', ' + rowdata.logistics_status + ', \'' + rowdata.logistics_name + '\');" class="js-toggle" data-name="' + rowdata.title + '" data-id="' + rowdata.id + '" data-status="' + rowdata.status + '">';
+            h += rowdata.logistics_status == 1 ? '禁用' : '启用';
+            h += '</a>';
+            return h;
+        }
+    },
+    { display: '达点1', name: 'arrive_one', minWidth: 60, width: 300, isSort: false },
+    { display: '达点2', name: 'arrive_two', minWidth: 60, width: 300, isSort: false },
+    { display: '达点3', name: 'arrive_three', minWidth: 60, width: 300, isSort: false },
+    { display: '达点4', name: 'arrive_four', minWidth: 60, width: 300, isSort: false },
+    { display: '达点5', name: 'arrive_five', minWidth: 60, width: 300, isSort: false },
+    { display: '达点6', name: 'arrive_six', minWidth: 60, width: 300, isSort: false },
+    { display: '注册途径', name: 'is_register_type', width: 120 ,
+        render: function (item)
+        {
+            if (parseInt(item.is_register_type) == 1) return 'APP注册';
+            return '后台录入';
+        }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '物流公司',
+        grid_columns: grid_columns,
+        rownumbers: false,  //行号
+        checkbox: false,   //多选框
+        identity_key: 'logistics_id',
+        toolbar_has_view : true,
+        form_dialog_width: 550,
+        form_search_fields: form_search_fields
+    });
+});
+
+function toggle_status(id, status, name) {
+    var url = "{:U('Logistics/toggleStatus')}";
+    var parms = {'id': id, 'status': status};
+
+    window.parent.$.ligerDialog.confirm('您确定'+ (status == 1 ? '禁用' : '启用') + " <b>" + name + "</b> 吗？", function(yes) {
+        if(!yes) return ;
+
+        $.post(url, parms,
+            function(json) {
+                console.log(json);
+                if(!json.status) {
+                    window.parent.$.ligerDialog.warn(json.info);
+                    return;
+                }
+                window.parent.$.ligerDialog.success(json.info, '提示', function() {
+                    window.parent.{$js_prefix}grid.reload();
+                    window.parent.{$js_prefix}dialog.close();
+                });
+            }
+        );
+    });
+
+    return false;
+}
+
+function show(id, name) {
+    var url = "{:U('Logistics/show')}";
+    var parms = {'id': id};
+
+    window.parent.$.ligerDialog.confirm('查看' + " <b>" + name + "</b>", function(yes) {
+        if(!yes) return ;
+
+        $.post(url, parms,
+                function(json) {
+                    console.log(json);
+                    if(!json.status) {
+                        window.parent.$.ligerDialog.warn(json.info);
+                        return;
+                    }
+                    window.parent.$.ligerDialog.success(json.info, '提示', function() {
+                        window.parent.{$js_prefix}grid.reload();
+                        window.parent.{$js_prefix}dialog.close();
+                    });
+                }
+        );
+    });
+
+    return false;
+}
+
+</script>

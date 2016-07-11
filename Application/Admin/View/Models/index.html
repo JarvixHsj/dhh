@@ -1,0 +1,29 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+var form_search_fields = [
+    {name: "name", display: "模型名", newline: true, type: "text", validate: {maxlength:50}}
+];
+
+var grid_columns  = [
+    { display: 'ID', name: 'id', width: 50, type: 'int', frozen: true },
+    { display: '模型名（表名）', name: 'name', width: 150 },
+    { display: '菜单名', name: 'description', width: 150 },
+    { display: '模型字段数', name: 'description', width: 150 },
+    { display: '模型记录行数', name: 'description', width: 150 },
+    { display: '内部表', name: 'description', width: 150 },
+    { display: '内部表', name: 'is_inner', width: 50, render: function (rowdata, rowindex, value)
+        {
+            return value == 1 ? '是' : '否';
+        }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '数据模型',
+        grid_columns: grid_columns,
+        form_type : 'page',
+        form_search_fields: form_search_fields
+    });
+});
+</script>

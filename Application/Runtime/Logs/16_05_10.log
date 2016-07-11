@@ -1,0 +1,238 @@
+[ 2016-05-10T15:04:47+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.001660s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001728s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' D:\WWW\myworks\dhh\www\Application\Common\Conf\config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000498s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000104s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.044079s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044153s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000461s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000505s ]
+
+[ 2016-05-10T15:04:48+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Public/index
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.000933s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000974s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' D:\WWW\myworks\dhh\www\Application\Common\Conf\config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000348s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000050s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000084s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.004120s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004156s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000125s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000150s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000565s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000595s ]
+
+[ 2016-05-10T15:04:48+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.001086s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001159s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' D:\WWW\myworks\dhh\www\Application\Common\Conf\config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000364s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000620s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000688s ]
+
+[ 2016-05-10T15:04:51+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Public/verify&random=0.5528172612854778
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.000988s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001028s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' D:\WWW\myworks\dhh\www\Application\Common\Conf\config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000366s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000433s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000487s ]
+
+[ 2016-05-10T15:04:54+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Public/login
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.000998s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001040s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' D:\WWW\myworks\dhh\www\Application\Common\Conf\config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000441s ]
+SQL: SHOW COLUMNS FROM `dhh_admin` [ RunTime:0.008575s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `dhh_admin` WHERE ( name='admin' ) LIMIT 1   [ RunTime:0.007827s ]
+SQL: SELECT * FROM `dhh_admin` WHERE ( `name` = 'admin' ) LIMIT 1   [ RunTime:0.008218s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `dhh_admin` WHERE ( `name` = 'admin' ) AND ( `is_active` = 1 ) LIMIT 1   [ RunTime:0.006749s ]
+SQL: UPDATE `dhh_admin` SET `login_count`=login_count+1,`last_login_at`=1462863894,`last_login_ip`='0.0.0.0' WHERE ( id=1 ) [ RunTime:0.008049s ]
+NOTIC: [2] Missing argument 2 for Admin\Service\CommonService::resultReturn(), called in D:\WWW\myworks\dhh\www\Application\Admin\Service\AdminService.class.php on line 118 and defined D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 59 行.
+NOTIC: [8] Undefined variable: data D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 61 行.
+
+[ 2016-05-10T15:04:54+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Public/index
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.001402s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001448s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' D:\WWW\myworks\dhh\www\Application\Common\Conf\config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000308s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000355s ]
+NOTIC: [2] Missing argument 2 for Admin\Service\CommonService::resultReturn(), called in D:\WWW\myworks\dhh\www\Application\Admin\Service\AdminService.class.php on line 166 and defined D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 59 行.
+NOTIC: [8] Undefined variable: data D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 61 行.
+
+[ 2016-05-10T15:04:54+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.001137s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001188s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' D:\WWW\myworks\dhh\www\Application\Common\Conf\config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000301s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+NOTIC: [2] Missing argument 2 for Admin\Service\CommonService::resultReturn(), called in D:\WWW\myworks\dhh\www\Application\Admin\Service\AdminService.class.php on line 166 and defined D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 59 行.
+NOTIC: [8] Undefined variable: data D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 61 行.
+NOTIC: [8] Undefined index: _ACCESS_LIST D:\WWW\myworks\dhh\www\Application\Admin\Controller\CommonController.class.php 第 189 行.
+SQL: select node.id,node.name from dhh_role as role,dhh_role_admin as user,dhh_access as access ,dhh_node as node where user.user_id='1' and user.role_id=role.id and ( access.role_id=role.id  or (access.role_id=role.pid and role.pid!=0 ) ) and role.status=1 and access.node_id=node.id and node.level=1 and node.status=1 [ RunTime:0.008185s ]
+NOTIC: [8] Undefined index: ADMIN D:\WWW\myworks\dhh\www\Application\Admin\Controller\CommonController.class.php 第 235 行.
+NOTIC: [8] Undefined index: ADMIN D:\WWW\myworks\dhh\www\Application\Admin\Controller\CommonController.class.php 第 235 行.
+NOTIC: [8] Undefined index: ADMIN D:\WWW\myworks\dhh\www\Application\Admin\Controller\CommonController.class.php 第 235 行.
+NOTIC: [8] Undefined index: ADMIN D:\WWW\myworks\dhh\www\Application\Admin\Controller\CommonController.class.php 第 252 行.
+NOTIC: [2048] Only variables should be passed by reference D:\WWW\myworks\dhh\www\Application\Admin\Controller\CommonController.class.php 第 260 行.
+NOTIC: [2048] Only variables should be passed by reference D:\WWW\myworks\dhh\www\Application\Admin\Controller\CommonController.class.php 第 260 行.
+NOTIC: [2048] Only variables should be passed by reference D:\WWW\myworks\dhh\www\Application\Admin\Controller\CommonController.class.php 第 260 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000136s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007184s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007220s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000133s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000158s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000403s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000434s ]
+
+[ 2016-05-10T15:04:54+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Index/webcome
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.000968s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001010s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' D:\WWW\myworks\dhh\www\Application\Common\Conf\config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000426s ]
+NOTIC: [2] Missing argument 2 for Admin\Service\CommonService::resultReturn(), called in D:\WWW\myworks\dhh\www\Application\Admin\Service\AdminService.class.php on line 166 and defined D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 59 行.
+NOTIC: [8] Undefined variable: data D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 61 行.
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Admin/View/Common/header.html): failed to open stream: No such file or directory D:\WWW\myworks\dhh\www\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Admin/View/Common/left.html): failed to open stream: No such file or directory D:\WWW\myworks\dhh\www\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Admin/View/Common/footer.html): failed to open stream: No such file or directory D:\WWW\myworks\dhh\www\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000047s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000086s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.006115s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006159s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000148s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000174s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000439s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000477s ]
+
+[ 2016-05-10T15:04:54+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Index/webcome
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.001326s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001379s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' D:\WWW\myworks\dhh\www\Application\Common\Conf\config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+NOTIC: [2] Missing argument 2 for Admin\Service\CommonService::resultReturn(), called in D:\WWW\myworks\dhh\www\Application\Admin\Service\AdminService.class.php on line 166 and defined D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 59 行.
+NOTIC: [8] Undefined variable: data D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 61 行.
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Admin/View/Common/header.html): failed to open stream: No such file or directory D:\WWW\myworks\dhh\www\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Admin/View/Common/left.html): failed to open stream: No such file or directory D:\WWW\myworks\dhh\www\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Admin/View/Common/footer.html): failed to open stream: No such file or directory D:\WWW\myworks\dhh\www\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000233s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000298s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.006484s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006550s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000166s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000193s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000362s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000404s ]
+
+[ 2016-05-10T15:04:55+08:00 ] ::1 /myworks/dhh/www/admin.php?s=/Index/webcome
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.001289s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001345s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' D:\WWW\myworks\dhh\www\Application\Common\Conf\config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000481s ]
+NOTIC: [2] Missing argument 2 for Admin\Service\CommonService::resultReturn(), called in D:\WWW\myworks\dhh\www\Application\Admin\Service\AdminService.class.php on line 166 and defined D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 59 行.
+NOTIC: [8] Undefined variable: data D:\WWW\myworks\dhh\www\Application\Admin\Service\CommonService.class.php 第 61 行.
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Admin/View/Common/header.html): failed to open stream: No such file or directory D:\WWW\myworks\dhh\www\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Admin/View/Common/left.html): failed to open stream: No such file or directory D:\WWW\myworks\dhh\www\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Admin/View/Common/footer.html): failed to open stream: No such file or directory D:\WWW\myworks\dhh\www\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000123s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007466s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007517s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000221s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000465s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000509s ]
+
+[ 2016-05-10T16:58:47+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userclient/shipments
+ERR: 1305:FUNCTION jingkai_dev_donghuahang.C does not exist
+ [ SQL语句 ] : SELECT `logistics_id` FROM `dhh_logistics` WHERE ( logistics_name = C('SPECIAL') ) LIMIT 1  
+ERR: 1048:Column 'logistics_id' cannot be null
+ [ SQL语句 ] : INSERT INTO `dhh_orders` (`order_time`,`order_depart_province`,`order_depart_city`,`order_depart_details`,`order_des_province`,`order_des_city`,`order_des_details`,`order_cargo_type`,`order_weight`,`order_bulk`,`order_user_phone`,`user_id`,`logistics_id`,`order_type`,`order_sn`,`order_status`,`order_add_time`) VALUES (1452700800,'广东','广州','环市东路254号','江苏','徐州','环市东路265号','家具',2,30,'13692763394',7,null,2,'F51045491',1,1462870727)
+
+[ 2016-05-10T17:10:36+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userclient/shipments
+ERR: 1305:FUNCTION jingkai_dev_donghuahang.C does not exist
+ [ SQL语句 ] : SELECT `logistics_id` FROM `dhh_logistics` WHERE ( logistics_name = C('SPECIAL') ) LIMIT 1  
+
+[ 2016-05-10T17:11:30+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userclient/shipments
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SPECIAL')' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `logistics_id` FROM `dhh_logistics` WHERE ( logistics_name = 'C('SPECIAL')' ) LIMIT 1  
+
+[ 2016-05-10T17:11:43+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userclient/shipments
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SPECIAL')' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `logistics_id` FROM `dhh_logistics` WHERE ( logistics_name = 'C('SPECIAL')' ) LIMIT 1  
+
+[ 2016-05-10T17:11:58+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userclient/shipments
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SPECIAL')' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `logistics_id` FROM `dhh_logistics` WHERE ( logistics_name = 'C('SPECIAL')' ) LIMIT 1  
+
+[ 2016-05-10T17:11:59+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userclient/shipments
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SPECIAL')' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `logistics_id` FROM `dhh_logistics` WHERE ( logistics_name = 'C('SPECIAL')' ) LIMIT 1  
+
+[ 2016-05-10T17:12:06+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userclient/shipments
+ERR: 1305:FUNCTION jingkai_dev_donghuahang.C does not exist
+ [ SQL语句 ] : SELECT `logistics_id` FROM `dhh_logistics` WHERE ( logistics_name = C('SPECIAL') ) LIMIT 1  
+
+[ 2016-05-10T17:12:17+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userclient/shipments
+ERR: 1305:FUNCTION jingkai_dev_donghuahang.C does not exist
+ [ SQL语句 ] : SELECT `logistics_id` FROM `dhh_logistics` WHERE ( logistics_name = C('SPECIAL') ) LIMIT 1  
+
+[ 2016-05-10T17:12:37+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/Userclient/shipments
+ERR: 1054:Unknown column '东华行物流有限公司' in 'where clause'
+ [ SQL语句 ] : SELECT `logistics_id` FROM `dhh_logistics` WHERE ( logistics_name = 东华行物流有限公司 ) LIMIT 1  
+

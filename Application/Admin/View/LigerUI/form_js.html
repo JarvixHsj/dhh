@@ -1,0 +1,305 @@
+<script type="text/javascript" src="__PUBLIC__/Admin/js/ajaxfileupload.js"></script>
+<script type="text/javascript">
+;(function ($, window) {
+
+    $.fn.{$js_prefix}form = function(options) {
+        var $this = this;
+
+        var defaults = {
+            id: '{$js_prefix}',
+            title: '',
+            identity_key: 'id',
+            identity_val: 0,
+            title: '',
+            url_create: '{:U(CONTROLLER_NAME.'/create')}',
+            url_update: '{:U(CONTROLLER_NAME.'/update')}',
+            url_parms: {},
+            input_width: 300,
+            label_width: 90,
+            space: 40,
+            label_align: 'left',
+            validate: true,
+            type: 'page', //dialog
+            fields: {},
+            data: null
+        };
+
+        options = $.extend({}, defaults, options || {}, {
+            form: null,
+            dialog: null
+        });
+
+        var $module_id = options.id;
+        var $module_identity = "id";
+        var $module_form = $("#" + $module_id + "form");
+        var $module_submit = $("#" + $module_id + "submit");
+
+        function init() {
+            init_form();
+            return $this;
+        }
+
+        function init_form() {
+            window.parent.{$js_prefix}form = options.form = $module_form.ligerForm({
+                inputWidth: options.input_width,
+                labelWidth: options.label_width,
+                space: options.space,
+                labelCss: 'l-table-edit-th',
+                labelAlign: options.label_align,
+                validate : options.validate,
+                fields: options.fields
+            });
+
+            if(options.data) {
+                options.form.setData(options.data);
+            }
+
+            $module_submit.click(function(){
+                if(options.form.valid()) {
+                    submit();
+                } else {
+                    options.form.showInvalid();
+                }
+            });
+
+            $.each(options.fields, function(i, item) {
+                if (item.type == "select" && item.hasOwnProperty('comboboxName') && item.hasOwnProperty('options') && item.options.hasOwnProperty('url_upload')) {
+                    var $upload_field = $.ligerui.get(item.comboboxName);
+                    $upload_field.set('onBeforeOpen', select_file_upload);
+                    if (options.data && options.data.hasOwnProperty(item.name)) {
+                        $upload_field.setValue(options.data[item.name]);
+                        $upload_field.setText(options.data[item.name]);
+                    }
+                } else if (item.type == "popup" && item.hasOwnProperty('comboboxName') && item.hasOwnProperty('options') && item.options.hasOwnProperty('url_upload')) {
+                    var $upload_field = $.ligerui.get(item.comboboxName);
+                    $upload_field.set('onButtonClick', popup_file_upload);
+                    if (options.data && options.data.hasOwnProperty(item.name)) {
+                        $upload_field.setValue(options.data[item.name]);
+                        $upload_field.setText(options.data[item.name]);
+                    }
+                    if (options.data.hasOwnProperty(item.comboboxName)) {
+                        $upload_field.set('data', options.data[item.comboboxName]);
+                    }
+                }
+            });
+        }
+
+        function submit() {
+            var id = 0;
+            var row = options.form.getData();
+
+            $.each(options.fields, function(i, item) {
+                if ((item.type == "date" || item.type == "datetime") && row.hasOwnProperty(item.name)) {
+                    var date = new Date(row[item.name]);
+                    var year = date.getFullYear();
+                    var month = date.getMonth() + 1;
+                    if(month > 12){
+                        month = 12;
+                    }
+                    var day = date.getDate();
+                    var h = date.getHours();
+                    var m = date.getMinutes();
+                    var s = date.getSeconds();
+                    row[item.name] = year + "-" + month + "-" + day + " " + h + ":" + m + ":" + s;
+                }
+            });
+
+            if(options.identity_val > 0) {
+                row.id = options.identity_val;
+                id = row.id;
+            } else if(options.data && options.data.hasOwnProperty('id')) {
+                row.id = options.data.id;
+                id = row.id;
+            }
+
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: id > 0 ? options.url_update : options.url_create,
+                data: {form: row},
+                error: function(request) {
+                    window.parent.$.ligerDialog.error("请求失败");
+                },
+                success: function(result) {
+                    if(!result.status) {
+                        window.parent.$.ligerDialog.warn(result.info);
+                        return;
+                    }
+
+                    window.parent.$.ligerDialog.success('提交成功', '提示', function() {
+                        if (options.type == 'dialog') {
+                            window.parent.{$js_prefix}grid.reload();
+                            window.parent.{$js_prefix}dialog.close();
+                        } else if (options.type == 'page') {
+                            window.parent.close_tab();
+                        }
+                    });
+                }
+            });
+        }
+
+        function select_file_upload() {
+            var self = $(this)[0];
+            if (window[self.id + '_dialog']) {
+                window[self.id + '_dialog'].show();
+            } else {
+                var wrap = '<div id="' + self.id + '_file_div" style="display:none;">';
+                wrap += '<table style="height:100%;width:100%">';
+                wrap += '<tr><td style="width:20%">选择文件:</td>';
+                wrap += '<td><input type="file"  style="width:100%" id="' + self.id + '_file" name="' + self.id + '_file" /></td></tr>';
+                wrap += '</table>';
+                wrap += '</div>';
+                $("body").append(wrap);
+
+                window[self.id + '_dialog'] = $.ligerDialog.open({
+                    target: $('#' + self.id + '_file_div'),
+                    title: '上传文件',
+                    width: 360,
+                    height: 120,
+                    top: 170,
+                    left: 280,
+                    buttons: [
+                        { text: '上传', onclick: function () { select_file_upload_save(self); } },
+                        { text: '取消', onclick: function () { window[self.id + '_dialog'].hide(); } }
+                    ]
+                });
+            }
+            return false;
+        }
+
+        function select_file_upload_save(target) {
+            var id = target.id;
+            var file = $('#' + id + '_file').val();
+            var extend = file.substring(file.lastIndexOf("."), file.length);
+            extend = extend.toLowerCase();
+            if (extend == ".jpg" || extend == ".jpeg" || extend == ".png" || extend == ".gif" || extend == ".bmp") {
+            } else {
+                $.ligerDialog.warn("请上传jpg,jpep,png,gif,bmp格式的图片文件");
+                return;
+            }
+
+            $.ajaxFileUpload({
+                url: target.options.url_upload,
+                secureuri: false,
+                fileElementId: id + "_file",
+                dataType: "json",
+                success: function (data, status) {
+                    if (data.status == "SUCCESS") {
+                        var $id = $.ligerui.get(id);
+                        $id.setValue(data.url);
+                        $id.setText(data.url);
+                        window[id + '_dialog'].hide();
+                    } else {
+                        $.ligerDialog.warn(data.status);
+                    }
+                },
+                error: function (data, status, e) {
+                    $.ligerDialog.warn(data);
+                }
+            });
+        }
+
+        function popup_file_upload() {
+            var o = this;
+
+            if(window.parent.httprequest_upload) window.parent.httprequest_upload.abort();
+
+            window.parent.httprequest_upload = $.get(o.options.url_upload, function(result){
+                if(!result) {
+                    window.parent.$.ligerDialog.warn('请求失败!');
+                    return;
+                }
+
+                if(result.errno && parseInt(result.errno) < 0) {
+                    window.parent.$.ligerDialog.warn(result.error);
+                    return;
+                }
+
+                window[o.id + '_dialog'] = window.parent.$.ligerDialog.open({
+                    title: '上传文件',
+                    id: 'multi_upload_dialog',
+                    width: 620,
+                    height: null,
+                    //top: 100,
+                    content: result,
+                    show: false,
+                    isResize: true,
+                    isHidden: false,
+                    load: false,
+                    setData: setData,
+                    getData: getData,
+                    buttons: [
+                        { text: '确定', onclick: function () { popup_file_upload_save(); } }
+                    ]
+                });
+            });
+
+            var popup_file_upload_save = function() {
+                var data = o.get('imagedata');
+                var value = '', text = '', saperator = '';
+
+                if(data && typeof(data) === 'object')
+                {
+                    $.each(data, function(i){
+                        var item = data[i];
+                        if(!item) return;
+                        value += saperator+item.savepath+item.savename;
+                        text = value;
+                        saperator = ';';
+                    });
+                }
+
+                if(typeof(o.setValue) === 'function') o.setValue(value);
+                if(typeof(o.setText) === 'function') o.setText(text);
+
+                window[o.id + '_dialog'].close();
+            }
+
+            var setData = function(data) {
+                o.set('imagedata', data);
+
+                if(o.options && o.options.onSuccess && typeof(o.options.onSuccess) === 'function') o.options.onSuccess(data);
+            };
+
+            var getData = function() {
+                var data = o.get('imagedata');
+
+                if(!data && options.data.hasOwnProperty(o.id)) data = options.data[o.id];
+
+                return data;
+            };
+        }
+
+        function popup_file_upload2() {
+            var self = $(this)[0];
+            if (window[self.id + '_dialog']) {
+                window[self.id + '_dialog'].show();
+            } else {
+                var wrap = '<div id="' + self.id + '_file_div" style="display:none;">';
+                wrap += '<table style="height:100%;width:100%">';
+                wrap += '<tr><td style="width:20%">选择文件:</td>';
+                wrap += '<td><input type="file"  style="width:100%" id="' + self.id + '_file" name="' + self.id + '_file" /></td></tr>';
+                wrap += '</table>';
+                wrap += '</div>';
+                $("body").append(wrap);
+
+                window[self.id + '_dialog'] = $.ligerDialog.open({
+                    target: $('#' + self.id + '_file_div'),
+                    title: '上传文件',
+                    width: 360,
+                    height: 120,
+                    top: 170,
+                    left: 280,
+                    buttons: [
+                        { text: '上传', onclick: function () { select_file_upload_save(self); } },
+                        { text: '取消', onclick: function () { window[self.id + '_dialog'].hide(); } }
+                    ]
+                });
+            }
+        }
+
+        return init();
+    };
+
+})(jQuery, this);
+</script>

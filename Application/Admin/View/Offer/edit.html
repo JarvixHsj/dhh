@@ -1,0 +1,18 @@
+<layout name="LigerUI/form" />
+<script>
+    var pidDatas = [];
+
+    var ligerFormFields = [
+        { display: "ID", name: "offer_id", newline: true, type: "text",readonly: 'true', validate: { required: true} },
+        { display: "报价金额", name: "offer_money", newline: true, type: "text", validate: { required: true} }
+    ];
+
+    $(function() {
+        $.fn.{$js_prefix}form({
+            title: '修改报价金额',
+            type : 'dialog',
+            fields: ligerFormFields,
+            data: {:djson_encode($row)}
+    });
+    });
+</script>

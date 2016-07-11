@@ -1,0 +1,76 @@
+<layout name="LigerUI/form" />
+<script>
+var logiDatas = [];
+var pidDataRow = {};
+pidDataRow = {};
+<foreach name="data" item="vo">
+pidDataRow = {};
+pidDataRow.id = {$vo.logistics_id};
+pidDataRow.text = '{$vo.logistics_name}';
+logiDatas.push(pidDataRow);
+</foreach>
+
+var ligerFormFields = [
+    { display: 'ID', name: 'vehicle_id', align: 'left', width: 200, readonly: 'true',frozen: true, afterContent: '自动生成'},
+    { display: '物流公司', name: 'logistics_id',type: "select", minWidth: 60, width: 200, validate: { required: true}, isSort: false,
+        options: {
+            data: logiDatas,
+            textField: 'text',
+            valueField: 'id',
+            value: 1
+        }
+    },
+    { display: '车系列', name: 'vehicle_series', minWidth: 60, width: 200, isSort: false , validate: { required: true}},
+//    { display: '车名称', name: 'vehicle_name', minWidth: 60, width: 200, isSort: false},
+    { display: '车类型', name: 'vehicle_type', minWidth: 60, width: 200, isSort: false , validate: { required: true}},
+    { display: '车简介', name: 'vehicle_intro', minWidth: 60, width: 200, isSort: false },
+    { display: '车牌', name: 'vehicle_licence', minWidth: 60, width: 200, validate: { required: true}},
+    { display: '车载重(t)', name: 'vehicle_car_weight', minWidth: 60, width: 200, validate: { required: true}},
+    { display: '车重(t)', name: 'vehicle_weight', minWidth: 60, width: 200},
+    { display: '车高(m)', name: 'vehicle_height', minWidth: 60, width: 200},
+    { display: '车长(m)', name: 'vehicle_long', minWidth: 60, width: 200, validate: { required: true}},
+    { display: '车龄', name: 'vehicle_age', minWidth: 60, width: 200},
+    { display: '货箱长(m)', name: 'vehicle_cargo_long', minWidth: 60, width: 200},
+    { display: '货箱宽(m)', name: 'vehicle_cargo_weight', minWidth: 60, width: 200},
+    { display: '货箱高(m)', name: 'vehicle_cargo_height', minWidth: 60, width: 200},
+    { display: '货箱类型', name: 'vehicle_cargo_type', minWidth: 60, width: 200, isSort: false },
+    { display: '年审图片', name: 'vehicle_year_img',minWidth: 60, width: 200, isSort: false,
+        render: function (item)
+        {
+            if(item.vehicle_year_img != ''){
+                return "<img width='50px;height:50px;' src='__PUBLIC__/" + item.vehicle_year_img + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    },
+    { display: '道路许可证', name: 'vehicle_way_img', minWidth: 60, width: 200, isSort: false,
+        render: function (item)
+        {
+            if(item.vehicle_way_img != ''){
+                return "<img width='50px;height:50px;' src='__PUBLIC__/" + item.vehicle_way_img + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    },
+    { display: '车图片', name: 'vehicle_car_img', minWidth: 60, width: 200, isSort: false , validate: { required: true},
+        render: function (item)
+        {
+            if(item.vehicle_car_img != ''){
+                return "<img width='50px;height:50px;' src='__PUBLIC__/" + item.vehicle_car_img + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}form({
+        title: '车辆',
+        fields: ligerFormFields,
+        data: {:djson_encode($row)}
+    });
+});
+</script>

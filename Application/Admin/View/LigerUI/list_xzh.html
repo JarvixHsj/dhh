@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>{:C('SITE_TITLE')} - 后台管理系统</title>
+    <!-- css -->
+    <include file="Common/stylesheets" />
+</head>
+
+<body>
+<include file="Common/javascripts" />
+{__CONTENT__}
+<div class="main_content">
+    <div id="{$js_prefix}tablelist"></div>
+</div>
+<script type="text/javascript">
+;(function ($, window) {
+
+    $.fn.{$js_prefix}list = function(options) {
+        var $this = this;
+
+        var defaults = {
+            id: '{$js_prefix}',
+            title: null,
+            url_load: '{:U(CONTROLLER_NAME.'/index')}',
+            url_add: '{:U(CONTROLLER_NAME.'/add')}',
+            url_edit: '{:U(CONTROLLER_NAME.'/edit')}',
+            url_del: '{:U(CONTROLLER_NAME.'/delete')}',
+            url_view: '{:U(CONTROLLER_NAME.'/view')}',
+            url_parms: {},
+            use_pager: true,
+            pagesize: 30,
+            tree: null,
+            rownumbers: true,
+            checkbox: true,
+            toolbar: true,
+            toolbar_items: [],
+            toolbar_items_add: [],
+            toolbar_has_add: true,
+            toolbar_has_del: true,
+            toolbar_has_view: false,
+            toolbar_has_audit: false,
+            grid_columns: [],
+            grid_onLoaded: null,
+            identity_key: 'id',
+            identity_val: 0,
+            form_type: 'page', //dialog
+            form_dialog_width: 500,
+            form_search_fields: null,
+            form_search_dialog_width: 350,
+            form_search_data_default: null,
+            form_search_data: null  //保存查询表单的值
+        };
+
+        options = $.extend({}, defaults, options || {}, {
+            grid: null,
+            dialog: null
+        });
+
+        var $module_id = options.id;
+        var $module_identity = "id";
+        var $tablelist = $("#" + $module_id + "tablelist");
+
+        var xmlhttprequest_add = null;
+        var xmlhttprequest_edit = null;
+        var xmlhttprequest_view = null;
+
+        function init() {
+            init_grid();
+            return $this;
+        }
+
+        function get_toolbar_items() {
+            if (!options.toolbar)
+                return null;
+
+            if (options.toolbar_items.length > 0)
+                return { items: options.toolbar_items };
+
+            var default_toolbar_items = []
+
+            if (options.form_search_fields) {
+                default_toolbar_items.push({ text: '搜索', click: search, icon: 'search' });
+                default_toolbar_items.push({ line: true });
+            }
+
+            default_toolbar_items.push({ text: '刷新', click: refresh, icon: 'refresh' });
+
+            if (options.toolbar_has_add) {
+                default_toolbar_items.push({ line: true });
+                default_toolbar_items.push({ text: '新增', click: add, icon: 'add' });
+            }
+
+            default_toolbar_items.push({ line: true });
+            default_toolbar_items.push({ text: '修改', click: edit, icon: 'modify' });
+
+            if (options.toolbar_has_del) {
+                default_toolbar_items.push({ line: true });
+                default_toolbar_items.push({ text: '删除', click: del, icon: 'delete' });
+            }
+
+            if (options.toolbar_has_view) {
+                default_toolbar_items.push({ line: true });
+                default_toolbar_items.push({ text: '查看', click: view, icon: 'ok' });
+            }
+
+            if (options.toolbar_has_audit) {
+                default_toolbar_items.push({ line: true });
+                default_toolbar_items.push({ text: '审核', click: audit, icon: 'right' });
+            }
+
+            if (options.toolbar_items_add.length > 0)
+                default_toolbar_items = $.merge(default_toolbar_items, options.toolbar_items_add);
+
+            return { items: default_toolbar_items };
+        }
+
+        function init_grid() {
+
+
+            window.parent.{$js_prefix}grid = options.grid = $tablelist.ligerGrid({
+                //title: options.title,
+                height: '100%',
+                heightDiff: -6,
+                columns: options.grid_columns,
+                whenRClickToSelect: true,
+                allowUnSelectRow: true,
+                url: options.url_load,
+                parms: $.extend({'is_ajax': 1}, options.url_parms),
+                usePager: options.use_pager,
+                pageSize: options.pagesize,
+                rownumbers: options.rownumbers,
+                checkbox: options.checkbox,
+                tree: options.tree,
+                toolbar: get_toolbar_items()
+            });
+        }
+
+        //初化搜索表单
+        function init_search_form() {
+            if( window.parent.$("#{$js_prefix}search_dialog_cont").length > 0 ) return false;
+
+            var wrap = '<div id="{$js_prefix}search_dialog_cont">';
+            wrap += '<div class="main_content">';
+            wrap += '<form id="{$js_prefix}form_search"></form>';
+            wrap += '</div>';
+            wrap += '</div>';
+
+            if( window.parent.$("#{$js_prefix}search_dialog_cont").length > 0 ) window.parent.$("#{$js_prefix}search_dialog_cont").remove();
+
+            window.parent.$("body").append(wrap);
+
+            options.search_form = window.parent.$("#{$js_prefix}form_search").ligerForm({
+                inputWidth: 180,
+                labelWidth: 90,
+                space: 40,
+                labelAlign: 'right',
+                validate : true,
+                readonly: false,
+                labelCss: 'l-table-edit-th',
+                fields: options.form_search_fields
+            });
+
+            if (options.form_search_data) {
+                options.search_form.setData(options.form_search_data);
+            }
+
+            if(!options.form_search_data_default) {
+                options.form_search_data_default = options.search_form.getData();
+            }
+        }
+
+        //查询
+        function search() {
+            if (!options.form_search_fields)
+                return false;
+
+            init_search_form();
+            options.dialog = window.parent.$.ligerDialog.open({
+                title: '搜索' + options.title,
+                id: '{$js_prefix}search_dialog',
+                width: options.form_search_dialog_width,
+                height: null,
+                target: window.parent.$("#{$js_prefix}search_dialog_cont"),
+                buttons: [
+                    {text: '提交', onclick: function (item, dialog) { doSearch(item, dialog); }},
+                    {text: '重置', onclick: function (item, dialog) { doReset(item, dialog); }},
+                    {text: '取消', onclick: function (item, dialog) { dialog.close(); }}
+                ]
+            });
+
+            var doSearch = function(item, dialog) {
+                if(!options.search_form.valid()) {
+                    options.search_form.showInvalid();
+                    return false;
+                }
+
+                /*$.each(window.parent.$("#{$js_prefix}form_search").serializeArray(), function(i,item){
+                    if(!item.name || item.name == 'undefined') return;
+                    data[item.name] = item.value;
+                });*/
+
+                options.form_search_data = options.search_form.getData();
+
+                var parms = window.parent.$("#{$js_prefix}form_search").serializeArray();
+                parms.push({'name': 'filter', 'value': JSON.stringify(options.form_search_data)});
+                //options.grid.setParm('filter', JSON.stringify(options.form_search_data));
+                options.grid.setOptions({parms: parms});
+                options.grid.reload();
+                dialog.close();
+            };
+
+            var doReset = function(item, dialog) {
+                options.search_form.setData(options.form_search_data_default);
+            }
+        }
+
+        function add() {
+            if (options.form_type == 'dialog') {
+                add_dialog();
+            } else if (options.form_type == 'page') {
+                add_page();
+            }
+        }
+
+        function edit(id) {
+            if (options.form_type == 'dialog') {
+                edit_dialog(id);
+            } else if (options.form_type == 'page') {
+                edit_page(id);
+            }
+        }
+
+        function add_page() {
+            window.parent.add_tab("{$js_prefix}add", "新增" + options.title, options.url_add);
+        }
+
+        function edit_page(id) {
+            if(id == null || typeof(id) != 'number') {
+                if(options.grid.getSelectedRow() == null) {
+                    window.parent.$.ligerDialog.warn('请选择行');
+                    return;
+                }
+                id = options.grid.getSelectedRow()[options.identity_key];
+            }
+
+            var url = options.url_edit;
+            if (url.indexOf("?") != -1)
+                url += "&";
+            else
+                url += "?";
+            url += "id=" + id;
+            window.parent.add_tab("{$js_prefix}edit", "修改" + options.title, url);
+        }
+
+        function add_dialog() {
+            if(xmlhttprequest_add) xmlhttprequest_add.abort();
+            $.ajaxSetup({ cache: false });
+            xmlhttprequest_add = $.get(options.url_add, function(data) {
+                if(!data){
+                    window.parent.$.ligerDialog.warn('请求失败');
+                    return;
+                } else if(data.hasOwnProperty('status') && !data.status) {
+                    window.parent.$.ligerDialog.warn(data.info);
+                    return;
+                }
+
+                window.parent.{$js_prefix}dialog = options.dialog = window.parent.$.ligerDialog.open({
+                    width: options.form_dialog_width,
+                    height: null,
+                    top: 100,
+                    content: data,
+                    show:false,
+                    isResize: true,
+                    isHidden: false,
+                    load: false,
+                    id: '{$js_prefix}add_dialog',
+                    title: '新增' + options.title
+                });
+            });
+        }
+
+        function edit_dialog(id) {
+            if(id == null || typeof(id) != 'number') {
+                if(options.grid.getSelectedRow() == null) {
+                    window.parent.$.ligerDialog.warn('请选择行');
+                    return;
+                }
+                var id = options.grid.getSelectedRow().id;
+            }
+
+            if(xmlhttprequest_edit) xmlhttprequest_edit.abort();
+            $.ajaxSetup({ cache: false });
+            xmlhttprequest_edit = $.get(options.url_edit, {id: id}, function(data) {
+                if(!data) {
+                    window.parent.$.ligerDialog.warn('请求失败');
+                    return;
+                } else if(data.hasOwnProperty('status') && !data.status) {
+                    window.parent.$.ligerDialog.warn(data.info);
+                    return;
+                }
+
+                window.parent.{$js_prefix}dialog = options.dialog = window.parent.$.ligerDialog.open({
+                    width: options.form_dialog_width,
+                    height: null,
+                    top: 100,
+                    content: data,
+                    show:false,
+                    isResize: true,
+                    isHidden: false,
+                    load: false,
+                    id: '{$js_prefix}edit_dialog',
+                    title: '修改' + options.title
+                });
+            });
+        }
+
+        function view_dialog(id) {
+            if(id == null || typeof(id) != 'number') {
+                if(options.grid.getSelectedRow() == null) {
+                    window.parent.$.ligerDialog.warn('请选择行');
+                    return;
+                }
+                var id = options.grid.getSelectedRow().id;
+            }
+
+            if(xmlhttprequest_view) xmlhttprequest_view.abort();
+            $.ajaxSetup({ cache: false });
+            xmlhttprequest_view = $.get(options.url_view, {id: id}, function(data) {
+                if(!data){
+                    window.parent.$.ligerDialog.warn('请求失败');
+                    return;
+                } else if(data.hasOwnProperty('status') && !data.status) {
+                    window.parent.$.ligerDialog.warn(data.info);
+                    return;
+                }
+
+                window.parent.{$js_prefix}dialog = options.dialog = window.parent.$.ligerDialog.open({
+                    width: options.form_dialog_width,
+                    height: null,
+                    top: 100,
+                    content: data,
+                    show: false,
+                    isResize: true,
+                    isHidden: false,
+                    load: false,
+                    id: '{$js_prefix}view_dialog',
+                    title: '查看' + options.title
+                });
+            });
+        }
+
+        function del() {
+            if(options.grid.getSelectedRow() == null) {
+                window.parent.$.ligerDialog.warn('请选择行');
+                return;
+            }
+
+            window.parent.$.ligerDialog.confirm('确定删除?', function (yes) {
+                if(!yes) return ;
+
+                var ids = [];
+                var rows = options.grid.getSelectedRows();
+//                alert(rows);console.log(rows);return ;
+
+                $(rows).each(function() {
+                    ids.push(this.id);
+                    console.log(ids);return;
+                });
+                $.post(options.url_del, { id: ids },
+                    function(json) {
+                        if(!json.status) {
+                            window.parent.$.ligerDialog.warn(json.info);
+                            return;
+                        }
+
+                        $(rows).each(function() {
+                            options.grid.deleteRow(this);
+                        });
+                    }
+                );
+            });
+        }
+
+        function refresh() {
+            options.grid.reload();
+        }
+
+        return init();
+    };
+
+})(jQuery, this);
+</script>
+</body>
+</html>

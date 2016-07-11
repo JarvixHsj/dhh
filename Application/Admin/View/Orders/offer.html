@@ -1,0 +1,47 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+
+    var grid_columns  = [
+        { display: 'ID', name: 'order_id', width: 50, type: 'int', frozen: true },
+        { display: '订单号', name: 'order_sn', width: 150, isSort: false },
+        { display: '订单类型', name: 'order_type', width: 120, isSort: false,render:function(item)
+        {
+            if(item.order_type == 1){
+                return '预约发货';
+            }else if(item.order_type == 2){
+                return '定向发货';
+            }
+        }
+        },
+        { display: '订单状态', name:'order_status', width: 120},
+        { display: '是否上货', name: 'order_is_goods', width: 100, isSort: false,render:function(item)
+        {
+            return item.order_is_goods == 1 ? '已上货' : '未上货';
+        }
+        },
+        { display: '是否确认送达', name: 'order_is_affirm', width: 100, render: function (item)
+        {
+            return item.order_is_affirm == 1 ? '是' : '否';
+        }
+        },
+        { display: '创建时间', name: 'order_time', width: 150, render: function (item){
+            return DateFormatter(item.order_add_time, 'yyyy-MM-dd HH:mm:ss');
+        }
+        }
+    ];
+
+    $(function() {
+        $.fn.{$js_prefix}list({
+            title: '订单',
+            rownumbers: false,
+            checkbox: false,
+            identity_key: 'order_id',
+            toolbar_has_view : true,
+            toolbar_has_del : false,
+            toolbar_has_add : false,
+            toolbar_has_edit : false,
+            grid_columns: grid_columns,
+//        form_search_fields: form_search_fields
+        });
+    });
+</script>

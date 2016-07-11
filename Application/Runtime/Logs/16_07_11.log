@@ -1,0 +1,30 @@
+[ 2016-07-11T16:47:03+08:00 ] ::1 /github/dhh/admin.php
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.001720s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001804s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' /Library/WebServer/Documents/github/dhh/Application/Common/Conf/config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001374s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000053s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000097s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.005868s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005921s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000268s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000520s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000562s ]
+
+[ 2016-07-11T16:47:03+08:00 ] ::1 /github/dhh/admin.php?s=/Public/verify
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.001190s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001262s ]
+NOTIC: [8] Use of undefined constant ONETHINK_ADDON_PATH - assumed 'ONETHINK_ADDON_PATH' /Library/WebServer/Documents/github/dhh/Application/Common/Conf/config.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000453s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000532s ]
+

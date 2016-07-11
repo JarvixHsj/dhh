@@ -1,0 +1,33 @@
+<layout name="LigerUI/form" />
+<script>
+    var ligerFormFields = [
+        { display: "黄牛名称", name: "name", newline: true, type: "text", validate: { required: true} },
+        { display: "车牌", name: "platenum", newline: true, type: "text", validate: { required: true}},
+        { display: "手机号", name: "phone", newline: true, type: "text", validate: { required: true}},
+        { display: "地址", name: "address", newline: true, type: "textarea", validate: { required: true}},
+        { display: "备注", name: "remark", newline: true, type: "textarea", validate: { required: true}},
+        { display: "照片", name: "img", comboboxName: "logistics_open_img_upload", newline: true, type: "select",
+            options: {
+                cancelable: false,
+                url_upload: '{:U(CONTROLLER_NAME.'/person_img_upload')}'
+            }
+        },
+        { display: "是否启用", name: "status", newline: true, type: "select", validate: { required: true},
+            options: {
+                data: [{"id":1, "text":"是"}, {"id":0, "text":"否"}],
+                textField: 'text',
+                valueField: 'id',
+                value: 'status'
+            }
+        },
+
+    ];
+
+    $(function() {
+        $.fn.{$js_prefix}form({
+            title: '黄牛',
+            fields: ligerFormFields,
+            data: {:djson_encode($row)}
+        });
+    });
+</script>

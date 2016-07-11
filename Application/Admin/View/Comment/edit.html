@@ -1,0 +1,39 @@
+<layout name="LigerUI/form" />
+<script>
+    var pidDatas = [];
+
+    var ligerFormFields = [
+        { display: "ID", name: "comment_id", newline: true, type: "text",readonly: 'true', validate: { required: true} },
+        { display: "评论用户", name: "user_name", newline: true,readonly: 'true', type: "text"},
+        { display: "物流公司", name: "logistics_name", newline: true,readonly: 'true', type: "text"},
+        { display: "评论内容", name: "comment_content", newline: true, type: "textarea", validate: { required: true} },
+        { display: "显示状态", name: "comment_status", newline: true, type: "select",
+            options: {
+                data: [{"id":1, "text":"显示"}, {"id":0, "text":"不显示"}],
+                textField: 'text',
+                valueField: 'id',
+                value: 1
+            }
+        },
+        { display: "是否匿名", name: "comment_anonym", newline: true,readonly: 'true', type: "select",
+            options: {
+                data: [{"id":1, "text":"不匿名"}, {"id":0, "text":"匿名"}],
+                    textField: 'text',
+                    valueField: 'id',
+                    value: 1
+            }
+        },
+        { display: "物流id",name: "logistics_id", newline: true, type: "hidden"},
+        { display: "用户id",name: "user_id", newline: true, type: "hidden"}
+
+    ];
+
+    $(function() {
+        $.fn.{$js_prefix}form({
+            title: '评论',
+            type : 'dialog',
+            fields: ligerFormFields,
+            data: {:djson_encode($row)}
+    });
+    });
+</script>

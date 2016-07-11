@@ -1,0 +1,141 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+var proDatas = [];
+var proDataRow = {};
+proDataRow = {};
+<foreach name="pro" item="vo">
+proDataRow = {};
+proDataRow.id = {$vo.region_id};
+proDataRow.text = '{$vo.region_name}';
+proDatas.push(proDataRow);
+</foreach>
+
+var cityDatas = [];
+var cityDataRow = {};
+cityDataRow = {};
+<foreach name="city" item="vo">
+cityDataRow = {};
+cityDataRow.id = {$vo.region_id};
+cityDataRow.text = '{$vo.region_name}';
+cityDataRow.pid = '{$vo.parent_id}';
+cityDatas.push(cityDataRow);
+</foreach>
+
+
+
+    $(function ()
+    {
+        var proData = proDatas;
+        var cityData = cityDatas;
+
+        $("#start_city").ligerComboBox({ data: null, isMultiSelect: false, isShowCheckBox: false });
+
+        $("#start_pro").ligerComboBox({
+            data: proData, isMultiSelect: false,
+            onSelected: function (newvalue)
+            {
+                var newData = new Array();
+                for (i = 0; i < cityData.length; i++)
+                {
+                    if (cityData[i].pid == newvalue)
+                    {
+                        newData.push(cityData[i]);
+                    }
+                }
+                liger.get("start_city").setData(newData);
+            }
+        });
+
+        $("#end_city").ligerComboBox({ data: null, isMultiSelect: false, isShowCheckBox: false });
+
+        $("#end_pro").ligerComboBox({
+            data: proData, isMultiSelect: false,
+            onSelected: function (newvalue)
+            {
+                var newData = new Array();
+                for (i = 0; i < cityData.length; i++)
+                {
+                    if (cityData[i].pid == newvalue)
+                    {
+                        newData.push(cityData[i]);
+                    }
+                }
+                liger.get("end_city").setData(newData);
+            }
+        });
+
+    });
+
+
+</script>
+<body style="padding:10px">
+<form action="{:U(CONTROLLER_NAME.'/create')}" method="post">
+    <br />
+    物流公司：
+    <!--<select name="logistics_id" >-->
+        <!--<volist name="logi" id="vo">-->
+        <!--<option value="{$vo.logistics_id}">{$vo.logistics_name}</option>-->
+        <!--</volist>-->
+    <!--</select>-->
+    <input type="text" id="logi_name" value="">
+    <span id="gou" style="widthL20xp;height:20px;"></span>
+    <input type="hidden" name="logistics_id" id="logiid">
+
+    <br/>
+    <br/>
+    <table>
+        <tr>
+            <td>起&nbsp;始&nbsp;地：&nbsp;</td>
+            <td>省：<input type="text" name="strt_pro" id="start_pro" /></td>
+            <td>市：<input type="text" name="strt_city" id="start_city" /></td>
+        </tr>
+        <tr>
+            <td>目&nbsp;的&nbsp;地：&nbsp;</td>
+            <td>省：<input type="text" name="end_pro" id="end_pro" /></td>
+            <td>市：<input type="text" name="end_city" id="end_city" /></td>
+        </tr>
+    </table>
+    <br/>
+    轻货价格：<input type="text" placeholder="例如：200-300元" name="gently">
+    <br/>
+    <br/>
+    重货价格：<input type="text" placeholder="例如：200-300元" name="price">
+    <br/>
+    <br/>
+    花费时间：<input type="text" name="predict_time" placeholder="例如：1天  或者  2-3天">
+    <br/>
+    <br/>
+
+<input type="submit" name="提交">
+</form>
+<div style="display:none;">
+</div>
+</body>
+<script>
+    $('#logi_name').focus(function(){
+        $('#gou').empty();
+    })
+
+    $('#logi_name').blur(function(){
+        var name = $(this).val();
+        if(name == ''){
+            alert('不能为空');
+            return false;
+        }
+        $.ajax({
+            type: "POST",
+            url: "{:U('WireRelation/searchName')}",
+            data:'name='+name,
+            dataType: "json",
+            success:function(msg){
+                if(msg.status == 0){
+                    alert(msg.message);
+                }else{
+                    $('#gou').append('<img src="__PUBLIC__/Admin/images/ico_gou.png">');
+                    $('#logiid').val(msg.data);
+                }
+
+            }
+        });
+    })
+</script>

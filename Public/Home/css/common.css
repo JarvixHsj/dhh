@@ -1,0 +1,96 @@
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+a,a:hover{text-decoration: none;}
+/* 消除谷歌浏览器黄色边框 */
+input, button, select, textarea{
+	outline:none !important;
+}
+/*禁止拖动*/
+textarea{
+	resize:none;
+}
+ul, li, dl, dl, dt{
+	margin:0; padding:0; list-style:none;
+}
+.clearPA{padding-left:0;padding-right:0;}
+.clearPR{padding-right: 0;}
+
+.MT0{margin-top: 0 !important;}
+.MT5{margin-top: 5px;}
+.MT10{margin-top: 10px;}
+.MT15{margin-top: 15px;}
+.ML0{margin-left: 0px !important;}
+.ML15{margin-left: 15px;}
+.ML20{margin-left: 20px !important;}
+.MR0{margin-right: 0px !important;}
+.MR10{margin-right: 10px;}
+.MR20{margin-right: 20px;}
+.MB0{margin-bottom: 0 !important;}
+.MB5{margin-bottom: 5px;}
+.MB10{margin-bottom: 10px;}
+.MB20{margin-bottom: 20px;}
+.MB30{margin-bottom: 30px;}
+
+.PT0{padding-top: 0px !important;}
+.PT5{padding-top: 5px;}
+.PT10{padding-top: 10px;}
+.PT15{padding-top: 15px;}
+.PT30{padding-top: 30px;}
+.PT60{padding-top: 60px !important;}
+.PB0{padding-bottom: 0px;}
+.PB10{padding-bottom: 10px;}
+.PB15{padding-bottom: 15px !important;}
+.PB20{padding-bottom: 20px;}
+.PB30{padding-bottom: 30px;}
+.PB50{padding-bottom: 50px !important;}
+.PB100{padding-bottom: 100px;}
+.PL0{padding-left: 0;}
+.PL5{padding-left: 5px;}
+.PL10{padding-left: 10px;}
+.PL15{padding-left: 15px;}
+.PL20{padding-left:20px;}
+.PL30{padding-left:30px;}
+.PL45{padding-left:45px;}
+.PL50{padding-left: 50px;}
+.PR0{padding-right: 0px !important;}
+.PR10{padding-right: 10px;}
+.PR15{padding-right: 15px;}
+.PR20{padding-right: 20px;}
+.PR30{padding-right: 30px;}
+.PR50{padding-right: 50px;}
+.PA50{padding: 50px;}
+
+.fs-12{font-size: 12px;}
+.fs-16{font-size: 16px;}
+.fs-18{font-size: 18px;}
+.common-container{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.cur{cursor: pointer;}
+.texthide{overflow: hidden; text-overflow:ellipsis}
+
+.bgfff{background-color: #FFF;}
+.bgff7c2c{background-color: #ff7c2c;}
+.bgf3f3f3{background-color: #f3f3f3;}
+
+
+
+
+.c-ffffff{color: #FFFFFF;}
+.c-6c6c6c{color: #6c6c6c;}
+.c-f6623a{color: #f6623a !important;}
+.c-b3b3b3{color: #b3b3b3;}
+
+
+
+
+
+
+
+

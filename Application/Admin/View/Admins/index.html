@@ -1,0 +1,58 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+var pidDatas = [];
+var pidDataRow = {};
+<volist name="roles" id="role">
+pidDataRow = {};
+pidDataRow.id = {$role['id']};
+pidDataRow.text = "{$role['fullname']}";
+pidDatas.push(pidDataRow);
+</volist>
+
+var form_search_fields = [
+    { display: "角色", name: "role_id", newline: true, type: "select",
+        options: {
+            data: pidDatas,
+            textField: 'text',
+            valueField: 'id'
+        }
+    }
+
+];
+
+var grid_columns  = [
+    { display: 'ID', name: 'id', width: 50, type: 'int', frozen: true },
+    { display: '用户名', name: 'name', width: 150, isSort: false },
+    { display: '角色', width: 150, render: function (rowdata, rowindex, value)
+        {
+            return rowdata.role.name;
+        }
+    },
+    { display: '备注', name: 'remark', width: 150, isSort: false, align: 'left' },
+    { display: '状态', name: 'is_active', width: 50, render: function (rowdata, rowindex, value)
+        {
+            return value == 1 ? '已启用' : '已禁用';
+        }
+    },
+    { display: '创建时间', name: 'created_at', width: 150, render: function (rowdata, rowindex){
+            return DateFormatter(rowdata.created_at, 'yyyy-MM-dd HH:mm:ss');
+        }
+    },
+    { display: '最后登录时间', name: 'last_login_at', width: 150, render: function (rowdata, rowindex){
+            return DateFormatter(rowdata.last_login_at, 'yyyy-MM-dd HH:mm:ss');
+        }
+    },
+    { display: '最后登录IP', name: 'last_login_ip', width: 150, isSort: false },
+    { display: '登录次数', name: 'login_count', width: 80, isSort: false }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '管理员',
+        rownumbers: false,
+        checkbox: false,
+        grid_columns: grid_columns,
+        form_search_fields: form_search_fields
+    });
+});
+</script>

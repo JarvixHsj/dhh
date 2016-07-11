@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>{:C('SITE_TITLE')} - 后台管理系统</title>
+    <base2 href="__MODULE__" />
+    <!-- css -->
+    <include file="Common/stylesheets" />
+</head>
+
+<body>
+<div class="l-clear"></div>
+<div id="maingrid"></div>
+
+<include file="Common/javascripts" />
+{__CONTENT__}
+<script type="text/javascript">
+    $(f_init);
+
+    var g,
+        searchForm,
+        searchDialog = null,
+        form_data_search_default = null,
+        form_data_search = null;  //保存查询表单的值
+
+    function f_init()
+    {
+        f_initGrid();
+        f_initSearchForm();
+    }
+
+    function f_initGrid()
+    {
+        manager = $("#maingrid").ligerGrid({
+            columns: ligerGridColumns,
+            clickToEdit:false,
+            isScroll: false,
+            url: "{:U(CONTROLLER_NAME.'/ajaxList')}",
+            width: '100%',
+            toolbar: { items: [
+                { text: '修改', click: edit, icon: 'modify' },
+                { line: true },
+                { text: '删除', click: del, icon: 'delete' }
+            ]},
+            pageSize: 20
+        });
+    }
+    //初化搜索表单
+    function f_initSearchForm()
+    {
+        var wrap = '<div id="<?php echo $jsid;?>search_dialog_cont" style="visibility:hidden;">';
+        wrap += '<div class="main_content">';
+        wrap += '<form id="<?php echo $jsid;?>form_search"></form>';
+        wrap += '</div>';
+        wrap += '</div>';
+
+        if( window.parent.$("#<?php echo $jsid;?>search_dialog_cont").length > 0 ) window.parent.$("#<?php echo $jsid;?>search_dialog_cont").remove();
+
+        window.parent.$("body").append(wrap);
+
+        searchForm = window.parent.$("#<?php echo $jsid;?>form_search").ligerForm({
+            inputWidth: <?php echo isset($inputWidth) ? $inputWidth : 200; ?>,
+            labelWidth: <?php echo isset($labelWidth) ? $labelWidth : 90; ?>,
+            space: <?php echo isset($space) ? $space : 40; ?>,
+            labelAlign: <?php echo isset($labelAlign) ? "'".$labelAlign."'" : "'right'"; ?>,
+            validate : true,
+            readonly: false
+        });
+
+        searchForm.setData(form_data_search);
+
+        if(!form_data_search_default)
+        {
+            form_data_search_default = searchForm.getData();
+        }
+    }
+    function search(){
+        <?php if(!isset($form_fields_search) || !$form_fields_search): ?>
+            return false;
+        <?php endif; ?>
+
+        if(searchDialog != null){
+            searchDialog.show();
+            return false;
+        }
+
+        searchDialog = window.parent.$.ligerDialog.open({
+            title: '搜索<?php echo $jstitle; ?>',
+            id: '<?php echo $jsid;?>search_dialog',
+            width:<?php echo !empty($dialog_width) ? $dialog_width : 380?>,
+            height: <?php echo !empty($dialog_height) ? $dialog_height : 'null'?>,
+            target: window.parent.$("#<?php echo $jsid;?>search_dialog_cont"),
+            buttons: [
+                {text: '搜索', onclick: function (item, dialog) { doSearch(item, dialog); }},
+                {text: '重置', onclick: function (item, dialog) { doReset(item, dialog); }},
+                {text: '取消', onclick: function (item, dialog) { dialog.hide(); }}
+            ]
+        });
+        window.parent.$("#<?php echo $jsid;?>search_dialog_cont").css("visibility", "visible");
+    }
+    var doSearch = function(item, dialog)
+    {
+        var data = {};
+
+        if(!searchForm.valid()) {
+            return false;
+        }
+
+        $.each(window.parent.$("#<?php echo $jsid;?>form_search").serializeArray(), function(i,item){
+            if(!item.name || item.name == 'undefined') return;
+            data[item.name] = item.value;
+        });
+
+        form_data_search = data;
+        g.setParm('filter', JSON.stringify(data));
+        g.reload();
+        searchDialog.hide();
+    };
+
+    var doReset = function(item, dialog)
+    {
+        searchForm.setData(form_data_search_default);
+    }
+
+    function add(){
+        window.parent.add_tab("_add", "新增<?php echo $jstitle; ?>", "<?php echo $jsurl . '/add'; ?>");
+    }
+    function edit(id){
+        if(id == null || typeof(id) != 'number') {
+            if(g.getSelectedRow() == null) {
+                window.parent.$.ligerDialog.warn('请选择行');
+                return;
+            }
+            id = g.getSelectedRow().id;
+        }
+
+        window.parent.add_tab("_edit", "修改<?php echo $jstitle; ?>", "<?php echo $jsurl . '/edit'; ?>/" + id);
+    }
+    function del(id){
+        if(id == null || typeof(id) != 'number') {
+            if(g.getSelectedRow() == null) {
+                window.parent.$.ligerDialog.warn('请选择行');
+                return;
+            }
+            id = g.getSelectedRow().id;
+        }
+
+        window.parent.$.ligerDialog.confirm('确定删除?', function (yes)
+        {
+            if(!yes) return ;
+
+            $.ajax({
+                type: "POST",
+                data: {"id": id},
+                url: "<?php echo $jsurl . '/ajax_del'; ?>",
+                dataType: "json",
+                cache: false,
+                async: false,
+                success: function(data){
+                    manager.reload();
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+var form_search_fields = [
+    {name: "fullname", display: "角色名称", newline: true, type: "text", validate: {maxlength:50}}
+];
+
+var grid_columns  = [
+    { display: 'ID', name: 'id', width: 50, type: 'int', frozen: true, isSort: false },
+    { display: '角色名称', name: 'fullname', width: 150, isSort: false },
+    { display: '备注', name: 'description', width: 300, isSort: false, align: 'left' },
+    { display: '状态', name: 'status', isSort: false, width: 50, render: function (rowdata, rowindex, value)
+        {
+            return value == 1 ? '已启用' : '已禁用';
+        }
+    }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '角色',
+        grid_columns: grid_columns,
+        rownumbers: false,
+        checkbox: false,
+//        toolbar_has_del: false,
+        toolbar_items_add: [
+           { line: true },
+           { text: '分配权限', click: {$js_prefix}role, icon:'role' }
+           /*,
+           { line: true },
+           { text: '用户列表', click: {$js_prefix}member, icon:'memeber' }*/
+        ],
+        form_type : 'dialog',
+        form_search_fields: null
+    });
+
+    function {$js_prefix}role() {
+        var getSelectedRow = window.parent.{$js_prefix}grid.getSelectedRow();
+        if(getSelectedRow == null) {
+            window.parent.$.ligerDialog.warn('请选择行');
+            return;
+        }
+        var id = getSelectedRow.id;
+        var url = "{:U(CONTROLLER_NAME.'/assignAccess')}";
+        if (url.indexOf("?") != -1)
+            url += "&";
+        else
+            url += "?";
+        url += "id=" + id;
+        if(isNaN(id)) {
+            window.parent.$.ligerDialog.alert("请至少选择其中一项！", '警告', "warn");
+            return;
+        } else if(id == 1) {
+            window.parent.$.ligerDialog.alert("超级管理员不需要设置权限！", '警告', "warn");
+            return;
+        }
+
+        window.parent.add_tab("{$js_prefix}add", "角色[" + getSelectedRow.name + "]分配权限", url);
+    }
+
+    function {$js_prefix}member() {
+        var str = parseInt(f_getChecked().split(",", 1));
+        var id = parseInt(str);
+        var url = "userlist?role_id=" + id;
+        if(isNaN(id)) {
+            window.parent.$.ligerDialog.alert("请至少选择其中一项！", '警告', "warn");
+        } else {
+            window.parent.$.ligerDialog.open({ url:url,height: 400,width:1000, isResize:true ,showMax:true,showMin:true});
+        }
+    }
+});
+</script>

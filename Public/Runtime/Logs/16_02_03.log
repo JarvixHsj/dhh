@@ -1,0 +1,6 @@
+[ 2016-02-03T15:32:48+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/indexclient/wireShow
+ERR: Think\Model:relation方法不存在！
+
+[ 2016-02-03T15:35:31+08:00 ] ::1 /myworks/dhh/www/index.php?s=/api/indexclient/wireShow
+ERR: Think\Model:relation方法不存在！
+

@@ -1,0 +1,32 @@
+<layout name="LigerUI/form_html" />
+<js href="__PUBLIC__/ueditor/ueditor.config.js" />
+<js href="__PUBLIC__/ueditor/ueditor.all.min.js" />
+<script type="text/javascript" charset="utf-8">
+    //    window.UEDITOR_HOME_URL = "/Public/Ueditor/";  //UEDITOR_HOME_URL、config、all这三个顺序不能改变
+    window.onload=function(){
+        window.UEDITOR_CONFIG.initialFrameHeight=600;//编辑器的高度
+        window.UEDITOR_CONFIG.initialFrameWidth=1600;//编辑器的高度
+        window.UEDITOR_CONFIG.imageUrl="{:U('Admin/Article/ueditor')}";          //图片上传提交地址
+        window.UEDITOR_CONFIG.imagePath=' /Public/Uploads/Ueditor/thumb/';//编辑器调用图片的地址
+        UE.getEditor('container');//里面的contents是我的textarea的id值
+
+    }
+</script>
+<div class="contentArea">
+    <form id="{$js_prefix}form" method="post">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="l-table-edit">
+            <tr>
+                <th class="l-table-edit-th" width="80">名称：</th>
+                <td class="l-table-edit-td"><input name="title" type="text" ltype="text"  value="{$row['title']}" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th class="l-table-edit-th" width="80">内容：</th>
+                <td class="l-table-edit-td">
+                    <textarea id="container" name="value">{$row['value']}</textarea>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</div>

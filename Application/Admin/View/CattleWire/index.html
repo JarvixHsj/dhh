@@ -1,0 +1,22 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+var grid_columns  = [
+    { display: 'ID', name: 'id', width: 50, frozen: true},
+    { display: '黄牛公司名', name: 'name',  width: 200, isSort: false },
+    { display: '起始地', name: 'start', width: 120, isSort: false },
+    { display: '目的地', name: 'end', width: 150, isSort: false }
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '黄牛',
+        grid_columns: grid_columns,
+        rownumbers: false,  //行号
+        checkbox: false,   //多选框
+//        identity_key: 'wire_id',
+//        toolbar_has_view : true,
+        form_dialog_width: 550
+    });
+});
+
+</script>

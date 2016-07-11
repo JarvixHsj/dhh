@@ -1,0 +1,24 @@
+<layout name="LigerUI/form" />
+<script>
+
+    var types = {:djson_encode($data)};
+    var ligerFormFields = [
+        { display: "筛选类型", name: "type_id", newline: true, type: "select", validate: { required: true},
+            options: {
+                data: types,
+                textField: 'type_name',
+                valueField: 'type_id'
+            }
+        },
+        { display: "输入值", name: "select_area_state", newline: true, type: "text", validate: { required: true}}
+
+    ];
+
+    $(function() {
+        $.fn.{$js_prefix}form({
+            title: '筛选',
+            fields: ligerFormFields,
+            data: {:djson_encode($row)}
+    });
+    });
+</script>
