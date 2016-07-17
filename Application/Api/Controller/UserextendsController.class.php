@@ -107,4 +107,33 @@ class UserextendsController extends  ClientCommonController
     }
 
 
+    /* 以下是二期接口 */
+
+
+    /**
+     *
+     */
+    public function setPositive()
+    {
+        $this->checkUser();
+        $result = $this->returns();
+
+        $info = $this->uploadImg('user');
+        if($info['status'] == 1){
+            $data['user_id'] = $this->user_id;
+            $data['id_positive'] = $info['path']['positive'];
+            if(!M('Users')->save($data)){
+                $result['message'] = '上传失败！';
+                $this->getReturn($result);
+            }else{
+                $result['status'] = 1;
+                $result['message'] = '上传成功';
+                $this->getReturn($result);
+            }
+        }
+        $result['message'] = $info['message'];
+        $this->getReturn($result);
+    }
+
+
 }
