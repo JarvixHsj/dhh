@@ -5,23 +5,23 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <title><?php echo C('SITE_TITLE');?> - 后台管理系统</title>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
-<link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/ligerUI/skins/ligerui-icons.css" />
-<link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/ligerUI/skins/Gray/css/all.css" />
-<link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/css/common.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/ligerui-icons.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Gray/css/all.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/css/common.css" media="all">
 </head>
 
 <body>
 <script type="text/javascript">var cookie_prefix = '<?php echo C('COOKIE_PREFIX');?>', cookie_domain = '', cookie_path = '/', cookie_secure = false, admin_defult_url = '<?php echo U('Public/index');?>';</script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/ligerUI/js/ligerui.all.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/js/json2.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery-validation/jquery.metadata.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery-validation/messages_cn.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/js/common.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/ligerui.all.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/json2.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.metadata.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/messages_cn.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/common.js"></script>
 <!-- <script type="text/javascript" src="<?php echo U('Index/select_data');?>"></script>  -->
 
 <script type="text/javascript">
@@ -45,13 +45,29 @@ var grid_columns  = [
             }
         }
     },
-    { display: '用户图片', name: 'user_img', width: 150,height:100, render: function (rowdata, rowindex, value){
+    { display: '用户图片', name: 'user_img', width: 100,height:100, render: function (rowdata, rowindex, value){
             if(value != ''){
-                return "<img style='width:50px;height:50px;' src='/myworks/dhh/www/Public/" + value + "'/>";
+                return "<img style='width:50px;height:50px;' src='/github/dhh/Public/" + value + "'/>";
             }else{
                 return '无';
             }
         }
+    },
+    { display: '身份证正面', name: 'id_positive', width: 100,height:100, render: function (rowdata, rowindex, value){
+        if(value != ''){
+            return "<img style='width:50px;height:50px;' src='/github/dhh/Public/" + value + "'/>";
+        }else{
+            return '无';
+        }
+    }
+    },
+    { display: '身份证反面', name: 'id_reverse', width: 100,height:100, render: function (rowdata, rowindex, value){
+        if(value != ''){
+            return "<img style='width:50px;height:50px;' src='/github/dhh/Public/" + value + "'/>";
+        }else{
+            return '无';
+        }
+    }
     },
     { display: '口令', name: 'token', width: 250, isSort: false },
     { display: '状态', name: 'user_status', width: 50, render: function (rowdata, rowindex, value)

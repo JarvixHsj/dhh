@@ -111,7 +111,7 @@ class UserextendsController extends  ClientCommonController
 
 
     /**
-     *
+     * 上传 ／ 修改 身份证正面图片
      */
     public function setPositive()
     {
@@ -135,5 +135,30 @@ class UserextendsController extends  ClientCommonController
         $this->getReturn($result);
     }
 
+
+    /*＊
+     * 上传 ／ 修改 身份证反面照片
+     */
+    public function setReverse()
+    {
+        $this->checkUser();
+        $result = $this->returns();
+
+        $info = $this->uploadImg('user');
+        if($info['status'] == 1){
+            $data['user_id'] = $this->user_id;
+            $data['id_reverse'] = $info['path']['reverse'];
+            if(!M('Users')->save($data)){
+                $result['message'] = '上传失败！';
+                $this->getReturn($result);
+            }else{
+                $result['status'] = 1;
+                $result['message'] = '上传成功';
+                $this->getReturn($result);
+            }
+        }
+        $result['message'] = $info['message'];
+        $this->getReturn($result);
+    }
 
 }

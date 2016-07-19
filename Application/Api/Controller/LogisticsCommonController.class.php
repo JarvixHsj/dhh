@@ -74,4 +74,5 @@ class LogisticsCommonController extends CommonController
         $this->token = '';
     }
 
+
 }

@@ -21,7 +21,6 @@ class UsersController extends CommonController {
      */
     protected function ajaxList() {
         $result = $this->getAjaxList('Users');
-
         $this->gridReturn($result['rows'], $result['total']);
     }
 

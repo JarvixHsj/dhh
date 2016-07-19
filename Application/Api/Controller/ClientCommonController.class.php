@@ -100,34 +100,4 @@ class ClientCommonController extends CommonController
     }
 
 
-
-    /**
-     * 图片上传，支持多图片上传
-     * @return array    返回格式： 如果上传文件是：'$_FILES['name']'   则  'name' => '文件路径';
-     */
-    public function uploadImg($filename = 'else'){
-        $upload = new \Think\Upload();// 实例化上传类
-        $upload->maxSize   =     3145728 ;// 设置附件上传大小
-        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-        $upload->rootPath  =     './Public/'; // 设置附件上传根目录
-        $upload->savePath  =     'Uploads/'.$filename.'/'; // 设置附件上传（子）目录
-        // 上传文件
-        $info   =   $upload->upload();
-
-        $path = array();
-        $return = array('status' => 0, 'message' => '');
-        if(!$info) {// 上传错误提示错误信息
-            $return['message'] = $upload->getError();
-            return $return;
-        }else{// 上传成功 获取上传文件信息
-            foreach($info as $key=>$file){
-//                return $file['savepath'].$file['savename'];
-                $path[$key] =  $file['savepath'].$file['savename'];
-            }
-            $return['status'] = 1;
-            $return['path'] = $path;
-            return $return;
-        }
-    }
-
 }
