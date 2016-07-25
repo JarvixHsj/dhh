@@ -1,8 +1,6 @@
 <layout name="LigerUI/list" />
 <script type="text/javascript">
 
-
-
 var form_search_fields = [
     { display: "公司id", name: "logistics_id", newline: true, type: "text"},
     { display: "公司名称", name: "logistics_name", newline: true, type: "text"},
@@ -77,7 +75,6 @@ var grid_columns  = [
             }
         }
     },
-//    { display: '唯一口令', name: 'token', minWidth: 60, width: 100, isSort: false },
     { display: '公司电话', name: 'logistics_tel',  width: 170, isSort: false },
     { display: '是否推荐排序', name: 'is_recommend', width: 80,
         render: function (item)
@@ -93,15 +90,6 @@ var grid_columns  = [
           return '已禁用';
         }
     },
-//    { display: '长跑路线', isSort: false, width: 80, render: function (rowdata, rowindex, value)
-//    {
-//        var h = '';
-//        h += '<a href="javascript:show();" class="js-toggle" >';
-//        h += '查看';
-//        h += '</a>';
-//        return h;
-//    }
-//    },
     { display: '操作', isSort: false, width: 80, render: function (rowdata, rowindex, value)
         {
             var h = '';
@@ -136,7 +124,7 @@ $(function() {
         toolbar_has_view : true,
         toolbar_items_add: [
            { line: true },
-           { text: '分配权限', click: {$js_prefix}role, icon:'role' }
+           { text: '分配权限', click: {$js_prefix}identityCheck, icon:'role' }
            /*,
            { line: true },
            { text: '用户列表', click: {$js_prefix}member, icon:'memeber' }*/
@@ -145,6 +133,26 @@ $(function() {
         form_search_fields: form_search_fields
     });
 });
+
+function {$js_prefix}identityCheck() {
+    var getSelectedRow = window.parent.{$js_prefix}grid.getSelectedRow();
+    if(getSelectedRow == null) {
+        window.parent.$.ligerDialog.warn('请选择行');
+        return;
+    }
+    var id = getSelectedRow.logistics_id;
+    var url = "{:U(CONTROLLER_NAME.'/identityCheck')}";
+    if (url.indexOf("?") != -1)
+        url += "&";
+    else
+        url += "?";
+    url += "id=" + id;
+    if(isNaN(id)) {
+        window.parent.$.ligerDialog.alert("请至少选择其中一项！", '警告', "warn");
+        return;
+    }
+    window.parent.add_tab("{$js_prefix}add", " 查看[" + getSelectedRow.logistics_name + "]身份图片", url);
+}
 
 function toggle_status(id, status, name) {
     var url = "{:U('Logistics/toggleStatus')}";
@@ -196,24 +204,4 @@ function show(id, name) {
     return false;
 }
 
-function {$js_prefix}role() {
-        var getSelectedRow = window.parent.{$js_prefix}grid.getSelectedRow();
-        if(getSelectedRow == null) {
-            window.parent.$.ligerDialog.warn('请选择行');
-            return;
-        }
-        var id = getSelectedRow.logistics_id;
-        var url = "{:U(CONTROLLER_NAME.'/role')}";
-        if (url.indexOf("?") != -1)
-            url += "&";
-        else
-            url += "?";
-        url += "id=" + id;
-        if(isNaN(id)) {
-            window.parent.$.ligerDialog.alert("请至少选择其中一项！", '警告', "warn");
-            return;
-        }
-
-        window.parent.add_tab("{$js_prefix}add", "角色[" + getSelectedRow.name + "]分配权限", url);
-    }
 </script>

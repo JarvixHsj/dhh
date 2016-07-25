@@ -5,10 +5,10 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <title><?php echo C('SITE_TITLE');?> - 后台管理系统</title>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
-<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/ligerui-icons.css" />
-<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Gray/css/all.css" />
-<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/css/common.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
+<link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/ligerUI/skins/ligerui-icons.css" />
+<link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/ligerUI/skins/Gray/css/all.css" />
+<link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/css/common.css" media="all">
     <style type="text/css">
     body,html{height:100%;}
     body{ padding:0px; margin:0;   overflow:hidden; background-color: #f2f2f2;}
@@ -41,9 +41,9 @@
     #footer{height:30px; line-height: 30px; overflow: hidden; text-align: center; font-family: "verdana", "arial"; color:#999999;}
 
     /*左边导航样式*/
-    .nlist li a{ display:block; line-height:22px; height:22px; padding-left:22px; background:url(/github/dhh/Public/Admin/images/nav_icon.gif) no-repeat 5px top; border:1px solid #fff; margin:3px 2px 0 2px; color:#333; text-decoration:none; }
-    .nlist li a:hover{ border:1px solid #eae8e8; background:url(/github/dhh/Public/Admin/images/nav_icon.gif) no-repeat 5px -22px #f5f5f5; }
-    .nlist li.title{ margin-top:5px; line-height:25px; font-weight:600; color:#090; padding-left:25px; background:url(/github/dhh/Public/Admin/images/nav_icon.gif) no-repeat 7px -50px;}
+    .nlist li a{ display:block; line-height:22px; height:22px; padding-left:22px; background:url(/jarvix/dhh/dhh/Public/Admin/images/nav_icon.gif) no-repeat 5px top; border:1px solid #fff; margin:3px 2px 0 2px; color:#333; text-decoration:none; }
+    .nlist li a:hover{ border:1px solid #eae8e8; background:url(/jarvix/dhh/dhh/Public/Admin/images/nav_icon.gif) no-repeat 5px -22px #f5f5f5; }
+    .nlist li.title{ margin-top:5px; line-height:25px; font-weight:600; color:#090; padding-left:25px; background:url(/jarvix/dhh/dhh/Public/Admin/images/nav_icon.gif) no-repeat 7px -50px;}
     .nlist li ul li{ margin-left:-13px; font-weight:normal; }
     </style>
 </head>
@@ -86,15 +86,15 @@
 </div>
 <!-- js -->
 <script type="text/javascript">var cookie_prefix = '<?php echo C('COOKIE_PREFIX');?>', cookie_domain = '', cookie_path = '/', cookie_secure = false, admin_defult_url = '<?php echo U('Public/index');?>';</script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/ligerui.all.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/js/json2.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.metadata.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/messages_cn.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/js/common.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/ligerUI/js/ligerui.all.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/js/json2.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery-validation/jquery.metadata.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery-validation/messages_cn.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/js/common.js"></script>
 <!-- <script type="text/javascript" src="<?php echo U('Index/select_data');?>"></script>  -->
 <script type="text/javascript">
 var tree_data = {};

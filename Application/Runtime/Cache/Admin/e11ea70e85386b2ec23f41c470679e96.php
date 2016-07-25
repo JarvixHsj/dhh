@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>欢迎您登录<?php echo C('SITE_TITLE');?></title>
-        <link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/css/login.css" media="all">
-        <link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/css/default_color.css" media="all">
+        <link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/css/login.css" media="all">
+        <link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/css/default_color.css" media="all">
     </head>
     <body id="login-page">
         <div id="main-content">
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-    <script type="text/javascript" src="/github/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
     <script type="text/javascript">
         /* 登陆表单获取焦点变色 */
         $(".login-form").on("focus", "input", function(){

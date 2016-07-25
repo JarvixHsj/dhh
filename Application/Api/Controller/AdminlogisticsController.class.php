@@ -210,8 +210,8 @@ class AdminlogisticsController extends LogisticsCommonController
             $return['message'] = '账号密码不能为空';
             die($this->getReturn($return));
         }
-        $Logi = M('logistics');
-        $map['logistics_phone']       = $phone;
+        $Logi = D('logistics');
+        $map['logistics_phone'] = $phone;
         $data = $Logi->where($map)->find();
 
         if(empty($data)){
@@ -226,11 +226,9 @@ class AdminlogisticsController extends LogisticsCommonController
 
         //判断极光
         if($data['jpush_id'] != $jpush_id){
-
 //            $content = '您的账号在别的设备登录了';
 //            D('Logimess')->InsertMess($data['logistics_id'],$content, $content);
 //            $this->bbs_push_server_voice($data['jpush_id'],$content,$content,'quit');
-
             $save['jpush_id'] = $jpush_id;
             $save['logistics_id'] = $data['logistics_id'];
             $Logi->save($save);
@@ -245,6 +243,11 @@ class AdminlogisticsController extends LogisticsCommonController
             $data['token'] = $newToken['token'];
         }
 
+        //新增判断注册时间是否生成
+        if($data['created_at'] == 0){
+            $Logi->where('logistics_id = '.$data['logistics_id'])->setField('created_at', time());
+            $data['created_at'] = time();
+        }
 
         $this->token = $data['token'];
         $this->logi_id = $data['logistics_id'];
