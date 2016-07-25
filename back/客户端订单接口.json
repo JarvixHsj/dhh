@@ -1,0 +1,2450 @@
+{
+	"id": "753082a8-e4a3-34bf-d768-ce39a1922924",
+	"name": "客户端订单接口",
+	"description": "",
+	"order": [
+		"0c7b0a9d-f877-cbbf-70de-405582c0fd4a",
+		"865daa59-5ca7-3fae-decd-d63b8473cd70",
+		"239878c6-b917-87b3-faa2-03b716901101",
+		"a67b2a23-381f-b6a5-8a2f-a7ffcf897299",
+		"334638e5-a15a-2f96-1d6d-4bbc63b9db33",
+		"5149adde-91a1-c4fc-2666-ee93a09597ca",
+		"24cc952c-e75f-33d7-25be-6214bec9805e",
+		"033680d2-7c22-2303-a726-beb397347bce",
+		"d00b9b60-e777-d22e-be03-c42e85412a43"
+	],
+	"folders": [],
+	"timestamp": 1453174871503,
+	"owner": 0,
+	"public": false,
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "033680d2-7c22-2303-a726-beb397347bce",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/orderCancel",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "9",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456295369673,
+			"name": "取消订单",
+			"description": "【请求参数】\n\ntoken   //用户唯一口令\n\nid      //订单id\n",
+			"collectionId": "753082a8-e4a3-34bf-d768-ce39a1922924",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 144,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "128",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 23 Feb 2016 12:19:14 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":0,\"message\":\"\\u8ba2\\u5355\\u5df2\\u7ecf\\u4e0a\\u8d27\\uff0c\\u4e0d\\u53ef\\u53d6\\u6d88\\uff01\",\"data\":\"\",\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "aaad633e-e88a-fadd-6cb3-f4ce16674f16",
+					"name": "订单已上货，不可取消",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/orderCancel",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "b9f83725-74ab-db73-97ec-ffc3272c48dc"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "8",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 165,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "98",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 23 Feb 2016 12:19:31 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u6210\\u529f\\u53d6\\u6d88\\u8ba2\\u5355\\uff01\",\"data\":\"\",\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "d3bd3a58-0af6-d131-e6f1-fd5aea18b62b",
+					"name": "成功",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/orderCancel",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "eea854a1-18d1-2a4d-9c53-121b51643393"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "9",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 170,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "123",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 23 Feb 2016 12:20:50 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":0,\"message\":\"\\u9700\\u8981\\u53d6\\u6d88\\u7684\\u8ba2\\u5355\\u4e0d\\u5b58\\u5728\\uff01\",\"data\":\"\",\"token\":\"\",\"code\":304}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "5792e1a7-fe26-3cc8-41e5-2d4b90c90b6c",
+					"name": "不存在",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/orderCancel",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "00fb4ae6-ad82-8012-2378-5f30d3996a52"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "9",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "0c7b0a9d-f877-cbbf-70de-405582c0fd4a",
+			"headers": "Cache-Control: no-cache\nPostman-Token: 1bb6d6b8-9aaf-8c44-07c6-a1ab3b9db7f0\n",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/orderList",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "status",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "p",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "search",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1463537886148,
+			"name": "个人中心--我的订单",
+			"description": "【请求参数】\n\ntoken   //用户唯一口令\n\nstatus  //要查看的订单状态\n\np       //表示要查的页数\n\nsearch  //搜索订单号\n\n【成功返回】\n\n{\n\n  \"status\": 1,      //返回类型状态\n  \n  \"message\": \"\",\n  \n  \"data\": [\n  \n    {\n    \n      \"order_id\": \"3\",      //订单id\n      \n      \"order_sn\": \"F11860267\",  //订单号\n      \n      \"user_id\": \"7\",       //用户id\n      \n      \"wire_id\": \"1\",       //路线id\n      \n      \"Logistics_id\": null, //物流公司id\n      \n      \"order_type\": \"1\",        //订单类型，1预约发货，2定向\n      \n      \"order_status\": \"1\",      //订单状态，1未确定，2未完成，3已完成\n      \n      \"order_depart_province\": \"\",  //起始地的省id\n      \n      \"order_depart_city\": \"\",      //起始地的市id\n      \n      \"order_depart_district\": \"\",  //起始地的区id（预留）\n      \n      \"order_depart_details\": \"起始地环市东路254号\",    //起始地的详细地址\n      \n      \"order_des_province\": \"\",     //目的地的省id\n      \n      \"order_des_city\": \"\",         //目的地的市id\n      \n      \"order_des_district\": \"\",     //目的地的区id（预留）\n      \n      \"order_des_details\": \"目的地环市东路265号\",   //目的地的详细地址\n      \n      \"order_time\": \"1450022400\",       //订单发货时间\n      \n      \"order_cargo_type\": \"家具\",       //订单货物类型\n      \n      \"order_weight\": \"2\",          //货物重量\n      \n      \"order_bulk\": \"30\",           //货物体积\n      \n      \"order_car_type\": null,       //车类型\n      \n      \"order_car_length\": null,     //车长\n      \n      \"order_user_phone\": \"13692763394\",    //用户手机\n      \n      \"order_remark\": null,     //备注\n      \n      \"order_cash\": null        //保证金\n      \n      \"show_code\": 8        //订单显示代号：\n      \n      1=有报价  2=0个报价  3=对方未报价  4=对方已报价  5=未上货  6=运输中  7=未评价  8=已评价\n      \n      等于1的时候，会有show_num这个字段，表示有多少个报价信息\n      \n    }\n    \n  ],\n  \n  \"token\": \"adfd6ca6b890f6985b8386f5c7032d4f\",      //用户唯一口令\n  \n  \"code\": \"\",       //错误代号，10表示没有该状态的订单\n  \n  \"also\": 1,        //判断有无下一页，1有，0无\n  \n  \"p\": \"\"           //表示当前页数，空表示默认第一页\n  \n}\n\n",
+			"collectionId": "753082a8-e4a3-34bf-d768-ce39a1922924",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 223,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "1536",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 26 Jan 2016 09:04:46 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\",\"data\":[{\"order_id\":\"6\",\"order_sn\":\"F11872239\",\"user_id\":\"7\",\"wire_id\":\"1\",\"offer_id\":\"0\",\"logistics_id\":\"1\",\"order_type\":\"2\",\"order_status\":\"1\",\"order_is_goods\":\"0\",\"order_depart_province\":\"\",\"order_depart_city\":\"\",\"order_depart_district\":\"\",\"order_depart_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def254\\u53f7\",\"order_des_province\":\"\",\"order_des_city\":\"\",\"order_des_district\":\"\",\"order_des_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def265\\u53f7\",\"order_time\":\"12-23\",\"order_cargo_type\":\"2\",\"order_weight\":\"2\",\"order_bulk\":\"30\",\"order_car_type\":\"\",\"order_car_length\":\"\",\"order_user_phone\":\"13692763394\",\"order_remark\":\"\",\"order_cash\":\"0\",\"order_add_time\":false,\"order_start\":\"\\u4e2d\\u56fd\",\"order_end\":\"\\u5317\\u4eac\",\"show_code\":4,\"show_num\":0},{\"order_id\":\"5\",\"order_sn\":\"F11866782\",\"user_id\":\"7\",\"wire_id\":\"4\",\"offer_id\":\"0\",\"logistics_id\":\"1\",\"order_type\":\"1\",\"order_status\":\"1\",\"order_is_goods\":\"0\",\"order_depart_province\":\"2\",\"order_depart_city\":\"52\",\"order_depart_district\":\"\",\"order_depart_details\":\"\\u73af\\u5e02\\u4e1c\\u8def254\\u53f7\",\"order_des_province\":\"6\",\"order_des_city\":\"76\",\"order_des_district\":\"\\u8d8a\\u79c0\\u533a\",\"order_des_details\":\"\\u73af\\u5e02\\u4e1c\\u8def265\\u53f7\",\"order_time\":\"12-14\",\"order_cargo_type\":\"4\",\"order_weight\":\"2\",\"order_bulk\":\"30\",\"order_car_type\":\"\",\"order_car_length\":\"\",\"order_user_phone\":\"13692763394\",\"order_remark\":\"\",\"order_cash\":\"0\",\"order_add_time\":false,\"order_start\":\"\\u5317\\u4eac\",\"order_end\":\"\\u5e7f\\u5dde\",\"show_code\":1,\"show_num\":\"2\"}],\"token\":\"\",\"code\":\"\",\"also\":1,\"p\":\"1\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "0f208667-7821-6635-3661-5bcf1759e7e9",
+					"name": "成功",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/orderList",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"type": "text",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"type": "text",
+								"name": "Postman-Token",
+								"value": "3ad5a3e2-474b-5150-e3fd-3b141951170f"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "status",
+								"value": "1",
+								"enabled": true
+							},
+							{
+								"key": "p",
+								"value": "1",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "239878c6-b917-87b3-faa2-03b716901101",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/affirmOrder",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "9",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1453193212822,
+			"name": "未完成货物跟踪",
+			"description": "\n{\n  \"status\": 1,\n  \"message\": \"物流公司尚未上货\",\n  \"data\": {\n    \"order_sn\": \"F11818773\",\n    \"wire_state_name\": \"中山\",\n    \"wire_end_name\": \"北京\",\n    \"order_weight\": \"2\",\n    \"order_bulk\": \"30\",\n    \"order_depart_details\": \"222环市东路254号\",\n    \"order_des_details\": \"222环市东路265号\",\n    \"logi_name\": \"中山德梆物流\",\n    \"logi_phone\": \"020-1234567\",\n    \"logi_img\": null,\n    \"offer_money\": \"240\",\n    \"track\": \"物流公司尚未上货\"\n  },\n  \"token\": \"adfd6ca6b890f6985b8386f5c7032d4f\",\n  \"code\": \"\"\n}",
+			"collectionId": "753082a8-e4a3-34bf-d768-ce39a1922924",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 101,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "553",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 19 Jan 2016 08:34:16 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u7269\\u6d41\\u516c\\u53f8\\u5c1a\\u672a\\u4e0a\\u8d27\",\"data\":{\"order_sn\":\"F11818773\",\"wire_state_name\":\"\\u4e2d\\u5c71\",\"wire_end_name\":\"\\u5317\\u4eac\",\"order_weight\":\"2\",\"order_bulk\":\"30\",\"order_depart_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def254\\u53f7\",\"order_des_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def265\\u53f7\",\"logi_name\":\"\\u4e2d\\u5c71\\u5fb7\\u6886\\u7269\\u6d41\",\"logi_phone\":\"020-1234567\",\"logi_img\":null,\"offer_money\":\"240\",\"track\":\"\\u7269\\u6d41\\u516c\\u53f8\\u5c1a\\u672a\\u4e0a\\u8d27\"},\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "a8116c56-e228-618d-e00f-31d7dd6ed8d9",
+					"name": "未上货",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/affirmOrder",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "9e15bd65-2ae3-b3a5-5ab2-d5e872a30ee3"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "7",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 85,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "618",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 19 Jan 2016 08:37:09 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u5df2\\u4e0a\\u8d27\\uff0c\\u7b49\\u5f85\\u7269\\u6d41\\u516c\\u53f8\\u53d1\\u5e03\\u7269\\u6d41\\u4fe1\\u606f\\uff01\",\"data\":{\"order_sn\":\"F11881329\",\"wire_state_name\":\"\\u4e2d\\u5c71\",\"wire_end_name\":\"\\u4e0a\\u6d77\",\"order_weight\":\"2\",\"order_bulk\":\"30\",\"order_depart_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def254\\u53f7\",\"order_des_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def265\\u53f7\",\"logi_name\":\"\\u4e1c\\u534e\\u884c\\u7269\\u6d41\",\"logi_phone\":\"020-0235547\",\"logi_img\":null,\"offer_money\":null,\"track\":\"\\u7b49\\u5f85\\u7269\\u6d41\\u516c\\u53f8\\u53d1\\u5e03\\u4fe1\\u606f\\uff01\"},\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "8214abf4-76b9-8079-52cf-6494a0c13705",
+					"name": "已上货，没有物流信息",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/affirmOrder",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "d118a999-ef44-95e0-e813-1365333f4468"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "9",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 123,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "1166",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 19 Jan 2016 08:44:34 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\",\"data\":{\"order_sn\":\"F11881329\",\"wire_state_name\":\"\\u4e2d\\u5c71\",\"wire_end_name\":\"\\u4e0a\\u6d77\",\"order_weight\":\"2\",\"order_bulk\":\"30\",\"order_depart_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def254\\u53f7\",\"order_des_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def265\\u53f7\",\"logi_name\":\"\\u4e1c\\u534e\\u884c\\u7269\\u6d41\",\"logi_phone\":\"020-0235547\",\"logi_img\":null,\"offer_money\":null,\"track\":[{\"track_id\":\"3\",\"order_id\":\"9\",\"logistics_id\":\"1\",\"wire_id\":\"4\",\"track_name\":\"\\u3010\\u4e0a\\u6d77\\u5e02\\u3011\",\"track_time\":\"2015-12-14 00:00\",\"track_content\":\"\\u8d27\\u7269\\u5df2\\u7ecf\\u8fdb\\u5165\\u4e0a\\u6d77\\u5e02\"},{\"track_id\":\"2\",\"order_id\":\"9\",\"logistics_id\":\"1\",\"wire_id\":\"4\",\"track_name\":\"\\u3010\\u5e7f\\u5dde\\u5e02\\u3011\",\"track_time\":\"2015-12-14 00:00\",\"track_content\":\"\\u8d27\\u8f66\\u5df2\\u7ecf\\u8fdb\\u5165XXX\\u7701\\u9053\"},{\"track_id\":\"1\",\"order_id\":\"9\",\"logistics_id\":\"1\",\"wire_id\":\"4\",\"track_name\":\"\\u3010\\u5e7f\\u5dde\\u5e02\\u3011\",\"track_time\":\"2015-12-14 00:00\",\"track_content\":\"\\u8ba2\\u5355\\u88ab\\u767e\\u4e16\\u6c47\\u901a\\u7269\\u6d41\\u516c\\u53f8\\u63a5\\u53d7\\uff0c\\u8bf7\\u8010\\u5fc3\\u7b49\\u5f85\\u53d1\\u8d27\"}]},\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "c4b60239-3f41-f6f9-eb02-06d3bb2f8036",
+					"name": "有物流信息",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/affirmOrder",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "1a5b61a6-6094-1275-06d8-05e4e1daa94a"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "9",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "24cc952c-e75f-33d7-25be-6214bec9805e",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Orderclient/orientOffer",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "753082a8-e4a3-34bf-d768-ce39a1922924",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "order_id",
+					"value": "8",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "money",
+					"value": "220",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "用户接受定向报价",
+			"description": "【请求参数】\n\ntoken   //用户唯一口令\n    \norder_id       //订单id\n\nmoney   //订报报价金额\n\n\n【成功返回】\n\n{\n  \n  \"status\": 1,\n  \n  \"message\": \"接受报价成功！\",\n  \n  \"data\": \"\",\n  \n  \"token\": \"adfd6ca6b890f6985b8386f5c7032d4f\",\n  \n  \"code\": \"\"\n\n}\n\n",
+			"descriptionFormat": "html",
+			"time": 1453435471657,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "334638e5-a15a-2f96-1d6d-4bbc63b9db33",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/comment",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "11",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "content",
+					"value": "测试评论内容",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "anonym",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1453209379415,
+			"name": "评论订单",
+			"description": "【请求参数】\n\ntoken   //用户口令\n\nid      //订单id\n\ncontent //评论内容\n\nanonym  //是否匿名  =1表示匿名，其他表示不是匿名\n\n\n【成功评论】\n\n{\n\n  \"status\": 1,\n  \n  \"message\": \"评论成功！\",\n  \n  \"data\": \"\",\n  \n  \"token\": \"adfd6ca6b890f6985b8386f5c7032d4f\",\n  \n  \"code\": 200   \n  \n  //200=评论成功  201=表示已评论不可重复评论 \n  \n  //203=表示评论的订单不存在  204=评论失败\n  \n}\n\n【重复评论返回】\n{\n\n  \"status\": 0,\n  \n  \"message\": \"你已经评论过了，不可重复评论！\",\n  \n  \"data\": \"\",\n  \n  \"token\": \"adfd6ca6b890f6985b8386f5c7032d4f\",\n  \n  \"code\": 201   //200评论成功  201表示已评论不可重复评论  204评论失败\n  \n}",
+			"collectionId": "753082a8-e4a3-34bf-d768-ce39a1922924",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 68,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "179",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 19 Jan 2016 12:33:41 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":0,\"message\":\"\\u4f60\\u5df2\\u7ecf\\u8bc4\\u8bba\\u8fc7\\u4e86\\uff0c\\u4e0d\\u53ef\\u91cd\\u590d\\u8bc4\\u8bba\\uff01\",\"data\":\"\",\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":201}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "099f68e8-b6d8-9c9b-96f1-df93a1bfdceb",
+					"name": "重复评论",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/comment",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "0f0511ca-e4ee-7728-622b-1142915e2f23"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "9",
+								"enabled": true
+							},
+							{
+								"key": "content",
+								"value": "测试评论内容",
+								"enabled": true
+							},
+							{
+								"key": "anonym",
+								"value": "1",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 92,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "179",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 19 Jan 2016 12:36:51 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":0,\"message\":\"\\u4f60\\u5df2\\u7ecf\\u8bc4\\u8bba\\u8fc7\\u4e86\\uff0c\\u4e0d\\u53ef\\u91cd\\u590d\\u8bc4\\u8bba\\uff01\",\"data\":\"\",\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":201}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "d56c72f4-a0b4-872b-f30f-cf123c6dba7d",
+					"name": "评论成功",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/comment",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "9ec4f89e-3391-12b4-4f88-6195c1e7961a"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "9",
+								"enabled": true
+							},
+							{
+								"key": "content",
+								"value": "测试评论内容",
+								"enabled": true
+							},
+							{
+								"key": "anonym",
+								"value": "1",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 119,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "125",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 19 Jan 2016 12:38:26 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":0,\"message\":\"\\u8ba2\\u5355\\u4e0d\\u5b58\\u5728\\uff01\",\"data\":\"\",\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":203}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "dd585c72-62b7-b106-cf8c-e8398d58a8ff",
+					"name": "评论订单不存在",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/comment",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "9ee78908-3d27-1675-b519-acebc0cccf3a"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "11",
+								"enabled": true
+							},
+							{
+								"key": "content",
+								"value": "测试评论内容",
+								"enabled": true
+							},
+							{
+								"key": "anonym",
+								"value": "1",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "5149adde-91a1-c4fc-2666-ee93a09597ca",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Orderclient/MakeOffer",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "571fbd4cf74382cadbd0f56afd497708",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "order_id",
+					"value": "303",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "logistics_id",
+					"value": "1006",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "money",
+					"value": "123456",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1463542567985,
+			"name": "用户接受预约报价",
+			"description": "【请求参数】\n\ntoken   //用户唯一口令\n    \norder_id       //订单id\n\nlogistics_id  //物流公司id\n\nmoney   //订报报价金额\n\n\n【成功返回】\n\n{\n  \n  \"status\": 1,\n  \n  \"message\": \"接受报价成功！\",\n  \n  \"data\": \"\",\n  \n  \"token\": \"adfd6ca6b890f6985b8386f5c7032d4f\",\n  \n  \"code\": \"\"\n\n}\n\n",
+			"collectionId": "753082a8-e4a3-34bf-d768-ce39a1922924",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 88,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "130",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Fri, 22 Jan 2016 03:19:00 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u63a5\\u53d7\\u62a5\\u4ef7\\u6210\\u529f\\uff01\",\"data\":\"\",\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "04ef7525-5940-de99-aa0b-c6e88334784e",
+					"name": "成功",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Orderclient/MakeOffer",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "b2064cf4-f9d2-d967-d8fc-6017cf94c407"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "order_id",
+								"value": "11",
+								"enabled": true
+							},
+							{
+								"key": "logistics_id",
+								"value": "6",
+								"enabled": true
+							},
+							{
+								"key": "money",
+								"value": "100",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "865daa59-5ca7-3fae-decd-d63b8473cd70",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/acceptOrder",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "238",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1463542220379,
+			"name": "未确定货物跟踪",
+			"description": "【请求参数】\n\ntoken   //用户唯一口令\n\nid  //要查看的订单id\n\n\n【成功返回】 //第一种情况，预约发货货物跟踪\n\n{\n\n  \"status\": 1,\n  \n  \"message\": \"\",\n  \n  \"data\": {\n  \n    \"order_sn\": \"F11718369\",\n    \n    \"wire_state_name\": \"中山\",\n    \n    \"wire_end_name\": \"北京\",\n    \n    \"order_weight\": \"2\",\n    \n    \"order_bulk\": \"30\",\n    \n    \"order_depart_details\": \"环市东路254号\",\n    \n    \"order_des_details\": \"环市东路265号\",\n    \n    \"offer\": [\n    \n      {\n      \n        \"offer_id\": \"4\",\n        \n        \"logistics_id\": \"2\",\n        \n        \"order_id\": \"1\",\n        \n        \"offer_money\": \"150\",\n        \n        \"logistics_name\": \"中山德梆物流\"\n        \n      },\n      \n      {\n      \n        \"offer_id\": \"5\",\n        \n        \"logistics_id\": \"3\",\n        \n        \"order_id\": \"1\",\n        \n        \"offer_money\": \"200\",\n        \n        \"logistics_name\": \"顺丰物流\"\n        \n      }\n      \n    ]\n    \n  },\n  \n  \"token\": \"adfd6ca6b890f6985b8386f5c7032d4f\",\n  \n  \"code\": \"\"\n  \n}\n\n【成功返回】//第二种情况 定向订单货物跟踪\n\n{\n\n  \"status\": 1,\n  \n  \"message\": \"\",\n  \n  \"data\": {\n  \n    \"order_sn\": \"F11818773\",\n    \n    \"wire_state_name\": \"北京\",\n    \n    \"wire_end_name\": \"桂林\",\n    \n    \"order_weight\": \"2\",\n    \n    \"order_bulk\": \"30\",\n    \n    \"order_depart_details\": \"222环市东路254号\",\n    \n    \"order_des_details\": \"222环市东路265号\",\n    \n    \"logi_name\": \"中山德梆物流\",\n    \n    \"logi_phone\": \"020-1234567\",\n    \n    \"logi_img\": null,\n    \n    \"offer_money\": \"240\"\n    \n  },\n  \n  \"token\": \"adfd6ca6b890f6985b8386f5c7032d4f\",\n  \n  \"code\": \"\"\n  \n}\n",
+			"collectionId": "753082a8-e4a3-34bf-d768-ce39a1922924",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 95,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "699",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 19 Jan 2016 07:25:43 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\",\"data\":{\"order_sn\":\"F11718369\",\"wire_state_name\":\"\\u4e2d\\u5c71\",\"wire_end_name\":\"\\u5317\\u4eac\",\"order_weight\":\"2\",\"order_bulk\":\"30\",\"order_depart_details\":\"\\u73af\\u5e02\\u4e1c\\u8def254\\u53f7\",\"order_des_details\":\"\\u73af\\u5e02\\u4e1c\\u8def265\\u53f7\",\"offer\":[{\"offer_id\":\"1\",\"logistics_id\":\"1\",\"order_id\":\"1\",\"offer_money\":\"100\",\"logistics_name\":\"\\u4e1c\\u534e\\u884c\\u7269\\u6d41\"},{\"offer_id\":\"4\",\"logistics_id\":\"2\",\"order_id\":\"1\",\"offer_money\":\"150\",\"logistics_name\":\"\\u4e2d\\u5c71\\u5fb7\\u6886\\u7269\\u6d41\"},{\"offer_id\":\"5\",\"logistics_id\":\"3\",\"order_id\":\"1\",\"offer_money\":\"200\",\"logistics_name\":\"\\u987a\\u4e30\\u7269\\u6d41\"}]},\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "67548026-f400-8c7e-d024-80667df5e3a7",
+					"name": "预约订单货物跟踪",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/acceptOrder",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "67b927ac-3071-c178-fee3-ccc393e97c73"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "1",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 106,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "446",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 19 Jan 2016 07:50:41 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\",\"data\":{\"order_sn\":\"F11818773\",\"wire_state_name\":\"\\u5317\\u4eac\",\"wire_end_name\":\"\\u6842\\u6797\",\"order_weight\":\"2\",\"order_bulk\":\"30\",\"order_depart_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def254\\u53f7\",\"order_des_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def265\\u53f7\",\"logi_name\":\"\\u4e2d\\u5c71\\u5fb7\\u6886\\u7269\\u6d41\",\"logi_phone\":\"020-1234567\",\"logi_img\":null,\"offer_money\":\"240\"},\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "33959ded-0268-27c6-4951-d606cd4c799e",
+					"name": "定向订单货物跟踪",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/acceptOrder",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "9e3b2414-2420-4fad-9446-efff025c6d8f"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "7",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "a67b2a23-381f-b6a5-8a2f-a7ffcf897299",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/finishOrder",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "9",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1453196165458,
+			"name": "已完成详情是否评论",
+			"description": "\n{\n\n  \"status\": 1,\n  \n  \"message\": \"\",\n  \n  \"data\": {\n  \n    \"order_sn\": \"F11881329\",\n    \n    \"wire_state_name\": \"中山\",\n    \n    \"wire_end_name\": \"上海\",\n    \n    \"order_weight\": \"2\",\n    \n    \"order_bulk\": \"30\",\n    \n    \"order_depart_details\": \"222环市东路254号\",\n    \n    \"order_des_details\": \"222环市东路265号\",\n    \n    \"logi_name\": \"东华行物流\",\n    \n    \"logi_phone\": \"020-0235547\",\n    \n    \"logi_img\": null,\n    \n    \"offer_money\": null,\n    \n    \"track\": [\n    \n      {\n      \n        \"track_id\": \"3\",\n        \n        \"order_id\": \"9\",\n        \n        \"logistics_id\": \"1\",\n        \n        \"wire_id\": \"4\",\n        \n        \"track_name\": \"【上海市】\",\n        \n        \"track_time\": \"2015-12-14 00:00\",\n        \n        \"track_content\": \"货物已经进入上海市\"\n        \n      },\n      \n      {\n      \n        \"track_id\": \"2\",\n        \n        \"order_id\": \"9\",\n        \n        \"logistics_id\": \"1\",\n        \n        \"wire_id\": \"4\",\n        \n        \"track_name\": \"【广州市】\",\n        \n        \"track_time\": \"2015-12-14 00:00\",\n        \n        \"track_content\": \"货车已经进入XXX省道\"\n        \n      },\n      \n      {\n      \n        \"track_id\": \"1\",\n        \n        \"order_id\": \"9\",\n        \n        \"logistics_id\": \"1\",\n        \n        \"wire_id\": \"4\",\n        \n        \"track_name\": \"【广州市】\",\n        \n        \"track_time\": \"2015-12-14 00:00\",\n        \n        \"track_content\": \"订单被百世汇通物流公司接受，请耐心等待发货\"\n        \n      }\n      \n    ]\n    \n  },\n  \n  \"token\": \"adfd6ca6b890f6985b8386f5c7032d4f\",\n  \n  \"code\": \"\",\n  \n  \"show_code\": 7\n  \n}",
+			"collectionId": "753082a8-e4a3-34bf-d768-ce39a1922924",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 122,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "1180",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 19 Jan 2016 09:36:00 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\",\"data\":{\"order_sn\":\"F11881329\",\"wire_state_name\":\"\\u4e2d\\u5c71\",\"wire_end_name\":\"\\u4e0a\\u6d77\",\"order_weight\":\"2\",\"order_bulk\":\"30\",\"order_depart_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def254\\u53f7\",\"order_des_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def265\\u53f7\",\"logi_name\":\"\\u4e1c\\u534e\\u884c\\u7269\\u6d41\",\"logi_phone\":\"020-0235547\",\"logi_img\":null,\"offer_money\":null,\"track\":[{\"track_id\":\"3\",\"order_id\":\"9\",\"logistics_id\":\"1\",\"wire_id\":\"4\",\"track_name\":\"\\u3010\\u4e0a\\u6d77\\u5e02\\u3011\",\"track_time\":\"2015-12-14 00:00\",\"track_content\":\"\\u8d27\\u7269\\u5df2\\u7ecf\\u8fdb\\u5165\\u4e0a\\u6d77\\u5e02\"},{\"track_id\":\"2\",\"order_id\":\"9\",\"logistics_id\":\"1\",\"wire_id\":\"4\",\"track_name\":\"\\u3010\\u5e7f\\u5dde\\u5e02\\u3011\",\"track_time\":\"2015-12-14 00:00\",\"track_content\":\"\\u8d27\\u8f66\\u5df2\\u7ecf\\u8fdb\\u5165XXX\\u7701\\u9053\"},{\"track_id\":\"1\",\"order_id\":\"9\",\"logistics_id\":\"1\",\"wire_id\":\"4\",\"track_name\":\"\\u3010\\u5e7f\\u5dde\\u5e02\\u3011\",\"track_time\":\"2015-12-14 00:00\",\"track_content\":\"\\u8ba2\\u5355\\u88ab\\u767e\\u4e16\\u6c47\\u901a\\u7269\\u6d41\\u516c\\u53f8\\u63a5\\u53d7\\uff0c\\u8bf7\\u8010\\u5fc3\\u7b49\\u5f85\\u53d1\\u8d27\"}]},\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":\"\",\"show_code\":8}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "2519ba45-1bda-fe97-6b65-f2c2eda72e9c",
+					"name": "已评论",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/finishOrder",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "bc8b1f8a-7d2b-9327-0731-a58adf46419e"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "9",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 123,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "1180",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 19 Jan 2016 09:37:30 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\",\"data\":{\"order_sn\":\"F11881329\",\"wire_state_name\":\"\\u4e2d\\u5c71\",\"wire_end_name\":\"\\u4e0a\\u6d77\",\"order_weight\":\"2\",\"order_bulk\":\"30\",\"order_depart_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def254\\u53f7\",\"order_des_details\":\"222\\u73af\\u5e02\\u4e1c\\u8def265\\u53f7\",\"logi_name\":\"\\u4e1c\\u534e\\u884c\\u7269\\u6d41\",\"logi_phone\":\"020-0235547\",\"logi_img\":null,\"offer_money\":null,\"track\":[{\"track_id\":\"3\",\"order_id\":\"9\",\"logistics_id\":\"1\",\"wire_id\":\"4\",\"track_name\":\"\\u3010\\u4e0a\\u6d77\\u5e02\\u3011\",\"track_time\":\"2015-12-14 00:00\",\"track_content\":\"\\u8d27\\u7269\\u5df2\\u7ecf\\u8fdb\\u5165\\u4e0a\\u6d77\\u5e02\"},{\"track_id\":\"2\",\"order_id\":\"9\",\"logistics_id\":\"1\",\"wire_id\":\"4\",\"track_name\":\"\\u3010\\u5e7f\\u5dde\\u5e02\\u3011\",\"track_time\":\"2015-12-14 00:00\",\"track_content\":\"\\u8d27\\u8f66\\u5df2\\u7ecf\\u8fdb\\u5165XXX\\u7701\\u9053\"},{\"track_id\":\"1\",\"order_id\":\"9\",\"logistics_id\":\"1\",\"wire_id\":\"4\",\"track_name\":\"\\u3010\\u5e7f\\u5dde\\u5e02\\u3011\",\"track_time\":\"2015-12-14 00:00\",\"track_content\":\"\\u8ba2\\u5355\\u88ab\\u767e\\u4e16\\u6c47\\u901a\\u7269\\u6d41\\u516c\\u53f8\\u63a5\\u53d7\\uff0c\\u8bf7\\u8010\\u5fc3\\u7b49\\u5f85\\u53d1\\u8d27\"}]},\"token\":\"adfd6ca6b890f6985b8386f5c7032d4f\",\"code\":\"\",\"show_code\":7}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "c406d8a6-7f16-9bf4-6937-f58057b9db55",
+					"name": "未评论",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/finishOrder",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "cf122bb1-6506-1899-8389-01a223cc2a1b"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "9",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "d00b9b60-e777-d22e-be03-c42e85412a43",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/orderAttain",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "753082a8-e4a3-34bf-d768-ce39a1922924",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "14",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "确认送达",
+			"description": "【请求参数】\n\ntoken   口令\n\nid      订单id\n\n",
+			"descriptionFormat": "html",
+			"time": 1456393298076,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 126,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "104",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 25 Feb 2016 09:41:39 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u8ba2\\u5355\\u5df2\\u786e\\u8ba4\\u9001\\u8fbe\\uff01\",\"data\":\"\",\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "6323bf0b-4be5-2758-9ea3-75df710cac7b",
+					"name": "已送达",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/orderAttain",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "d7f17c59-ce0b-2422-1f46-f2d71c98101a"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "14",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 136,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "122",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 25 Feb 2016 09:42:41 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u786e\\u8ba4\\u6210\\u529f\\uff0c\\u8ba2\\u5355\\u5df2\\u5b8c\\u6210\\uff01\",\"data\":\"\",\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "d666e94d-9841-c805-f556-1a95645c2575",
+					"name": "成功",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/orderclient/orderAttain",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "19b474a9-69b5-af75-b68d-6ba4f915cb70"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "14",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

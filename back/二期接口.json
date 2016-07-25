@@ -1,0 +1,171 @@
+{
+	"id": "fb5a7d08-3df4-1e67-6cbd-0b929275c63e",
+	"name": "二期接口",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "0d9611a8-0c97-e783-bf4b-134151fc4e74",
+			"name": "客户端接口",
+			"description": "",
+			"order": [
+				"2131abe8-badb-fff0-b215-1f4b236f4b53",
+				"6fd245ab-cf27-1e70-a2d3-aa4549560cc2"
+			],
+			"owner": 0
+		},
+		{
+			"id": "04f06c15-57e2-c9fb-4125-4299ae0b46e9",
+			"name": "物流端接口",
+			"description": "",
+			"order": [
+				"459d411c-bc61-ed76-1998-ff6930d1120c",
+				"22a6de34-bb9c-dc6b-2624-dfe59ae46198"
+			],
+			"owner": 0
+		}
+	],
+	"timestamp": 1468576700540,
+	"owner": 0,
+	"remoteLink": "",
+	"public": false,
+	"published": false,
+	"requests": [
+		{
+			"id": "2131abe8-badb-fff0-b215-1f4b236f4b53",
+			"headers": "",
+			"url": "localhost/github/dhh/index.php/api/userextends/setPositive",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "fb5a7d08-3df4-1e67-6cbd-0b929275c63e",
+			"data": [
+				{
+					"key": "positive",
+					"value": "海贼旗.jpg",
+					"type": "file",
+					"enabled": true
+				},
+				{
+					"key": "token",
+					"value": "827cb2861b62032db0a228fd9afb975s",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "客户端上传正面图片（添加或更新通用）",
+			"description": "［请求参数］\n\n‘token’     ／／用户唯一口令\n\n‘positive’  ／／用户图片",
+			"descriptionFormat": "html",
+			"time": 1468769480909,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "0d9611a8-0c97-e783-bf4b-134151fc4e74"
+		},
+		{
+			"id": "22a6de34-bb9c-dc6b-2624-dfe59ae46198",
+			"headers": "",
+			"url": "localhost/github/dhh/index.php/api/Adminextend/setReverse",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "fb5a7d08-3df4-1e67-6cbd-0b929275c63e",
+			"data": [
+				{
+					"key": "token",
+					"value": "6cce42bd1a9d2a149ac76fe6d378b976",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "reverse",
+					"value": "香吉士.jpg",
+					"type": "file",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "物流端身份证反面（添加或更新通用）",
+			"description": "［请求参数］\n\n'token' //物流端唯一口令\n\n'positive'  //图片",
+			"descriptionFormat": "html",
+			"time": 1468851972386,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "04f06c15-57e2-c9fb-4125-4299ae0b46e9"
+		},
+		{
+			"id": "459d411c-bc61-ed76-1998-ff6930d1120c",
+			"headers": "",
+			"url": "localhost/github/dhh/index.php/api/Adminextend/setPositive",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "fb5a7d08-3df4-1e67-6cbd-0b929275c63e",
+			"data": [
+				{
+					"key": "token",
+					"value": "6cce42bd1a9d2a149ac76fe6d378b976",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "positive",
+					"value": "香吉士.jpg",
+					"type": "file",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "物流端身份证正面（添加或更新通用）",
+			"description": "［请求参数］\n\n'token' //物流端唯一口令\n\n'positive'  //图片",
+			"descriptionFormat": "html",
+			"time": 1468851879106,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "04f06c15-57e2-c9fb-4125-4299ae0b46e9"
+		},
+		{
+			"id": "6fd245ab-cf27-1e70-a2d3-aa4549560cc2",
+			"headers": "",
+			"url": "localhost/github/dhh/index.php/api/userextends/setReverse",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "fb5a7d08-3df4-1e67-6cbd-0b929275c63e",
+			"data": [
+				{
+					"key": "token",
+					"value": "827cb2861b62032db0a228fd9afb975s",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "reverse",
+					"value": "剧场版打boos.png",
+					"type": "file",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "客户端上传反面图片（添加或更新通用）",
+			"description": "［请求参数］\n\n'token' //用户唯一口令\n\n'reverse'   //图片",
+			"descriptionFormat": "html",
+			"time": 1468850927963,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "0d9611a8-0c97-e783-bf4b-134151fc4e74"
+		}
+	]
+}

@@ -134,6 +134,13 @@ $(function() {
         checkbox: false,   //多选框
         identity_key: 'logistics_id',
         toolbar_has_view : true,
+        toolbar_items_add: [
+           { line: true },
+           { text: '分配权限', click: {$js_prefix}role, icon:'role' }
+           /*,
+           { line: true },
+           { text: '用户列表', click: {$js_prefix}member, icon:'memeber' }*/
+        ],
         form_dialog_width: 550,
         form_search_fields: form_search_fields
     });
@@ -189,4 +196,24 @@ function show(id, name) {
     return false;
 }
 
+function {$js_prefix}role() {
+        var getSelectedRow = window.parent.{$js_prefix}grid.getSelectedRow();
+        if(getSelectedRow == null) {
+            window.parent.$.ligerDialog.warn('请选择行');
+            return;
+        }
+        var id = getSelectedRow.logistics_id;
+        var url = "{:U(CONTROLLER_NAME.'/role')}";
+        if (url.indexOf("?") != -1)
+            url += "&";
+        else
+            url += "?";
+        url += "id=" + id;
+        if(isNaN(id)) {
+            window.parent.$.ligerDialog.alert("请至少选择其中一项！", '警告', "warn");
+            return;
+        }
+
+        window.parent.add_tab("{$js_prefix}add", "角色[" + getSelectedRow.name + "]分配权限", url);
+    }
 </script>

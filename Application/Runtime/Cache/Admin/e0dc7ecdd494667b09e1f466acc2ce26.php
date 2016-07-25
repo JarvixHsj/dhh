@@ -5,10 +5,10 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <title><?php echo C('SITE_TITLE');?> - 后台管理系统</title>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
-<link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/ligerUI/skins/ligerui-icons.css" />
-<link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/ligerUI/skins/Gray/css/all.css" />
-<link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/css/common.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/ligerui-icons.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Gray/css/all.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/css/common.css" media="all">
     <style type="text/css">
     body{padding: 10px; zoom: 1;}
     .l-text-invalid {float: left;}
@@ -21,18 +21,18 @@
 
 <body>
 <script type="text/javascript">var cookie_prefix = '<?php echo C('COOKIE_PREFIX');?>', cookie_domain = '', cookie_path = '/', cookie_secure = false, admin_defult_url = '<?php echo U('Public/index');?>';</script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/ligerUI/js/ligerui.all.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/js/json2.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery-validation/jquery.metadata.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery-validation/messages_cn.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/js/common.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/ligerui.all.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/json2.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.metadata.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/messages_cn.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/common.js"></script>
 <!-- <script type="text/javascript" src="<?php echo U('Index/select_data');?>"></script>  -->
 </if>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/ajaxfileupload.js"></script>
 <script type="text/javascript">
     function select_file_upload() {
         var self = $(this)[0];

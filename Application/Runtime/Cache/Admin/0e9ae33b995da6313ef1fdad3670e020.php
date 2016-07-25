@@ -5,23 +5,23 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <title><?php echo C('SITE_TITLE');?> - 后台管理系统</title>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
-<link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/ligerUI/skins/ligerui-icons.css" />
-<link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/ligerUI/skins/Gray/css/all.css" />
-<link rel="stylesheet" type="text/css" href="/myworks/dhh/www/Public/Admin/css/common.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/ligerui-icons.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Gray/css/all.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/css/common.css" media="all">
 </head>
 
 <body>
 <script type="text/javascript">var cookie_prefix = '<?php echo C('COOKIE_PREFIX');?>', cookie_domain = '', cookie_path = '/', cookie_secure = false, admin_defult_url = '<?php echo U('Public/index');?>';</script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/ligerUI/js/ligerui.all.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/js/json2.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery-validation/jquery.metadata.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/jquery-validation/messages_cn.js"></script>
-<script type="text/javascript" src="/myworks/dhh/www/Public/Admin/js/common.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/ligerui.all.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/json2.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.metadata.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/messages_cn.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/common.js"></script>
 <!-- <script type="text/javascript" src="<?php echo U('Index/select_data');?>"></script>  -->
 
 <script type="text/javascript">
@@ -46,7 +46,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_person_img != ''){
-                return "<img width='50px;height:50px;' src='/myworks/dhh/www/Public/" + item.logistics_person_img + "'/>";
+                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_person_img + "'/>";
             }else{
                 return '无';
             }
@@ -56,7 +56,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_head_img != ''){
-                return "<img width='50px;height:50px;' src='/myworks/dhh/www/Public/" + item.logistics_head_img + "'/>";
+                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_head_img + "'/>";
             }else{
                 return '无';
             }
@@ -66,7 +66,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_img != ''){
-                return "<img width='50px;height:50px;' src='/myworks/dhh/www/Public/" + item.logistics_img + "'/>";
+                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_img + "'/>";
             }else{
                 return '无';
             }
@@ -76,7 +76,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_person_img != ''){
-                return "<img width='50px;height:50px;' src='/myworks/dhh/www/Public/" + item.logistics_open_img + "'/>";
+                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_open_img + "'/>";
             }else{
                 return '无';
             }
@@ -86,7 +86,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_check_img != ''){
-                return "<img width='50px;height:50px;' src='/myworks/dhh/www/Public/" + item.logistics_check_img + "'/>";
+                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_check_img + "'/>";
             }else{
                 return '无';
             }
@@ -96,7 +96,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_person_img != ''){
-                return "<img width='50px;height:50px;' src='/myworks/dhh/www/Public/" + item.logistics_way_img + "'/>";
+                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_way_img + "'/>";
             }else{
                 return '无';
             }
@@ -159,6 +159,13 @@ $(function() {
         checkbox: false,   //多选框
         identity_key: 'logistics_id',
         toolbar_has_view : true,
+        toolbar_items_add: [
+           { line: true },
+           { text: '分配权限', click: <?php echo ($js_prefix); ?>role, icon:'role' }
+           /*,
+           { line: true },
+           { text: '用户列表', click: <?php echo ($js_prefix); ?>member, icon:'memeber' }*/
+        ],
         form_dialog_width: 550,
         form_search_fields: form_search_fields
     });
@@ -214,6 +221,26 @@ function show(id, name) {
     return false;
 }
 
+function <?php echo ($js_prefix); ?>role() {
+        var getSelectedRow = window.parent.<?php echo ($js_prefix); ?>grid.getSelectedRow();
+        if(getSelectedRow == null) {
+            window.parent.$.ligerDialog.warn('请选择行');
+            return;
+        }
+        var id = getSelectedRow.logistics_id;
+        var url = "<?php echo U(CONTROLLER_NAME.'/role');?>";
+        if (url.indexOf("?") != -1)
+            url += "&";
+        else
+            url += "?";
+        url += "id=" + id;
+        if(isNaN(id)) {
+            window.parent.$.ligerDialog.alert("请至少选择其中一项！", '警告', "warn");
+            return;
+        }
+
+        window.parent.add_tab("<?php echo ($js_prefix); ?>add", "角色[" + getSelectedRow.name + "]分配权限", url);
+    }
 </script>
 <div class="main_content">
     <div id="<?php echo ($js_prefix); ?>tablelist"></div>

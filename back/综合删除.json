@@ -1,0 +1,886 @@
+{
+	"id": "82c2b888-ece3-5bb6-bc8c-42ef8400487f",
+	"name": "综合删除模块",
+	"description": "",
+	"order": [
+		"6a408d48-c1bb-2daf-7049-71ea66e93936",
+		"6037c5db-1e40-a2c8-ab74-9b19563a95af",
+		"c6f54243-1594-ee05-2044-0f0e0ff4c7ee",
+		"e706e614-5078-7ee9-c9d4-26d2ba16cd54"
+	],
+	"folders": [],
+	"timestamp": 1456910318184,
+	"owner": 0,
+	"public": false,
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "6037c5db-1e40-a2c8-ab74-9b19563a95af",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Deletelogistics/deleteVehicle",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "8a5e29d2d1c353f77cd48a34596f09ed",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "3",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458198810940,
+			"name": "车辆删除",
+			"description": "【请求参数】\n\ntoken   //物流端口令\n\nid      //车辆id",
+			"collectionId": "82c2b888-ece3-5bb6-bc8c-42ef8400487f",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 166,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "81",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 17 Mar 2016 07:13:18 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u5220\\u9664\\u6210\\u529f!\",\"data\":\"\",\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "0e1356fc-241e-67bb-4439-74973685f5c0",
+					"name": "删除成功",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Deletelogistics/deleteVehicle",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "1a048b28-ade6-be18-a259-723e3c501c8f"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "8a5e29d2d1c353f77cd48a34596f09ed"
+							},
+							{
+								"key": "id",
+								"value": "3"
+							},
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "6a408d48-c1bb-2daf-7049-71ea66e93936",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Deletelogistics/delWirerelation",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "82c2b888-ece3-5bb6-bc8c-42ef8400487f",
+			"data": [
+				{
+					"key": "token",
+					"value": "8a5e29d2d1c353f77cd48a34596f09ed",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "22",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "des_city",
+					"value": "黄山",
+					"type": "text",
+					"enabled": false
+				},
+				{
+					"key": "time",
+					"value": "1-2天",
+					"type": "text",
+					"enabled": false
+				},
+				{
+					"key": "price",
+					"value": "200-300元",
+					"type": "text",
+					"enabled": false
+				}
+			],
+			"dataMode": "params",
+			"name": "物流端--删除长跑路线",
+			"description": "【请求数据】\n\ntoken   //物流用户口令\n\nid      //路线id\n",
+			"descriptionFormat": "html",
+			"time": 1456910348144,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 326,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "122",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Mar 2016 09:19:09 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":0,\"message\":\"\\u8be5\\u8def\\u7ebf\\u4e0d\\u5b58\\u5728\\uff01\\u8bf7\\u91cd\\u8bd5\\uff01\",\"data\":\"\",\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "b9a537b5-1995-74d6-44aa-5b7db0ea5968",
+					"name": "路线不存在",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Deletelogistics/delWirerelation",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "d3075684-2794-da33-679b-bf6ad2766426"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "8a5e29d2d1c353f77cd48a34596f09ed",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "22",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 393,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "86",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 02 Mar 2016 09:19:21 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u5220\\u9664\\u6210\\u529f\\uff01\",\"data\":\"\",\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "d940fc3f-c674-c133-1b06-44864de21e04",
+					"name": "成功删除",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Deletelogistics/delWirerelation",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "f19428ee-2cba-67fc-85cd-971622a81a8a"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "8a5e29d2d1c353f77cd48a34596f09ed",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "21",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "c6f54243-1594-ee05-2044-0f0e0ff4c7ee",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Adminextend/deleteMess",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "8a5e29d2d1c353f77cd48a34596f09ec",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "all",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458287791778,
+			"name": "物流端删除消息",
+			"description": "【请求参数】\n\ntoken   //物流端口令\n\nid      //消息id\n",
+			"collectionId": "82c2b888-ece3-5bb6-bc8c-42ef8400487f",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 166,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "81",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 17 Mar 2016 08:50:24 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u5220\\u9664\\u6210\\u529f!\",\"data\":\"\",\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "18dfc2b4-1165-2a03-7152-db89788a3df3",
+					"name": "成功",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Deletelogistics/deleteMess",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "ebc43c84-5ca4-dbaa-a945-ee2054815910"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "8a5e29d2d1c353f77cd48a34596f09ec"
+							},
+							{
+								"key": "id",
+								"value": "1"
+							},
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "e706e614-5078-7ee9-c9d4-26d2ba16cd54",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Userextends/deleteMess",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "all",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1458286818313,
+			"name": "客户端删除消息",
+			"description": "【请求参数】\n\ntoken   //客户端口令\n\nid      //消息id   (如果清空消息，则传‘all’)",
+			"collectionId": "82c2b888-ece3-5bb6-bc8c-42ef8400487f",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 141,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "128",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 17 Mar 2016 08:56:43 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":0,\"message\":\"\\u8be5\\u6d88\\u606f\\u5df2\\u4e0d\\u5b58\\u5728\\uff01\\u8bf7\\u91cd\\u8bd5\\uff01\",\"data\":\"\",\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "41803bf2-19e6-88cd-a215-c40b34fb42ba",
+					"name": "消息已不存，传的id不存在",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Userextends/deleteMess",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "25d581dc-1919-f448-35e6-303ca13d5117"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f"
+							},
+							{
+								"key": "id",
+								"value": "7"
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				},
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 140,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "81",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 17 Mar 2016 08:57:37 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u5220\\u9664\\u6210\\u529f!\",\"data\":\"\",\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "1e87eaf4-00cd-2367-f8ff-9070c6b16ec3",
+					"name": "删除成功",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Userextends/deleteMess",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "d59f64a7-026a-ce06-0c53-0d0bda47d103"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f"
+							},
+							{
+								"key": "id",
+								"value": "5"
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		}
+	]
+}

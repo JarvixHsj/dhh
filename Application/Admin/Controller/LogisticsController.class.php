@@ -138,27 +138,14 @@ class LogisticsController extends CommonController
     {
         $this->tpl_name = "relation";
 
-//        $wireData = D('wire_relation')->alias('R')
-//            ->join('dhh_car_wire C ON R.wire_id = C.wire_id')
-//            ->join('dhh_region Reg ON C.wire_state = Reg.region_id')
-//            ->join('dhh_region Re ON C.wire_end = Re.region_id')
-//            ->join('dhh_logistics Lo ON R.logistics_id = Lo.logistics_id')
-//            ->field('R.rela_id,R.logistics_id,R.predict_time,R.price,Reg.region_name as start,Re.region_name as end,Lo.logistics_name')
-//            ->select();
-//        $count = D('wire_relation')->alias('R')
-//            ->join('dhh_car_wire C ON R.wire_id = C.wire_id')
-//            ->join('dhh_region Reg ON C.wire_state = Reg.region_id')
-//            ->join('dhh_region Re ON C.wire_end = Re.region_id')
-//            ->join('dhh_logistics Lo ON R.logistics_id = Lo.logistics_id')
-//            ->field('R.rela_id,R.logistics_id,R.predict_time,R.price,Reg.region_name as start,Re.region_name as end,Lo.logistics_name')
-//            ->count();
-
         return parent::index('relation');
+    }
 
-//        $result['rows'] = $wireData;
-//        $result['total'] = $count;
-//        $this->gridReturn($result['rows'], $result['total']);
 
+    public function role()
+    {
+        var_dump($_GET);
+        var_dump($_POST);die;
     }
 
 

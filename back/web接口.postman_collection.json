@@ -1,0 +1,622 @@
+{
+	"id": "d762f4cb-6df1-1a11-651c-ba1ac488ea3c",
+	"name": "Web接口",
+	"description": "",
+	"order": [
+		"0d6c290b-37bf-3687-b5dd-877b5cfbe40a",
+		"4de3c723-127f-f47c-8766-7f7ecacedf06",
+		"5eb8324e-fcf8-1caa-4f7b-9c6ac6eef9ad",
+		"4f104a69-e8ee-5314-d43d-a70f9a151c80",
+		"29e4cdfc-a51a-f0c0-9927-c26ca98a656a",
+		"ec98fb64-79e5-60d2-e6b5-87e4e5e57113",
+		"bff5cd3b-9784-bc0d-16ca-267b3b36bf0b",
+		"9e1e8ede-77b9-095c-dd11-6a806842e31e"
+	],
+	"folders": [],
+	"timestamp": 1454398107084,
+	"owner": 0,
+	"public": false,
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "0d6c290b-37bf-3687-b5dd-877b5cfbe40a",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Webclient/trackGoodsUndone",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "18",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456223558553,
+			"name": "客户端获取货物跟踪（未完成）",
+			"description": "【请求参数】\n\ntoken   //客户唯一口令\n\nid      //订单的id\n\n【按钮参数】\n\n确认送达按钮==》clickbuttom\n\n联系客户==》截图http://{phone参数电话}/\n\n\n【成功返回】\n\n{\n  \n  \"status\": 1,  //状态\n  \n  \"message\": \"\",    //信息\n  \n  \"data\": {\n  \n    \"url\": \"localhost/myworks/dhh/www/index.php?s=/home/order/trackclient/id/18.html\",  //地址\n  \n    \"order_status\": \"1\"     //订单状态\n    \n    \"is_goods\": \"0\",    //上货状态，1表示已上货\n    \n    \"phone\": \"13692763391\"  //电话\n  \n  },\n  \n  \"token\": \"\",\n  \n  \"code\": \"\"\n}",
+			"collectionId": "d762f4cb-6df1-1a11-651c-ba1ac488ea3c",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 131,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "164",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 02 Feb 2016 07:29:25 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\",\"data\":{\"url\":\"localhost\\/myworks\\/dhh\\/www\\/index.php?s=\\/home\\/order\\/trackclient\\/id\\/18.html\",\"order_status\":\"1\"},\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "d7de16cf-9740-7abe-1415-e6ccf6658795",
+					"name": "成功返回",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Web/trackGoods",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "b1d54119-53a6-fe6f-9319-67ef0593bc90"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "18",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "29e4cdfc-a51a-f0c0-9927-c26ca98a656a",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Weblogistics/trackDone",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "d762f4cb-6df1-1a11-651c-ba1ac488ea3c",
+			"data": [
+				{
+					"key": "token",
+					"value": "8a5e29d2d1c353f77cd48a34596f09ec",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "11",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "物流端已完成内页",
+			"description": "【请求参数】\n\ntoken   //客户唯一口令\n\nid      //订单的id\n\n\n【成功返回】\n\n{\n  \n  \"status\": 1,  //状态\n  \n  \"message\": \"\",    //信息\n  \n  \"data\": {\n  \n    \"url\": \"localhost/myworks/dhh/www/index.php?s=/home/order/trackclient/id/18.html\",  //地址\n  \n    \"order_status\": \"1\"     //订单状态\n  \n  },\n  \n  \"token\": \"\",\n  \n  \"code\": \"\"\n}",
+			"descriptionFormat": "html",
+			"time": 1456405780232,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "4de3c723-127f-f47c-8766-7f7ecacedf06",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Weblogistics/trackGoods",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "8a5e29d2d1c353f77cd48a34596f09ec",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "18",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456220275546,
+			"name": "物流端获取货物跟踪",
+			"description": "【请求参数】\n\ntoken   //客户唯一口令\n\nid      //订单的id\n\n【按钮参数】\n\n确认送达=》clicksubmit\n\n联系客户=》截图123\n\n【成功返回】\n\n{\n  \n  \"status\": 1,  //状态\n  \n  \"message\": \"\",    //信息\n  \n  \"data\": {\n  \n    \"url\": \"localhost/myworks/dhh/www/index.php?s=/home/order/trackclient/id/18.html\",  //地址\n  \n    \"order_status\": \"1\"     //订单状态\n  \n  },\n  \n  \"token\": \"\",\n  \n  \"code\": \"\"\n}",
+			"collectionId": "d762f4cb-6df1-1a11-651c-ba1ac488ea3c",
+			"responses": []
+		},
+		{
+			"id": "4f104a69-e8ee-5314-d43d-a70f9a151c80",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Webclient/trackGoodsDone",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "token",
+					"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "id",
+					"value": "4",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1455884051474,
+			"name": "客户端获取货物跟踪（已完成）",
+			"description": "【请求参数】\n\ntoken   //客户唯一口令\n\nid      //订单的id\n\n【按钮参数】\n\n评论==》clickcomment\n\n联系客户==》截取http://123/\n\n\n【成功返回】\n\n{\n  \n  \"status\": 1,  //状态\n  \n  \"message\": \"\",    //信息\n  \n  \"data\": {\n  \n   \"if_comm\": 1,    //判断是否评论了，1=已评论，0=未评论\n  \n    \"url\": \"localhost/myworks/dhh/www/index.php?s=/home/order/trackclient/id/18.html\",  //地址\n  \n    \"order_status\": \"1\"     //订单状态\n  \n  },\n  \n  \"token\": \"\",\n  \n  \"code\": \"\"\n}",
+			"collectionId": "d762f4cb-6df1-1a11-651c-ba1ac488ea3c",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 416,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "201",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Mon, 22 Feb 2016 02:05:46 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\",\"data\":{\"if_comm\":1,\"url\":\"localhost\\/myworks\\/dhh\\/www\\/index.php?s=\\/home\\/order\\/trackclientdone\\/id\\/4.html\",\"order_status\":\"3\",\"phone\":\"13692763391\"},\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "515995e5-87e8-c83c-d8b3-baab3793e612",
+					"name": "成功",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Webclient/trackGoodsDone",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "86a22e69-035a-2b0c-19af-3240b363aec6"
+							}
+						],
+						"data": [
+							{
+								"key": "token",
+								"value": "adfd6ca6b890f6985b8386f5c7032d4f",
+								"enabled": true
+							},
+							{
+								"key": "id",
+								"value": "4",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			]
+		},
+		{
+			"id": "5eb8324e-fcf8-1caa-4f7b-9c6ac6eef9ad",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Webclient/carDetails",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "d762f4cb-6df1-1a11-651c-ba1ac488ea3c",
+			"data": [
+				{
+					"key": "id",
+					"value": "5",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "请求车辆详情",
+			"description": "【请求参数】\n\nid      //车辆的id\n\n【成功返回】\n\n",
+			"descriptionFormat": "html",
+			"time": 1455869519940,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 126,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "141",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Fri, 19 Feb 2016 08:12:12 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.9 (Win64) OpenSSL/1.0.1g PHP/5.5.12",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.5.12",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\",\"data\":{\"url\":\"localhost\\/myworks\\/dhh\\/www\\/index.php?s=\\/home\\/car\\/cardetails\\/id\\/5.html\"},\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"isSample": true,
+					"scrollToResult": true,
+					"runTests": true,
+					"id": "df6d843c-0533-4936-3df7-f56e15f5865b",
+					"name": "成功",
+					"request": {
+						"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Webclient/carDetails",
+						"headers": [
+							{
+								"key": "Cache-Control",
+								"name": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Postman-Token",
+								"name": "Postman-Token",
+								"value": "03e14d75-d8f2-3c82-0454-ff2625256545"
+							}
+						],
+						"data": [
+							{
+								"key": "id",
+								"value": "5",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					},
+					"owner": 0
+				}
+			],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "9e1e8ede-77b9-095c-dd11-6a806842e31e",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Weblogistics/messageDetails",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "d762f4cb-6df1-1a11-651c-ba1ac488ea3c",
+			"data": [
+				{
+					"key": "id",
+					"value": "3",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "物流端根据id获取消息详情",
+			"description": "【请求参数】\n\nid      //消息id",
+			"descriptionFormat": "html",
+			"time": 1458565043132,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "bff5cd3b-9784-bc0d-16ca-267b3b36bf0b",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Webclient/messageDetails",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "d762f4cb-6df1-1a11-651c-ba1ac488ea3c",
+			"data": [
+				{
+					"key": "id",
+					"value": "3",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "客户端根据id获取消息详情",
+			"description": "【请求参数】\n\nid  //消息id",
+			"descriptionFormat": "html",
+			"time": 1458564946599,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "ec98fb64-79e5-60d2-e6b5-87e4e5e57113",
+			"headers": "",
+			"url": "http://localhost/myworks/dhh/www/index.php?s=/api/Else/getArticlePath",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "key",
+					"value": "suggest",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459330536732,
+			"name": "获取文章",
+			"description": "【请求参数】\n\nkey  \n\n【key = ‘law’】     //表示获取法律条款\n\n【key = 'about'】   //表示获取关于我们\n\n【key = 'suggest'】 //表示获取给我们建议\n\n【key = 'register'】//表示获取注册协议\n\n【key = 'share'】   //表示获取分享内容\n",
+			"collectionId": "d762f4cb-6df1-1a11-651c-ba1ac488ea3c",
+			"responses": []
+		}
+	]
+}
