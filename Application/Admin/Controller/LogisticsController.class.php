@@ -228,7 +228,7 @@ class LogisticsController extends CommonController
         if($created_at <= time()){
             return $this->successReturn('注册15天内不需要认证，等过15天后再认证！');
         }
-
+        
         if($row['id_reverse'] == ''){
             return $this->errorReturn('该物流公司还未上传反面身份证照片');
         }elseif ($row['id_reverse'] && $row['is_reverse'] == 0) {

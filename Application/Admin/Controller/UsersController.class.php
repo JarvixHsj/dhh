@@ -65,7 +65,7 @@ class UsersController extends CommonController {
         }
         $row = M('Users')->find($_GET['id']);
         if (empty($row)) {
-            $this->error('您需要编辑的物流公司不存在！');
+            $this->error('您需要编辑的用户不存在！');
         }
 
         $this->assign('row', $row);
@@ -128,6 +128,110 @@ class UsersController extends CommonController {
         }
 
         $this->successReturn("删除用户成功！");
+    }
+
+    public function identityCheck()
+    {
+
+        if (!isset($_GET['id']) || !D('Users', 'Service')->existUser($_GET['id'])) {
+            return $this->errorReturn('需要编辑的查看的公司不存在！');
+        }
+
+        $row = M('Users')->field('id_positive, is_positive, id_reverse, is_reverse, user_id, user_name, created_at')->find($_GET['id']);
+        if (empty($row)) {
+            $this->error('您需要编辑的用户不存在！');
+        }
+        $created_at = $row['created_at'] + 1296000;
+        
+        //判断认证状态
+        if($row['is_positive'] == 1){
+            $positive['message'] = '已认证';
+        }elseif ($row['id_positive'] && $row['is_positive'] == 0) {
+            $positive['message'] = '认证中(上传了图片)';
+        }elseif ($row['is_positive'] == 2) {
+            $positive['message'] = '认证失败';
+        }else{
+            $positive['message'] = '未上传图片';
+        }
+        if($row['is_reverse'] == 1){
+            $reverse['message'] = '已认证';
+        }elseif ($row['id_reverse'] && $row['is_reverse'] == 0) {
+            $reverse['message'] = '认证中(上传了图片)';
+        }elseif ($row['is_reverse'] == 2) {
+            $reverse['message'] = '认证失败';
+        }else{
+            $reverse['message'] = '未上传图片';
+        }
+        if($created_at <= time()){
+            $positive['message'] = '不需要认证(注册15天内)';
+            $reverse['message'] = '不需要认证(注册15天内)';
+        }
+
+        $this->assign('positive', $positive);
+        $this->assign('reverse', $reverse);
+        $this->assign('row', $row);
+        $this->display();
+    }
+
+    /**
+     * @return 
+     */
+    public function checkPositive()
+    {
+        if (!isset($_POST['id']) || !D('Users', 'Service')->existUser($_POST['id'])) {
+            return $this->errorReturn('需要编辑的用户不存在！');
+        }
+        $Model = D('Users');
+        $row = $Model->field('id_positive, is_positive, user_id, user_name, created_at')->where('user_id = '. $_POST['id'])->find();
+        $created_at = $row['created_at'] + 1296000;
+        if($created_at <= time()){
+            return $this->successReturn('注册15天内不需要认证，等过15天后再认证！');
+        }
+
+        if($row['id_positive'] == ''){
+            return $this->errorReturn('该用户还未上传正面身份证照片');
+        }elseif ($row['id_positive'] && $row['is_positive'] == 0) {
+            $as = $Model->where('user_id = '.$_POST['id'])->setField('is_positive',1);
+            if($as === false){
+                return $this->errorReturn('提交审核失败，请刷新后重试！');
+            }
+            return $this->successReturn('提交审核成功,请刷新页面着看状态');
+        }elseif ($row['is_positive'] == 1) {
+            return $this->successReturn('已审核通过了，无需再次审核！');
+        }else{
+            return $this->errorReturn('提交审核失败，请刷新后重试！');
+        }
+    }
+
+
+    /**
+     * @return 
+     */
+    public function checkReverse()
+    {
+        if (!isset($_POST['id']) || !D('Users', 'Service')->existUser($_POST['id'])) {
+            return $this->errorReturn('需要编辑的用户不存在！');
+        }
+        $Model = D('Users');
+        $row = $Model->field('id_reverse, is_reverse, user_id, user_name, created_at')->where('user_id = '.$_POST['id'])->find();
+        $created_at = $row['created_at'] + 1296000;
+        if($created_at <= time()){
+            return $this->successReturn('注册15天内不需要认证，等过15天后再认证！');
+        }
+
+        if($row['id_reverse'] == ''){
+            return $this->errorReturn('该用户还未上传反面身份证照片');
+        }elseif ($row['id_reverse'] && $row['is_reverse'] == 0) {
+            $as = $Model->where('user_id = '.$_POST['id'])->setField('is_reverse',1);
+            if($as === false){
+                return $this->errorReturn('提交审核失败，请刷新后重试！');
+            }
+            return $this->successReturn('提交审核成功,请刷新页面着看状态');
+        }elseif ($row['is_reverse'] == 1) {
+            return $this->successReturn('已审核通过了，无需再次审核！');
+        }else{
+            return $this->errorReturn('提交审核失败，请刷新后重试！');
+        }
     }
 
     //上传

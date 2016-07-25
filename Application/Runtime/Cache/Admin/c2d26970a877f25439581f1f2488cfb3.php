@@ -102,56 +102,92 @@
     <div class="imgzoom_img"><img src="" style="max-width: 100%;height: auto;vertical-align: middle" /></div>
 </section>
 <ul class="contentArea" style="margin-left:20px;">
-
-
+    <p><B>身份证正面图片：</B><B style="color:red"><?php echo ($positive["message"]); ?></B></p>
     <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px;">
-        <?php if($row['logistics_person_img'] != ''): ?><img src="/github/dhh/Public/<?php echo ($row['logistics_person_img']); ?>" alt="法人头像" title="法人头像"  style="max-width: 100%;height: auto;vertical-align: middle">
+        <?php if($row['id_positive'] != ''): ?><img src="/github/dhh/Public/<?php echo ($row['id_positive']); ?>" alt="" title=""  style="max-width: 100%;height: auto;vertical-align: middle">
         <?php else: ?>
-            <img src="/github/dhh/Public/nopic.jpg" alt="法人头像" title="法人头像未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
+            <img src="/github/dhh/Public/nopic.jpg" alt="" title="未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
+         <div>
+            <?php if($row['is_positive'] != 1): ?><button class="l-button positive">提交</button><?php endif; ?>
+        </div>
+        <!-- <button>审核正面身份证通过</button> -->
+        <!-- <button>审核正面身份证通过</button> -->
+        
     </li>
-
-
+    <p><B>身份证反面图片：</B><B style="color:red"><?php echo ($reverse["message"]); ?></B></p>
     <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
-        <?php if($row['logistics_head_img'] != ''): ?><img src="/github/dhh/Public/<?php echo ($row['logistics_head_img']); ?>" alt="头像（展示在物流端个人信息里面）" title="头像（展示在物流端个人信息里面）" style="max-width: 100%;height: auto;vertical-align: middle">
+        <?php if($row['id_reverse'] != ''): ?><img src="/github/dhh/Public/<?php echo ($row['id_reverse']); ?>" alt="" title="" style="max-width: 100%;height: auto;vertical-align: middle">
         <?php else: ?>
-            <img src="/github/dhh/Public/nopic.jpg" alt="法人头像" title="头像（展示在物流端个人信息里面）未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
+            <img src="/github/dhh/Public/nopic.jpg" alt="" title=""  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
+        <div>
+            <?php if($row['is_reverse'] != 1): ?><button class="l-button reverse">提交</button><?php endif; ?>
+        </div>
+    <!-- <button>审核反面身份证通过</button> -->
+    <!-- <button>审核反面身份证通过</button> -->
     </li>
-
-
-    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
-        <?php if($row['logistics_img'] != ''): ?><img src="/github/dhh/Public/<?php echo ($row['logistics_img']); ?>" alt="公司头像" title="公司头像" style="max-width: 100%;height: auto;vertical-align: middle">
-        <?php else: ?>
-            <img src="/github/dhh/Public/nopic.jpg" alt="公司头像" title="公司头像未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
-    </li>
-
-
-    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
-        <?php if($row['logistics_open_img'] != ''): ?><img src="/github/dhh/Public/<?php echo ($row['logistics_open_img']); ?>" alt="营业执照" title="营业执照" style="max-width: 100%;height: auto;vertical-align: middle">
-        <?php else: ?>
-            <img src="/github/dhh/Public/nopic.jpg" alt="营业执照" title="营业执照未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
-    </li>
-
-
-    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
-        <?php if($row['logistics_check_img'] != ''): ?><img src="/github/dhh/Public/<?php echo ($row['logistics_check_img']); ?>" alt="税务执照" title="税务执照" style="max-width: 100%;height: auto;vertical-align: middle">
-        <?php else: ?>
-            <img src="/github/dhh/Public/nopic.jpg" alt="税务执照" title="税务执照未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
-    </li>
-
-
-    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
-        <?php if($row['logistics_way_img'] != ''): ?><img src="/github/dhh/Public/<?php echo ($row['logistics_way_img']); ?>" alt="道路通行执照" title="道路通行执照" style="max-width: 100%;height: auto;vertical-align: middle">
-        <?php else: ?>
-            <img src="/github/dhh/Public/nopic.jpg" alt="道路通行执照" title="道路通行执照未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
-    </li>
-
-</ul>
+    <input type="hidden" id="checkid" name="userid" value="<?php echo ($row["user_id"]); ?>">
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function(event){
         ImagesZoom.init({
             "elem": ".contentArea"
         });
     }, false);
+
+    $(".positive").click(function(){
+        var id = $('#checkid').val();
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "<?php echo U(CONTROLLER_NAME.'/checkPositive');?>",
+            data: "id="+id,
+            async: false,
+            error: function(request) {
+                $.ligerDialog.error("请求错误");
+            },
+            success: function(json) {
+                if(!json){
+                    $.ligerDialog.warn('请求失败');
+                    return;
+                }
+                if(!json.status){
+                    $.ligerDialog.warn(json.info);
+                    return;
+                }
+
+                $.ligerDialog.success(json.info, '提示', function() {
+                    // window.parent.close_tab();
+                });
+            }
+        });
+    });
+
+    $(".reverse").click(function(){
+        var id = $('#checkid').val();
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "<?php echo U(CONTROLLER_NAME.'/checkReverse');?>",
+            data: "id="+id,
+            async: false,
+            error: function(request) {
+                $.ligerDialog.error("请求错误");
+            },
+            success: function(json) {
+                if(!json){
+                    $.ligerDialog.warn('请求失败');
+                    return;
+                }
+                if(!json.status){
+                    $.ligerDialog.warn(json.info);
+                    return;
+                }
+
+                $.ligerDialog.success(json.info, '提示', function() {
+                    // window.parent.close_tab();
+                });
+            }
+        });
+    });
 </script>
 
 <?php if($is_ajax != 1): ?></body>

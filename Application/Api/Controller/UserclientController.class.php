@@ -149,7 +149,7 @@ class UserclientController extends ClientCommonController
         $jpush_id = I('request.jpush_id');  //极光id
 
         $return = $this->returns();
-        $User = M('users');
+        $User = D('Users');
         if(empty($phone) || empty($pass)){
             $return['message'] = '账号密码不能为空';
             die($this->getReturn($return));
@@ -158,6 +158,10 @@ class UserclientController extends ClientCommonController
         $map['user_phone']       = $phone;
         $user_data = $User->where($map)->find();//查询出此手机是否存在
         if($user_data){
+            if(!$user_data['created_at']){
+                $User->where('user_id = '.$user_data['user_id'])->setField('created_at', time());
+                $user_data['created_at'] = time();
+            }
             //如果手机用户存在，则匹配密码是否一致
             if($user_data['user_password'] == $pass)
             {

@@ -5,10 +5,10 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <title><?php echo C('SITE_TITLE');?> - 后台管理系统</title>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
-<link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/ligerUI/skins/ligerui-icons.css" />
-<link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/ligerUI/skins/Gray/css/all.css" />
-<link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/css/common.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/ligerui-icons.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Gray/css/all.css" />
+<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/css/common.css" media="all">
     <style type="text/css">
     body{padding: 10px; zoom: 1;}
     .l-text-invalid {float: left;}
@@ -21,18 +21,18 @@
 
 <body>
 <script type="text/javascript">var cookie_prefix = '<?php echo C('COOKIE_PREFIX');?>', cookie_domain = '', cookie_path = '/', cookie_secure = false, admin_defult_url = '<?php echo U('Public/index');?>';</script>
-<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/ligerUI/js/ligerui.all.js"></script>
-<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
-<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/js/json2.js"></script>
-<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery-validation/jquery.metadata.js"></script>
-<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery-validation/messages_cn.js"></script>
-<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/js/common.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/ligerui.all.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/json2.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.metadata.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/messages_cn.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/common.js"></script>
 <!-- <script type="text/javascript" src="<?php echo U('Index/select_data');?>"></script>  -->
 </if>
-<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/github/dhh/Public/Admin/js/ajaxfileupload.js"></script>
 <script type="text/javascript">
     function select_file_upload() {
         var self = $(this)[0];
@@ -95,8 +95,8 @@
     }
 </script>
 
-<link rel="stylesheet" href="/jarvix/dhh/dhh/Public/Admin/css/scale.css">
-<script src="/jarvix/dhh/dhh/Public/Admin/js/scale.js"></script>
+<link rel="stylesheet" href="/github/dhh/Public/Admin/css/scale.css">
+<script src="/github/dhh/Public/Admin/js/scale.js"></script>
 <section class="imgzoom_pack">
     <div class="imgzoom_x">X</div>
     <div class="imgzoom_img"><img src="" style="max-width: 100%;height: auto;vertical-align: middle" /></div>
@@ -104,9 +104,9 @@
 <ul class="contentArea" style="margin-left:20px;">
     <p><B>身份证正面图片：</B><B style="color:red"><?php echo ($positive["message"]); ?></B></p>
     <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px;">
-        <?php if($row['id_positive'] != ''): ?><img src="/jarvix/dhh/dhh/Public/<?php echo ($row['id_positive']); ?>" alt="法人头像" title="法人头像"  style="max-width: 100%;height: auto;vertical-align: middle">
+        <?php if($row['id_positive'] != ''): ?><img src="/github/dhh/Public/<?php echo ($row['id_positive']); ?>" alt="法人头像" title="法人头像"  style="max-width: 100%;height: auto;vertical-align: middle">
         <?php else: ?>
-            <img src="/jarvix/dhh/dhh/Public/nopic.jpg" alt="法人头像" title="法人头像未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
+            <img src="/github/dhh/Public/nopic.jpg" alt="法人头像" title="法人头像未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
          <div>
             <?php if($row['is_positive'] != 1): ?><button class="l-button positive">提交</button><?php endif; ?>
         </div>
@@ -116,9 +116,9 @@
     </li>
     <p><B>身份证反面图片：</B><B style="color:red"><?php echo ($reverse["message"]); ?></B></p>
     <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
-        <?php if($row['id_reverse'] != ''): ?><img src="/jarvix/dhh/dhh/Public/<?php echo ($row['id_reverse']); ?>" alt="头像（展示在物流端个人信息里面）" title="头像（展示在物流端个人信息里面）" style="max-width: 100%;height: auto;vertical-align: middle">
+        <?php if($row['id_reverse'] != ''): ?><img src="/github/dhh/Public/<?php echo ($row['id_reverse']); ?>" alt="头像（展示在物流端个人信息里面）" title="头像（展示在物流端个人信息里面）" style="max-width: 100%;height: auto;vertical-align: middle">
         <?php else: ?>
-            <img src="/jarvix/dhh/dhh/Public/nopic.jpg" alt="法人头像" title="头像（展示在物流端个人信息里面）未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
+            <img src="/github/dhh/Public/nopic.jpg" alt="法人头像" title="头像（展示在物流端个人信息里面）未完善"  style="max-width: 100%;height: auto;vertical-align: middle"><?php endif; ?>
         <div>
             <?php if($row['is_reverse'] != 1): ?><button class="l-button reverse">提交</button><?php endif; ?>
         </div>

@@ -53,22 +53,22 @@ var grid_columns  = [
             }
         }
     },
-    { display: '身份证正面', name: 'id_positive', width: 100,height:100, render: function (rowdata, rowindex, value){
-        if(value != ''){
-            return "<img style='width:50px;height:50px;' src='/github/dhh/Public/" + value + "'/>";
-        }else{
-            return '无';
-        }
-    }
-    },
-    { display: '身份证反面', name: 'id_reverse', width: 100,height:100, render: function (rowdata, rowindex, value){
-        if(value != ''){
-            return "<img style='width:50px;height:50px;' src='/github/dhh/Public/" + value + "'/>";
-        }else{
-            return '无';
-        }
-    }
-    },
+    // { display: '身份证正面', name: 'id_positive', width: 100,height:100, render: function (rowdata, rowindex, value){
+    //     if(value != ''){
+    //         return "<img style='width:50px;height:50px;' src='/github/dhh/Public/" + value + "'/>";
+    //     }else{
+    //         return '无';
+    //     }
+    // }
+    // },
+    // { display: '身份证反面', name: 'id_reverse', width: 100,height:100, render: function (rowdata, rowindex, value){
+    //     if(value != ''){
+    //         return "<img style='width:50px;height:50px;' src='/github/dhh/Public/" + value + "'/>";
+    //     }else{
+    //         return '无';
+    //     }
+    // }
+    // },
     { display: '口令', name: 'token', width: 250, isSort: false },
     { display: '状态', name: 'user_status', width: 50, render: function (rowdata, rowindex, value)
     {
@@ -81,6 +81,13 @@ var grid_columns  = [
         h += '<a href="javascript:toggle_status(' + rowdata.user_id + ', ' + rowdata.user_status + ', \'' + rowdata.user_name + '\');" class="js-toggle" data-name="' + rowdata.user_name + '" data-id="' + rowdata.user_id + '" data-status="' + rowdata.user_status + '">';
         h += rowdata.user_status == 1 ? '禁用' : '启用';
         h += '</a>';
+        // h += ' | <a href="javascript:toggle_status_positive(' + rowdata.user_id + ', ' + rowdata.id_positive + ', \'' + rowdata.user_name + '\');" class="js-toggle" data-name="' + rowdata.user_name + '" data-id="' + rowdata.user_id + '" data-status="' + rowdata.user_status + '">';
+        // h += rowdata.user_status == 1 ? '正面审核' : '正面未审核';
+        // h += '</a>';
+        // h += ' | <a href="javascript:toggle_status_reverse(' + rowdata.user_id + ', ' + rowdata.id_reverse + ', \'' + rowdata.user_name + '\');" class="js-toggle" data-name="' + rowdata.user_name + '" data-id="' + rowdata.user_id + '" data-status="' + rowdata.user_status + '">';
+        // h += rowdata.user_status == 1 ? '反面审核' : '反面未审核';
+        // h += '</a>';
+
         return h;
     }
     }
@@ -92,10 +99,37 @@ $(function() {
         rownumbers: false,
         checkbox: false,
         identity_key: 'user_id',
+        toolbar_items_add: [
+           { line: true },
+           { text: '身份证验证', click: <?php echo ($js_prefix); ?>identityCheck, icon:'photograph' }
+           /*,
+           { line: true },
+           { text: '用户列表', click: <?php echo ($js_prefix); ?>member, icon:'memeber' }*/
+        ],
         grid_columns: grid_columns
 //        form_search_fields: form_search_fields
     });
 });
+
+function <?php echo ($js_prefix); ?>identityCheck() {
+    var getSelectedRow = window.parent.<?php echo ($js_prefix); ?>grid.getSelectedRow();
+    if(getSelectedRow == null) {
+        window.parent.$.ligerDialog.warn('请选择行');
+        return;
+    }
+    var id = getSelectedRow.user_id;
+    var url = "<?php echo U(CONTROLLER_NAME.'/identityCheck');?>";
+    if (url.indexOf("?") != -1)
+        url += "&";
+    else
+        url += "?";
+    url += "id=" + id;
+    if(isNaN(id)) {
+        window.parent.$.ligerDialog.alert("请至少选择其中一项！", '警告', "warn");
+        return;
+    }
+    window.parent.add_tab("<?php echo ($js_prefix); ?>add", " 查看[" + getSelectedRow.user_name + "]身份图片", url);
+}
 
 
 function toggle_status(id, status, name) {
@@ -218,7 +252,7 @@ function toggle_status(id, status, name) {
 
             if (options.toolbar_has_view) {
                 default_toolbar_items.push({ line: true });
-                default_toolbar_items.push({ text: '查看', click: view, icon: 'ok' });
+                default_toolbar_items.push({ text: '查看', click: view, icon: 'search2' });
             }
 
             if (options.toolbar_has_audit) {

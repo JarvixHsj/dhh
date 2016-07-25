@@ -1,0 +1,103 @@
+<layout name="LigerUI/form_html" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/scale.css">
+<script src="__PUBLIC__/Admin/js/scale.js"></script>
+<section class="imgzoom_pack">
+    <div class="imgzoom_x">X</div>
+    <div class="imgzoom_img"><img src="" style="max-width: 100%;height: auto;vertical-align: middle" /></div>
+</section>
+<ul class="contentArea" style="margin-left:20px;">
+    <p><B>身份证正面图片：</B><B style="color:red">{$positive.message}</B></p>
+    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px;">
+        <if condition="$row['id_positive'] neq ''">
+            <img src="__PUBLIC__/{$row['id_positive']}" alt="" title=""  style="max-width: 100%;height: auto;vertical-align: middle">
+        <else />
+            <img src="__PUBLIC__/nopic.jpg" alt="" title="未完善"  style="max-width: 100%;height: auto;vertical-align: middle">
+        </if>
+         <div>
+            <if condition="$row['is_positive'] neq 1">
+                <button class="l-button positive">提交</button>
+            </if>
+        </div>
+        <!-- <button>审核正面身份证通过</button> -->
+        <!-- <button>审核正面身份证通过</button> -->
+        
+    </li>
+    <p><B>身份证反面图片：</B><B style="color:red">{$reverse.message}</B></p>
+    <li style="width:350px;height:350px;background-size: 100%;float:left;margin-right: 20px;display: block;line-height:350px">
+        <if condition="$row['id_reverse'] neq ''">
+            <img src="__PUBLIC__/{$row['id_reverse']}" alt="" title="" style="max-width: 100%;height: auto;vertical-align: middle">
+        <else />
+            <img src="__PUBLIC__/nopic.jpg" alt="" title=""  style="max-width: 100%;height: auto;vertical-align: middle">
+        </if>
+        <div>
+            <if condition="$row['is_reverse'] neq 1">
+            <button class="l-button reverse">提交</button>
+            </if>
+        </div>
+    <!-- <button>审核反面身份证通过</button> -->
+    <!-- <button>审核反面身份证通过</button> -->
+    </li>
+    <input type="hidden" id="checkid" name="userid" value="{$row.user_id}">
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event){
+        ImagesZoom.init({
+            "elem": ".contentArea"
+        });
+    }, false);
+
+    $(".positive").click(function(){
+        var id = $('#checkid').val();
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "{:U(CONTROLLER_NAME.'/checkPositive')}",
+            data: "id="+id,
+            async: false,
+            error: function(request) {
+                $.ligerDialog.error("请求错误");
+            },
+            success: function(json) {
+                if(!json){
+                    $.ligerDialog.warn('请求失败');
+                    return;
+                }
+                if(!json.status){
+                    $.ligerDialog.warn(json.info);
+                    return;
+                }
+
+                $.ligerDialog.success(json.info, '提示', function() {
+                    // window.parent.close_tab();
+                });
+            }
+        });
+    });
+
+    $(".reverse").click(function(){
+        var id = $('#checkid').val();
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "{:U(CONTROLLER_NAME.'/checkReverse')}",
+            data: "id="+id,
+            async: false,
+            error: function(request) {
+                $.ligerDialog.error("请求错误");
+            },
+            success: function(json) {
+                if(!json){
+                    $.ligerDialog.warn('请求失败');
+                    return;
+                }
+                if(!json.status){
+                    $.ligerDialog.warn(json.info);
+                    return;
+                }
+
+                $.ligerDialog.success(json.info, '提示', function() {
+                    // window.parent.close_tab();
+                });
+            }
+        });
+    });
+</script>
