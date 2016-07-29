@@ -1,0 +1,28 @@
+<layout name="LigerUI/list" />
+<script type="text/javascript">
+
+var grid_columns  = [
+    { display: 'ID', name: 'id', width: 50, type: 'int', frozen: true },
+    { display: '图片', name: 'img', minWidth: 60, width: 80, isSort: false,
+        render: function (item)
+        {
+            if(item.img != ''){
+                return "<img width='50px;height:50px;' src='__PUBLIC__/" + item.img + "'/>";
+            }else{
+                return '无';
+            }
+        }
+    },
+];
+
+$(function() {
+    $.fn.{$js_prefix}list({
+        title: '广告',
+        rownumbers: false,
+        checkbox: false,
+        // toolbar_has_add: false,
+        // toolbar_has_del: false,
+        grid_columns: grid_columns
+    });
+});
+</script>

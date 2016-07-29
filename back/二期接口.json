@@ -1,48 +1,237 @@
 {
-	"id": "fb5a7d08-3df4-1e67-6cbd-0b929275c63e",
+	"id": "fb0e48c0-34b0-fb7c-8587-07e7226475ad",
 	"name": "二期接口",
 	"description": "",
 	"order": [],
 	"folders": [
 		{
-			"id": "0d9611a8-0c97-e783-bf4b-134151fc4e74",
+			"id": "a89bed28-d8ce-d76f-1d87-15734072cc95",
 			"name": "客户端接口",
 			"description": "",
 			"order": [
-				"2131abe8-badb-fff0-b215-1f4b236f4b53",
-				"6fd245ab-cf27-1e70-a2d3-aa4549560cc2"
+				"58dbe092-3625-de19-9838-7f0bafa004de",
+				"498adecd-0c85-f2d5-bc73-db01bc6ad9e7"
 			],
 			"owner": 0
 		},
 		{
-			"id": "04f06c15-57e2-c9fb-4125-4299ae0b46e9",
+			"id": "3f1c4709-5fe9-31fb-1840-a02092f46663",
 			"name": "物流端接口",
 			"description": "",
 			"order": [
-				"459d411c-bc61-ed76-1998-ff6930d1120c",
-				"22a6de34-bb9c-dc6b-2624-dfe59ae46198"
+				"f1d69c7e-cc08-24a8-9837-c9943fd61b46",
+				"1da80f52-ebc8-6e79-e046-d2974b70e5af"
+			],
+			"owner": 0
+		},
+		{
+			"id": "de402d97-a842-bd5d-d5c1-bc5e4ca5f9d8",
+			"name": "通用接口",
+			"description": "",
+			"order": [
+				"4d46e06e-634a-7d1e-0f6b-4dade5f2f560"
 			],
 			"owner": 0
 		}
 	],
 	"timestamp": 1468576700540,
 	"owner": 0,
-	"remoteLink": "",
 	"public": false,
 	"published": false,
 	"requests": [
 		{
-			"id": "2131abe8-badb-fff0-b215-1f4b236f4b53",
+			"id": "1da80f52-ebc8-6e79-e046-d2974b70e5af",
+			"headers": "",
+			"url": "localhost/github/dhh/index.php/api/Adminextend/setReverse",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "fb0e48c0-34b0-fb7c-8587-07e7226475ad",
+			"data": [
+				{
+					"key": "token",
+					"value": "6cce42bd1a9d2a149ac76fe6d378b976",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "reverse",
+					"type": "file",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "物流端身份证反面（添加或更新通用）",
+			"description": "［请求参数］\n\n'token' //物流端唯一口令\n\n'positive'  //图片",
+			"descriptionFormat": "html",
+			"time": 1468851972386,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "3f1c4709-5fe9-31fb-1840-a02092f46663"
+		},
+		{
+			"id": "498adecd-0c85-f2d5-bc73-db01bc6ad9e7",
+			"headers": "",
+			"url": "localhost/github/dhh/index.php/api/userextends/setReverse",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "fb0e48c0-34b0-fb7c-8587-07e7226475ad",
+			"data": [
+				{
+					"key": "token",
+					"value": "827cb2861b62032db0a228fd9afb975s",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "reverse",
+					"type": "file",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "客户端上传反面图片（添加或更新通用）",
+			"description": "［请求参数］\n\n'token' //用户唯一口令\n\n'reverse'   //图片",
+			"descriptionFormat": "html",
+			"time": 1468850927963,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "a89bed28-d8ce-d76f-1d87-15734072cc95"
+		},
+		{
+			"id": "4d46e06e-634a-7d1e-0f6b-4dade5f2f560",
+			"headers": "",
+			"url": "localhost/jarvix/dhh/dhh/index.php/api/else/setRandomBanner",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "fb0e48c0-34b0-fb7c-8587-07e7226475ad",
+			"data": null,
+			"dataMode": "params",
+			"name": "获取随机广告banner",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1469692857076,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 40,
+					"headers": [
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 28 Jul 2016 07:58:02 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Expires",
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Pragma",
+							"key": "Pragma",
+							"value": "no-cache",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.10 (Win32) OpenSSL/0.9.8zb mod_fcgid/2.3.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/5.4.33",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"status\":1,\"message\":\"\\u6210\\u529f\",\"data\":{\"id\":\"3\",\"img\":\"http:\\/\\/localhost\\/Public\\/Uploads\\/ad\\/2016-07-28\\/5799b8926cbd5.jpg\"},\"token\":\"\",\"code\":\"\"}",
+					"language": "javascript",
+					"rawDataType": "text",
+					"previewType": "html",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "28ca3d91-1ab9-2b02-f6a8-c9b6bad73d2f",
+					"name": "成功",
+					"request": {
+						"url": "localhost/jarvix/dhh/dhh/index.php/api/else/setRandomBanner",
+						"headers": [],
+						"data": null,
+						"method": "POST",
+						"dataMode": "params"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "de402d97-a842-bd5d-d5c1-bc5e4ca5f9d8"
+		},
+		{
+			"id": "58dbe092-3625-de19-9838-7f0bafa004de",
 			"headers": "",
 			"url": "localhost/github/dhh/index.php/api/userextends/setPositive",
 			"pathVariables": {},
 			"preRequestScript": null,
 			"method": "POST",
-			"collectionId": "fb5a7d08-3df4-1e67-6cbd-0b929275c63e",
+			"collectionId": "fb0e48c0-34b0-fb7c-8587-07e7226475ad",
 			"data": [
 				{
 					"key": "positive",
-					"value": "海贼旗.jpg",
 					"type": "file",
 					"enabled": true
 				},
@@ -63,50 +252,16 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"folder": "0d9611a8-0c97-e783-bf4b-134151fc4e74"
+			"folder": "a89bed28-d8ce-d76f-1d87-15734072cc95"
 		},
 		{
-			"id": "22a6de34-bb9c-dc6b-2624-dfe59ae46198",
-			"headers": "",
-			"url": "localhost/github/dhh/index.php/api/Adminextend/setReverse",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "fb5a7d08-3df4-1e67-6cbd-0b929275c63e",
-			"data": [
-				{
-					"key": "token",
-					"value": "6cce42bd1a9d2a149ac76fe6d378b976",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "reverse",
-					"value": "香吉士.jpg",
-					"type": "file",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"name": "物流端身份证反面（添加或更新通用）",
-			"description": "［请求参数］\n\n'token' //物流端唯一口令\n\n'positive'  //图片",
-			"descriptionFormat": "html",
-			"time": 1468851972386,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "04f06c15-57e2-c9fb-4125-4299ae0b46e9"
-		},
-		{
-			"id": "459d411c-bc61-ed76-1998-ff6930d1120c",
+			"id": "f1d69c7e-cc08-24a8-9837-c9943fd61b46",
 			"headers": "",
 			"url": "localhost/github/dhh/index.php/api/Adminextend/setPositive",
 			"pathVariables": {},
 			"preRequestScript": null,
 			"method": "POST",
-			"collectionId": "fb5a7d08-3df4-1e67-6cbd-0b929275c63e",
+			"collectionId": "fb0e48c0-34b0-fb7c-8587-07e7226475ad",
 			"data": [
 				{
 					"key": "token",
@@ -116,7 +271,6 @@
 				},
 				{
 					"key": "positive",
-					"value": "香吉士.jpg",
 					"type": "file",
 					"enabled": true
 				}
@@ -131,41 +285,7 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"folder": "04f06c15-57e2-c9fb-4125-4299ae0b46e9"
-		},
-		{
-			"id": "6fd245ab-cf27-1e70-a2d3-aa4549560cc2",
-			"headers": "",
-			"url": "localhost/github/dhh/index.php/api/userextends/setReverse",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "fb5a7d08-3df4-1e67-6cbd-0b929275c63e",
-			"data": [
-				{
-					"key": "token",
-					"value": "827cb2861b62032db0a228fd9afb975s",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "reverse",
-					"value": "剧场版打boos.png",
-					"type": "file",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"name": "客户端上传反面图片（添加或更新通用）",
-			"description": "［请求参数］\n\n'token' //用户唯一口令\n\n'reverse'   //图片",
-			"descriptionFormat": "html",
-			"time": 1468850927963,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "0d9611a8-0c97-e783-bf4b-134151fc4e74"
+			"folder": "3f1c4709-5fe9-31fb-1840-a02092f46663"
 		}
 	]
 }

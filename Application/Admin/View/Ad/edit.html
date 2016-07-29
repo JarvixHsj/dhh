@@ -1,0 +1,19 @@
+<layout name="LigerUI/form" />
+<script>
+var ligerFormFields = [
+    { display: "图片上传", name: "img", comboboxName: "img", newline: true, type: "select",
+        options: {
+            cancelable: false,
+            url_upload: '{:U(CONTROLLER_NAME.'/person_img_upload')}'
+        }
+    }
+
+];
+$(function() {
+    $.fn.{$js_prefix}form({
+        title: '广告',
+        fields: ligerFormFields,
+        data: {:djson_encode($row)}
+    });
+});
+</script>

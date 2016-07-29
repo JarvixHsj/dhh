@@ -5,23 +5,23 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <title><?php echo C('SITE_TITLE');?> - 后台管理系统</title>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
-<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/ligerui-icons.css" />
-<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/ligerUI/skins/Gray/css/all.css" />
-<link rel="stylesheet" type="text/css" href="/github/dhh/Public/Admin/css/common.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/ligerUI/skins/Aqua/css/ligerui-all.css" />
+<link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/ligerUI/skins/ligerui-icons.css" />
+<link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/ligerUI/skins/Gray/css/all.css" />
+<link rel="stylesheet" type="text/css" href="/jarvix/dhh/dhh/Public/Admin/css/common.css" media="all">
 </head>
 
 <body>
 <script type="text/javascript">var cookie_prefix = '<?php echo C('COOKIE_PREFIX');?>', cookie_domain = '', cookie_path = '/', cookie_secure = false, admin_defult_url = '<?php echo U('Public/index');?>';</script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/ligerui.all.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/js/json2.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/jquery.metadata.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/jquery-validation/messages_cn.js"></script>
-<script type="text/javascript" src="/github/dhh/Public/Admin/js/common.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/ligerUI/js/ligerui.all.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/ligerUI/js/plugins/ligerTab.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/js/json2.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery-validation/jquery.metadata.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/jquery-validation/messages_cn.js"></script>
+<script type="text/javascript" src="/jarvix/dhh/dhh/Public/Admin/js/common.js"></script>
 <!-- <script type="text/javascript" src="<?php echo U('Index/select_data');?>"></script>  -->
 
 <script type="text/javascript">
@@ -30,7 +30,8 @@ var form_search_fields = [
     { display: "公司id", name: "logistics_id", newline: true, type: "text"},
     { display: "公司名称", name: "logistics_name", newline: true, type: "text"},
     { display: "注册手机", name: "logistics_phone", newline: true, type: 'text'},
-    { display: "用户状态（0禁用1启用）", name: "logistics_status", newline: true, type: 'text'}
+    { display: "用户状态（0禁用1启用）", name: "logistics_status", newline: true, type: 'text'},
+    { display: "是否推荐（1推荐0不推荐）", name: "is_recommend", newline: true, type: 'text'}
 ];
 
 var grid_columns  = [
@@ -44,7 +45,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_person_img != ''){
-                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_person_img + "'/>";
+                return "<img width='50px;height:50px;' src='/jarvix/dhh/dhh/Public/" + item.logistics_person_img + "'/>";
             }else{
                 return '无';
             }
@@ -54,7 +55,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_head_img != ''){
-                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_head_img + "'/>";
+                return "<img width='50px;height:50px;' src='/jarvix/dhh/dhh/Public/" + item.logistics_head_img + "'/>";
             }else{
                 return '无';
             }
@@ -64,7 +65,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_img != ''){
-                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_img + "'/>";
+                return "<img width='50px;height:50px;' src='/jarvix/dhh/dhh/Public/" + item.logistics_img + "'/>";
             }else{
                 return '无';
             }
@@ -74,7 +75,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_person_img != ''){
-                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_open_img + "'/>";
+                return "<img width='50px;height:50px;' src='/jarvix/dhh/dhh/Public/" + item.logistics_open_img + "'/>";
             }else{
                 return '无';
             }
@@ -84,7 +85,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_check_img != ''){
-                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_check_img + "'/>";
+                return "<img width='50px;height:50px;' src='/jarvix/dhh/dhh/Public/" + item.logistics_check_img + "'/>";
             }else{
                 return '无';
             }
@@ -94,7 +95,7 @@ var grid_columns  = [
         render: function (item)
         {
             if(item.logistics_person_img != ''){
-                return "<img width='50px;height:50px;' src='/github/dhh/Public/" + item.logistics_way_img + "'/>";
+                return "<img width='50px;height:50px;' src='/jarvix/dhh/dhh/Public/" + item.logistics_way_img + "'/>";
             }else{
                 return '无';
             }

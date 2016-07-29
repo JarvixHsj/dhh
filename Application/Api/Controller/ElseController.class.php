@@ -133,4 +133,24 @@ class ElseController extends CommonController
 
         $this->getReturn($result);
     }
+
+    /**
+     * 回去随机广告banner
+     */
+    public function setRandomBanner()
+    {
+        $result = $this->returns();
+        $Model = M('Ad');
+        $rand = rand(1,$Model->count());
+        $data= $Model->find($rand);
+        if($data['img']){
+            $data['img'] = imgDomain($data['img']);
+        }
+        $result['status'] = 1;
+        $result['message'] = '成功';
+        $result['data'] = $data;
+        $this->getReturn($result);
+    }
+
+
 }
